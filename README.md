@@ -9,6 +9,10 @@
 - **[Name 3]** - [Role/Responsibility]  
 - **Contact Information:** [Email/Discord/LinkedIn]
 
+## Development Guidelines
+- Fork the UI template: https://github.com/openguild-labs/dotui
+- Follow the Polkadot brand hub: https://polkadot.com/community/brand-hub
+
 ## Requirement Checklist
 
 Hackathon submissions **MUST** follow these rules to reach the entry requirements of the hackathon. The project can be quality, but if these requirements are not satisfied or rules are violated, it will be disqualified from the competition.
