@@ -1,0 +1,1235 @@
+{
+  "source": {
+    "hash": "0x92c0c00ceaa6189961e0291e363421b3c221ce2f3000cfc139c0a6b9c1ed446a",
+    "language": "ink! 5.1.1",
+    "compiler": "rustc 1.83.0",
+    "build_info": {
+      "rust_toolchain": "stable-aarch64-apple-darwin",
+      "cargo_contract_version": "5.0.0-alpha",
+      "build_mode": "Debug",
+      "wasm_opt_settings": {
+        "optimization_passes": "Z",
+        "keep_debug_symbols": false
+      }
+    }
+  },
+  "contract": {
+    "name": "polkadot",
+    "version": "5.1.0",
+    "authors": [
+      "Use Ink <ink@use.ink>"
+    ]
+  },
+  "image": null,
+  "version": 5,
+  "types": [
+    {
+      "id": 0,
+      "type": {
+        "def": {
+          "primitive": "u128"
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": {
+        "path": [
+          "ink_storage",
+          "lazy",
+          "mapping",
+          "Mapping"
+        ],
+        "params": [
+          {
+            "name": "K",
+            "type": 2
+          },
+          {
+            "name": "V",
+            "type": 0
+          },
+          {
+            "name": "KeyType",
+            "type": 5
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": {
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ],
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 3,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 4
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ResolverKey"
+        ],
+        "params": [
+          {
+            "name": "L",
+            "type": 6
+          },
+          {
+            "name": "R",
+            "type": 7
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "AutoKey"
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ManualKey"
+        ],
+        "params": [
+          {
+            "name": "ParentKey",
+            "type": 8
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": {
+        "def": {
+          "tuple": []
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": {
+        "path": [
+          "ink_storage",
+          "lazy",
+          "mapping",
+          "Mapping"
+        ],
+        "params": [
+          {
+            "name": "K",
+            "type": 10
+          },
+          {
+            "name": "V",
+            "type": 0
+          },
+          {
+            "name": "KeyType",
+            "type": 11
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": {
+        "def": {
+          "tuple": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": 11,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ResolverKey"
+        ],
+        "params": [
+          {
+            "name": "L",
+            "type": 6
+          },
+          {
+            "name": "R",
+            "type": 12
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ManualKey"
+        ],
+        "params": [
+          {
+            "name": "ParentKey",
+            "type": 8
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": {
+        "path": [
+          "ink_storage",
+          "lazy",
+          "mapping",
+          "Mapping"
+        ],
+        "params": [
+          {
+            "name": "K",
+            "type": 10
+          },
+          {
+            "name": "V",
+            "type": 0
+          },
+          {
+            "name": "KeyType",
+            "type": 14
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ResolverKey"
+        ],
+        "params": [
+          {
+            "name": "L",
+            "type": 6
+          },
+          {
+            "name": "R",
+            "type": 15
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 15,
+      "type": {
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ManualKey"
+        ],
+        "params": [
+          {
+            "name": "ParentKey",
+            "type": 8
+          }
+        ],
+        "def": {
+          "composite": {}
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": {
+        "path": [
+          "polkadot",
+          "polkadot",
+          "Polkadot"
+        ],
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "total_supply",
+                "type": 0,
+                "typeName": "<Balance as::ink::storage::traits::AutoStorableHint<::ink::\nstorage::traits::ManualKey<4044955095u32, ()>,>>::Type"
+              },
+              {
+                "name": "balances",
+                "type": 1,
+                "typeName": "<Mapping<AccountId, Balance> as::ink::storage::traits::\nAutoStorableHint<::ink::storage::traits::ManualKey<162709646u32, ()\n>,>>::Type"
+              },
+              {
+                "name": "allowances",
+                "type": 9,
+                "typeName": "<Mapping<(AccountId, AccountId), Balance> as::ink::storage::traits\n::AutoStorableHint<::ink::storage::traits::ManualKey<\n2993395309u32, ()>,>>::Type"
+              },
+              {
+                "name": "swap_pairs",
+                "type": 13,
+                "typeName": "<Mapping<(AccountId, AccountId), Balance> as::ink::storage::traits\n::AutoStorableHint<::ink::storage::traits::ManualKey<\n1187218815u32, ()>,>>::Type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "type": {
+        "path": [
+          "Result"
+        ],
+        "params": [
+          {
+            "name": "T",
+            "type": 8
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "Ok",
+                "fields": [
+                  {
+                    "type": 8
+                  }
+                ],
+                "index": 0
+              },
+              {
+                "name": "Err",
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 18,
+      "type": {
+        "path": [
+          "ink_primitives",
+          "LangError"
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "CouldNotReadInput",
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 19,
+      "type": {
+        "path": [
+          "Result"
+        ],
+        "params": [
+          {
+            "name": "T",
+            "type": 0
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "Ok",
+                "fields": [
+                  {
+                    "type": 0
+                  }
+                ],
+                "index": 0
+              },
+              {
+                "name": "Err",
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": {
+        "path": [
+          "Result"
+        ],
+        "params": [
+          {
+            "name": "T",
+            "type": 21
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "Ok",
+                "fields": [
+                  {
+                    "type": 21
+                  }
+                ],
+                "index": 0
+              },
+              {
+                "name": "Err",
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": {
+        "path": [
+          "Result"
+        ],
+        "params": [
+          {
+            "name": "T",
+            "type": 8
+          },
+          {
+            "name": "E",
+            "type": 22
+          }
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "Ok",
+                "fields": [
+                  {
+                    "type": 8
+                  }
+                ],
+                "index": 0
+              },
+              {
+                "name": "Err",
+                "fields": [
+                  {
+                    "type": 22
+                  }
+                ],
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 22,
+      "type": {
+        "path": [
+          "polkadot",
+          "polkadot",
+          "Error"
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "InsufficientBalance",
+                "index": 0
+              },
+              {
+                "name": "InsufficientAllowance",
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 23,
+      "type": {
+        "path": [
+          "Option"
+        ],
+        "params": [
+          {
+            "name": "T",
+            "type": 2
+          }
+        ],
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "name": "None",
+                "index": 0
+              },
+              {
+                "name": "Some",
+                "fields": [
+                  {
+                    "type": 2
+                  }
+                ],
+                "index": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 24,
+      "type": {
+        "path": [
+          "ink_primitives",
+          "types",
+          "Hash"
+        ],
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 3,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 25,
+      "type": {
+        "def": {
+          "primitive": "u64"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "type": {
+        "def": {
+          "primitive": "u32"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "type": {
+        "path": [
+          "ink_env",
+          "types",
+          "NoChainExtension"
+        ],
+        "def": {
+          "variant": {}
+        }
+      }
+    }
+  ],
+  "storage": {
+    "root": {
+      "root_key": "0x00000000",
+      "layout": {
+        "struct": {
+          "name": "Polkadot",
+          "fields": [
+            {
+              "name": "total_supply",
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 0
+                }
+              }
+            },
+            {
+              "name": "balances",
+              "layout": {
+                "root": {
+                  "root_key": "0x8ec0b209",
+                  "layout": {
+                    "leaf": {
+                      "key": "0x8ec0b209",
+                      "ty": 0
+                    }
+                  },
+                  "ty": 1
+                }
+              }
+            },
+            {
+              "name": "allowances",
+              "layout": {
+                "root": {
+                  "root_key": "0x6d966bb2",
+                  "layout": {
+                    "leaf": {
+                      "key": "0x6d966bb2",
+                      "ty": 0
+                    }
+                  },
+                  "ty": 9
+                }
+              }
+            },
+            {
+              "name": "swap_pairs",
+              "layout": {
+                "root": {
+                  "root_key": "0x7f85c346",
+                  "layout": {
+                    "leaf": {
+                      "key": "0x7f85c346",
+                      "ty": 0
+                    }
+                  },
+                  "ty": 13
+                }
+              }
+            }
+          ]
+        }
+      },
+      "ty": 16
+    }
+  },
+  "spec": {
+    "constructors": [
+      {
+        "label": "new",
+        "selector": "0x9bae9d5e",
+        "payable": false,
+        "args": [
+          {
+            "label": "total_supply",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 17,
+          "displayName": [
+            "ink_primitives",
+            "ConstructorResult"
+          ]
+        },
+        "docs": [
+          "Creates a new ERC-20 contract with the specified initial supply."
+        ],
+        "default": false
+      }
+    ],
+    "messages": [
+      {
+        "label": "total_supply",
+        "selector": "0xdb6375a8",
+        "mutates": false,
+        "payable": false,
+        "args": [],
+        "returnType": {
+          "type": 19,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Returns the total token supply."
+        ],
+        "default": false
+      },
+      {
+        "label": "balance_of",
+        "selector": "0x0f755a56",
+        "mutates": false,
+        "payable": false,
+        "args": [
+          {
+            "label": "owner",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 19,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Returns the account balance for the specified `owner`.",
+          "",
+          " Returns `0` if the account is non-existent."
+        ],
+        "default": false
+      },
+      {
+        "label": "allowance",
+        "selector": "0x6a00165e",
+        "mutates": false,
+        "payable": false,
+        "args": [
+          {
+            "label": "owner",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          },
+          {
+            "label": "spender",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 19,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Returns the amount which `spender` is still allowed to withdraw from `owner`.",
+          "",
+          " Returns `0` if no allowance has been set."
+        ],
+        "default": false
+      },
+      {
+        "label": "transfer",
+        "selector": "0x84a15da1",
+        "mutates": true,
+        "payable": false,
+        "args": [
+          {
+            "label": "to",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          },
+          {
+            "label": "value",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 20,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Transfers `value` amount of tokens from the caller's account to account `to`.",
+          "",
+          " On success a `Transfer` event is emitted.",
+          "",
+          " # Errors",
+          "",
+          " Returns `InsufficientBalance` error if there are not enough tokens on",
+          " the caller's account balance."
+        ],
+        "default": false
+      },
+      {
+        "label": "approve",
+        "selector": "0x681266a0",
+        "mutates": true,
+        "payable": false,
+        "args": [
+          {
+            "label": "spender",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          },
+          {
+            "label": "value",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 20,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Allows `spender` to withdraw from the caller's account multiple times, up to",
+          " the `value` amount.",
+          "",
+          " If this function is called again it overwrites the current allowance with",
+          " `value`.",
+          "",
+          " An `Approval` event is emitted."
+        ],
+        "default": false
+      },
+      {
+        "label": "transfer_from",
+        "selector": "0x0b396f18",
+        "mutates": true,
+        "payable": false,
+        "args": [
+          {
+            "label": "from",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          },
+          {
+            "label": "to",
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            }
+          },
+          {
+            "label": "value",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 20,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Transfers `value` tokens on the behalf of `from` to the account `to`.",
+          "",
+          " This can be used to allow a contract to transfer tokens on ones behalf and/or",
+          " to charge fees in sub-currencies, for example.",
+          "",
+          " On success a `Transfer` event is emitted.",
+          "",
+          " # Errors",
+          "",
+          " Returns `InsufficientAllowance` error if there are not enough tokens allowed",
+          " for the caller to withdraw from `from`.",
+          "",
+          " Returns `InsufficientBalance` error if there are not enough tokens on",
+          " the account balance of `from`."
+        ],
+        "default": false
+      },
+      {
+        "label": "mint",
+        "selector": "0xcfdd9aa2",
+        "mutates": true,
+        "payable": false,
+        "args": [
+          {
+            "label": "amount",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 20,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Mint new tokens"
+        ],
+        "default": false
+      },
+      {
+        "label": "burn",
+        "selector": "0xb1efc17b",
+        "mutates": true,
+        "payable": false,
+        "args": [
+          {
+            "label": "amount",
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            }
+          }
+        ],
+        "returnType": {
+          "type": 20,
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ]
+        },
+        "docs": [
+          " Burn tokens"
+        ],
+        "default": false
+      }
+    ],
+    "events": [
+      {
+        "label": "Transfer",
+        "module_path": "polkadot::polkadot",
+        "signature_topic": "0xb5b61a3e6a21a16be4f044b517c28ac692492f73c5bfd3f60178ad98c767f4cb",
+        "args": [
+          {
+            "label": "from",
+            "indexed": true,
+            "type": {
+              "type": 23,
+              "displayName": [
+                "Option"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "to",
+            "indexed": true,
+            "type": {
+              "type": 23,
+              "displayName": [
+                "Option"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "value",
+            "indexed": false,
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            },
+            "docs": []
+          }
+        ],
+        "docs": [
+          "Event emitted when a token transfer occurs."
+        ]
+      },
+      {
+        "label": "Approval",
+        "module_path": "polkadot::polkadot",
+        "signature_topic": "0x1a35e726f5feffda199144f6097b2ba23713e549bfcbe090c0981e3bcdfbcc1d",
+        "args": [
+          {
+            "label": "owner",
+            "indexed": true,
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "spender",
+            "indexed": true,
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "value",
+            "indexed": false,
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            },
+            "docs": []
+          }
+        ],
+        "docs": [
+          "Event emitted when an approval occurs that `spender` is allowed to withdraw",
+          "up to the amount of `value` tokens from `owner`."
+        ]
+      },
+      {
+        "label": "TokenMinted",
+        "module_path": "polkadot::polkadot",
+        "signature_topic": "0x49860d03b21d39764f00ad61b3f6e40e564d9b58e971c17d6012de764217d01d",
+        "args": [
+          {
+            "label": "account",
+            "indexed": true,
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "amount",
+            "indexed": false,
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            },
+            "docs": []
+          }
+        ],
+        "docs": [
+          "Event emitted when new tokens are minted."
+        ]
+      },
+      {
+        "label": "TokenBurned",
+        "module_path": "polkadot::polkadot",
+        "signature_topic": "0xd7b154e1fe79ca7245d323e408c1d8ac7a7b6d3cdd511074055925a08c671efc",
+        "args": [
+          {
+            "label": "account",
+            "indexed": true,
+            "type": {
+              "type": 2,
+              "displayName": [
+                "AccountId"
+              ]
+            },
+            "docs": []
+          },
+          {
+            "label": "amount",
+            "indexed": false,
+            "type": {
+              "type": 0,
+              "displayName": [
+                "Balance"
+              ]
+            },
+            "docs": []
+          }
+        ],
+        "docs": [
+          "Event emitted when tokens are burned."
+        ]
+      }
+    ],
+    "docs": [],
+    "lang_error": {
+      "type": 18,
+      "displayName": [
+        "ink",
+        "LangError"
+      ]
+    },
+    "environment": {
+      "accountId": {
+        "type": 2,
+        "displayName": [
+          "AccountId"
+        ]
+      },
+      "balance": {
+        "type": 0,
+        "displayName": [
+          "Balance"
+        ]
+      },
+      "hash": {
+        "type": 24,
+        "displayName": [
+          "Hash"
+        ]
+      },
+      "timestamp": {
+        "type": 25,
+        "displayName": [
+          "Timestamp"
+        ]
+      },
+      "blockNumber": {
+        "type": 26,
+        "displayName": [
+          "BlockNumber"
+        ]
+      },
+      "chainExtension": {
+        "type": 27,
+        "displayName": [
+          "ChainExtension"
+        ]
+      },
+      "maxEventTopics": 4,
+      "staticBufferSize": 16384
+    }
+  }
+}

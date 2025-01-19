@@ -1,0 +1,20 @@
+/* .onboarding-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/img/onboarding/background.svg'),
+        linear-gradient(340.81deg, rgba(28, 145, 253, 0.2) 0.91%, rgba(255, 255, 255, 0) 78.82%);
+    background-blend-mode: plus-lighter, normal;
+    transform: rotate(180deg);
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.ob-image-wrapper {
+    @apply absolute ml-[7.62vw] mt-[9.85vh];
+}
+
+.ob-text-logo {
+    @apply absolute ml-[4.27vw] mt-[65.16vh] flex w-[91.47vw] flex-col items-start;
+} */

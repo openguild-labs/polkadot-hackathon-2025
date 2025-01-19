@@ -1,0 +1,16 @@
+.rc-slider-handle-dragging {
+  /* box-shadow: 0 0 0 5px theme("colors.background.primary") !important; */
+  border: none !important;
+  scale: 1 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.rc-slider-mark-text {
+  color: theme("colors.typo.secondary") !important;
+}
+
+.rc-slider-mark-text-active {
+  color: theme("colors.typo.accent") !important;
+  background-color: theme("colors.background.tertiary");
+}

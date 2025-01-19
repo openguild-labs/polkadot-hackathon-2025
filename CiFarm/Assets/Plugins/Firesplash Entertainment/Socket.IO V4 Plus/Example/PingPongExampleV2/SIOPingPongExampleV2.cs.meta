@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5a821e22f6d257545bf29bc475198858
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Example/PingPongExampleV2/SIOPingPongExampleV2.cs
+  uploadId: 683247

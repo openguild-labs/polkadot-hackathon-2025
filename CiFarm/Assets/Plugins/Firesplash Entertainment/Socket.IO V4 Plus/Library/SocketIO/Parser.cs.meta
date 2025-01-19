@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 07a1b6fd78821534e8e96631cf46745a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Library/SocketIO/Parser.cs
+  uploadId: 683247

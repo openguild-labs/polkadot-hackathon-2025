@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="right.css">
+    <link rel="stylesheet" href="market.css">
+
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main>
+        <!-- Main Center Section -->
+        <section class="center_section">
+            <!-- Center Section Header -->
+            <div class="center_section_header">
+                <!-- Main Navigation Buttons (Wallet Home, Asset, History) -->
+                <div class="header-buttons">
+                    <button class="header-button active" id="btnHome" onclick="showSection('home')">Market</button>
+                    <button class="header-button" id="btnAsset" onclick="showSection('asset')">List item</button>
+                    <button class="header-button" id="btnHistory" onclick="showSection('history')">History</button>
+                </div>
+                                
+                <!-- Shopping Cart Section -->
+                <div id="cart-section" class="cart">
+                    <h3>Shopping Cart</h3>
+                    <button class="close-cart-button" onclick="closeCart()">
+                        <i class="fas fa-times"></i>
+                    </button>                    <ul id="cart-items"></ul>
+                    <button class="clearCart" onclick="clearCart()">Clear Cart</button>
+                </div>
+                <div id="overlay" class="hidden" onclick="closeCart()"></div>
+                <!-- Icon Group (Messages, Notifications, Support, Notepad) -->
+                <div class="icon-group">
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span>
+                    </div>
+                    <!-- Notifications Icon -->
+                    <div class="icon-container" data-dropdown="notifications">
+                        <i class="fas fa-bell"></i>
+                        <div class="dropdown-content" id="notifications">
+                            <h3>Notifications</h3>
+                            <div class="notification-item">
+                                <p>Your profile has been updated successfully.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Support Icon -->
+                    <div class="icon-container" data-dropdown="support">
+                        <i class="fas fa-headset"></i>
+                        <div class="dropdown-content" id="support">
+                            <h3>Support</h3>
+                            <p>Reach us at support@domain.com.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Notepad Icon -->
+                    <div class="icon-container" data-dropdown="notepad">
+                        <i class="fas fa-edit" id="notepadIcon"></i>
+                        <div class="dropdown-content" id="notepadDropdown">
+                            <button class="close-button">✖</button>
+                            <h3>Notepad</h3>
+                            
+                            <!-- Note Management Panel -->
+                            <div class="note-management">
+                                <input type="text" id="noteTitle" placeholder="Title your note" />
+                                <textarea id="noteContent" placeholder="Write your note here..." rows="5"></textarea>
+                                <div class="note-actions">
+                                    <button id="saveNoteBtn">Save Note</button>
+                                    <button id="editNoteBtn" style="display: none;">Edit Note</button>
+                                    <button id="deleteNoteBtn" style="display: none;">Delete Note</button>
+                                </div>
+                            </div>
+            
+                            <!-- Tagging Section -->
+                            <div class="tags-section">
+                                <input type="text" id="noteTags" placeholder="Add tags (comma separated)" />
+                            </div>
+            
+                            <!-- Notes List and Search -->
+                            <div class="notes-list">
+                                <input type="text" id="searchNotes" placeholder="Search notes..." />
+                                <ul id="notesList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- Main Content Sections -->
+<div class="content-sections">
+    <!-- Home Section (Default) -->
+    <div class="center_content section active" id="home">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Buy Fresh Organic Agricultural Products</h1>
+            <p>Farm-fresh produce delivered directly to your doorstep.</p>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="category-section">
+            <div class="category active" onclick="filterProducts('all')">All Products</div>
+            <div class="category" onclick="filterProducts('fruits')">Fruits</div>
+            <div class="category" onclick="filterProducts('vegetables')">Vegetables</div>
+            <div class="category" onclick="filterProducts('spices')">Spices</div>
+            <div class="category" onclick="filterProducts('grains')">Grains</div>
+        </div>
+
+        <!-- Product Grid Section -->
+        <div class="product-grid" id="productGrid">
+            <!-- 12 Product Cards -->
+            <!-- Fruit Products -->
+            <div class="product-card fruits" data-type="fruits">
+                <img src="assets/The Rise of Robotics in Agriculture.jpeg" alt="Organic Ginger" class="product-image">
+                <h3 class="product-name">Organic Ginger</h3>
+                <p class="product-price">0.5 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Organic Ginger', 0.5, 'fruits')">Add to Cart</button>
+            </div>
+
+            <div class="product-card fruits" data-type="fruits">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="Organic Apples" class="product-image">
+                <h3 class="product-name">Organic Apples</h3>
+                <p class="product-price">0.3 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Organic Apples', 0.3, 'fruits')">Add to Cart</button>
+            </div>
+
+            <div class="product-card fruits" data-type="fruits">
+                <img src="assets/The Rise of Robotics in Agriculture.jpeg" alt="Organic Ginger" class="product-image">
+                <h3 class="product-name">Fresh Oranges</h3>
+                <p class="product-price">0.4 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Fresh Oranges', 0.4, 'fruits')">Add to Cart</button>
+            </div>
+
+            <div class="product-card fruits" data-type="fruits">
+                <img src="assets/The Rise of Robotics in Agriculture.jpeg" alt="Organic Ginger" class="product-image">
+                <h3 class="product-name">Fresh Bananas</h3>
+                <p class="product-price">0.2 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Fresh Bananas', 0.2, 'fruits')">Add to Cart</button>
+            </div>
+
+            <!-- Vegetable Products -->
+            <div class="product-card vegetables" data-type="vegetables">
+                <img src="assets/The Rise of Robotics in Agriculture.jpeg" alt="Organic Ginger" class="product-image">
+                <h3 class="product-name">Fresh Tomatoes</h3>
+                <p class="product-price">0.1 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Fresh Tomatoes', 0.1, 'vegetables')">Add to Cart</button>
+            </div>
+
+            <div class="product-card vegetables" data-type="vegetables">
+                <img src="Assets/broiler pack.jpeg" alt="Cucumbers" class="product-image">
+                <h3 class="product-name">Cucumbers</h3>
+                <p class="product-price">0.15 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Cucumbers', 0.15, 'vegetables')">Add to Cart</button>
+            </div>
+
+            <div class="product-card vegetables" data-type="vegetables">
+                <img src="Assets/Bank banner-ezgif.com-resize.gif" alt="Fresh Spinach" class="product-image">
+                <h3 class="product-name">Fresh Spinach</h3>
+                <p class="product-price">0.2 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Fresh Spinach', 0.2, 'vegetables')">Add to Cart</button>
+            </div>
+
+            <div class="product-card vegetables" data-type="vegetables">
+                <img src="Assets/AI in Agriculture.jpeg" alt="Carrots" class="product-image">
+                <h3 class="product-name">Carrots</h3>
+                <p class="product-price">0.18 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Carrots', 0.18, 'vegetables')">Add to Cart</button>
+            </div>
+
+            <!-- Spices Products -->
+            <div class="product-card spices" data-type="spices">
+                <img src="Assets/AI in agriculture.2.jpeg" alt="Natural Honey" class="product-image">
+                <h3 class="product-name">Natural Honey</h3>
+                <p class="product-price">0.2 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Natural Honey', 0.2, 'spices')">Add to Cart</button>
+            </div>
+
+            <div class="product-card spices" data-type="spices">
+                <img src="Assets/AI for Sustainable Pest Control in Organic Agriculture.jpeg" alt="Organic Turmeric" class="product-image">
+                <h3 class="product-name">Organic Turmeric</h3>
+                <p class="product-price">0.25 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Organic Turmeric', 0.25, 'spices')">Add to Cart</button>
+            </div>
+
+            <div class="product-card spices" data-type="spices">
+                <img src="Assets/AI for sustainable farmig.jpeg" alt="Black Pepper" class="product-image">
+                <h3 class="product-name">Black Pepper</h3>
+                <p class="product-price">0.15 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Black Pepper', 0.15, 'spices')">Add to Cart</button>
+            </div>
+
+            <div class="product-card spices" data-type="spices">
+                <img src="Assets/Abstract_green.jpeg" alt="Cinnamon Sticks" class="product-image">
+                <h3 class="product-name">Cinnamon Sticks</h3>
+                <p class="product-price">0.12 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Cinnamon Sticks', 0.12, 'spices')">Add to Cart</button>
+            </div>
+
+            <!-- Grains Products -->
+            <div class="product-card grains" data-type="grains">
+                <img src="Assets/abstract_black.jpeg" alt="Whole Wheat" class="product-image">
+                <h3 class="product-name">Whole Wheat</h3>
+                <p class="product-price">0.15 ETH</p>
+                <div class="product-rating">★★★★☆</div>
+                <button class="add-to-cart-button" onclick="addToCart('Whole Wheat', 0.15, 'grains')">Add to Cart</button>
+            </div>
+
+            <div class="product-card grains" data-type="grains">
+                <img src="Assets/3608788.jpg" alt="Brown Rice" class="product-image">
+                <h3 class="product-name">Brown Rice</h3>
+                <p class="product-price">0.18 ETH</p>
+                <div class="product-rating">★★★★★</div>
+                <button class="add-to-cart-button" onclick="addToCart('Brown Rice', 0.18, 'grains')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+            </div>
+    
+            <!-- Asset Section -->
+            <div class="center_content section hidden" id="asset">
+                <div class="modal-content">
+                    <div class="modal-header">List Your Item</div>
+                    <div class="form-group">
+                        <label for="item-name">Item Name</label>
+                        <input type="text" id="item-name" placeholder="Enter item name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" placeholder="Enter price">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" placeholder="Enter quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Describe the item"></textarea>
+                    </div>
+                    <button class="submit-btn">Submit</button>
+                </div>           
+            </div>
+    
+            <!-- History Section -->
+            <div class="center_content section hidden" id="history">
+                <!-- History Filter Buttons -->
+                <div class="history-buttons">
+                    <button class="history-sub-button active" onclick="filterHistory('all')">ALL</button>
+                    <button class="history-sub-button" onclick="filterHistory('swap')">Swap</button>
+                    <button class="history-sub-button" onclick="filterHistory('sent')">Sent</button>
+                    <button class="history-sub-button" onclick="filterHistory('deposit')">Deposit</button>
+                    <button class="history-sub-button" onclick="filterHistory('transfer')">Transfer</button>
+                    <button class="history-sub-button" onclick="filterHistory('p2p')">P2P</button>
+                </div>
+    
+                <!-- History Table Content -->
+                <div id="historyContent">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Placeholder row -->
+                            <tr class="placeholder-row">
+                                <td colspan="4">Select a history type to view details.</td>
+                            </tr>
+                            
+                            <!-- Example Data for History Types (Swap, Sent, Deposit, Transfer, P2P) -->
+                            <tr class="history-row hidden" data-type="all">
+                                <td>2024-11-21</td>
+                                <td>Swap</td>
+                                <td>$100</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="all">
+                                <td>2024-11-20</td>
+                                <td>Sent</td>
+                                <td>$250</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="swap">
+                                <td>2024-11-19</td>
+                                <td>Swap</td>
+                                <td>$50</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="sent">
+                                <td>2024-11-18</td>
+                                <td>Sent</td>
+                                <td>$150</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="deposit">
+                                <td>2024-11-17</td>
+                                <td>Deposit</td>
+                                <td>$200</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="transfer">
+                                <td>2024-11-16</td>
+                                <td>Transfer</td>
+                                <td>$300</td>
+                                <td>Failed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="p2p">
+                                <td>2024-11-15</td>
+                                <td>P2P</td>
+                                <td>$400</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Right Section -->
+    <div class="right_section">
+            <div class="charts-container">
+                <div class="chart">
+                    <h3>Total Growth</h3>
+                    <canvas id="totalGrowthChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Staking/Investment Growth</h3>
+                    <canvas id="stakingGrowthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="charts.js"></script>
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+<!-- <script src="main.js"></script> -->
+<script src="market.js"></script>
+<script src="cart.js"></script>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="wallet.css">
+    <link rel="stylesheet" href="staking.css">
+
+    </style>
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main>
+        <!-- CENTER SECTION -->
+     <section class="center_section" style="display: flex; flex-direction: column;">
+     <!-- Center Section Header -->
+      <div class="center_section_header">
+        <!-- Button to open the sidebar -->
+        <button id="menuBtn" class="menu-btn">☰</button>
+        
+        <!-- Sub Heading Navigation -->
+        <div class="main_sub_heading">
+            <div class="section-buttons">
+                <button class="active" onclick="showSection('staking')">Staking</button>
+                <button onclick="showSection('manage-stake')">Manage Stake</button>
+                <button onclick="showSection('history')">History</button>
+            </div>
+                    
+            <div class="icon-group">
+                <!-- Support Icon -->
+                <div class="support_div">
+                    <i class="fas fa-headset support" aria-label="Support"></i>
+                    <div class="support-dropdown" id="supportDropdown">
+                        <button class="close-button" id="closeSupport">✖</button>
+                        <h3>Support Options</h3>
+                        <ul>
+                            <li><a href="https://wa.me/" target="_blank">WhatsApp Support</a></li>
+                            <li><a href="https://discord.com/" target="_blank">Discord Support</a></li>
+                            <li><a href="https://telegram.org/" target="_blank">Telegram Support</a></li>
+                            <li>
+                                <a href="#chatBot" id="chatBotLink">
+                                    <i class="fas fa-comment-dots" aria-label="Chat Bot"></i> Chat Bot
+                                </a>
+                            </li>                
+                        </ul>
+                    </div>
+                </div>
+                <!-- Notepad Icon -->
+                <div class="notepad_div">
+                    <i class="fas fa-edit notepad" aria-label="Notepad"></i>
+                    <div class="notepad-dropdown" id="notepadDropdown">
+                        <button class="close-button" id="closeNotepad">✖</button>
+                        <div class="notepad-header">
+                            <button id="createNoteBtn">Create Note</button>
+                            <button id="viewAllNotesBtn">All Notes</button>
+                        </div>
+                        <div class="notepad-content">
+                            <div id="createNoteSection">
+                                <h3>Create a New Note</h3>
+                                <form id="createNoteForm">
+                                    <input type="text" placeholder="Note Title" id="noteTitle" required>
+                                    <textarea placeholder="Write your note here..." id="noteContent" required></textarea>
+                                    <button type="submit">Save Note</button>
+                                </form>
+                            </div>
+                            <div id="allNotesSection" style="display: none;">
+                                <h3>Saved Notes</h3>
+                                <div class="saved-notes" id="savedNotes">
+                                    <!-- Notes will be listed here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Notifications Icon -->
+                <div class="notification-container">
+                    <i class="fas fa-bell" id="notificationIcon" aria-label="Notifications"></i>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <button class="close-button" id="closeNotifications">✖</button>
+                        <h3>Notifications</h3>
+                        <div class="order-filter_container">
+                            <button class="order-filter active" data-type="system">System Alerts</button>
+                            <button class="order-filter" data-type="market">Market Orders</button>
+                            <button class="order-filter" data-type="p2p">P2P Orders</button>
+                            <button class="order-filter" data-type="trading">Trading Orders</button>
+                        </div>
+                        <div class="notifications-content">
+                            <div class="notifications-group active" data-type="system">
+                                <div class="notification-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>System maintenance scheduled at midnight.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Security update available.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Your profile has been verified.</span>
+                                </div>
+                            </div>
+                            <!-- Other notification types (market, P2P, trading) here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="center_section">
+            <!-- Staking Section -->
+            <div id="staking" class="section active-section">
+                <h2>Staking Options</h2>
+        
+                <!-- Staking Plans A-F with Duration Dropdown -->
+                <div class="staking-plan">
+                    <p>Plan A: $100</p>
+                    <select class="dropdown" id="planA-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan A', 100)">Stake Now</button>
+                </div>
+                <div class="staking-plan">
+                    <p>Plan B: $200</p>
+                    <select class="dropdown" id="planB-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan B', 200)">Stake Now</button>
+                </div>
+                <div class="staking-plan">
+                    <p>Plan C: $500</p>
+                    <select class="dropdown" id="planC-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan C', 500)">Stake Now</button>
+                </div>
+                <div class="staking-plan">
+                    <p>Plan D: $1000</p>
+                    <select class="dropdown" id="planD-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan D', 1000)">Stake Now</button>
+                </div>
+                <div class="staking-plan">
+                    <p>Plan E: $2000</p>
+                    <select class="dropdown" id="planE-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan E', 2000)">Stake Now</button>
+                </div>
+                <div class="staking-plan">
+                    <p>Plan F: $5000</p>
+                    <select class="dropdown" id="planF-duration">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <button onclick="showStakePopup('Stake Now', 'Plan F', 5000)">Stake Now</button>
+                </div>
+            </div>
+        
+            <!-- Manage Stake Section -->
+            <div id="manage-stake" class="section">
+                <h2>Manage Stake</h2>
+                <!-- Show All Staked Plans -->
+                <div class="stake-card">
+                    <p>Plan A - $100 - 30 Days</p>
+                    <button onclick="showExtendPopup('Plan A', 30)">Extend</button>
+                    <button onclick="showEndPopup('Plan A')">End</button>
+                </div>
+                <div class="stake-card">
+                    <p>Plan B - $200 - 60 Days</p>
+                    <button onclick="showExtendPopup('Plan B', 60)">Extend</button>
+                    <button onclick="showEndPopup('Plan B')">End</button>
+                </div>
+            </div>
+        </div>
+        
+
+    <!-- History Section -->
+    <div id="history" class="section">
+      <div class="tabs">
+        <!-- Tab buttons -->
+        <button class="tab-button active" data-target="historyContent">History</button>
+        <button class="tab-button" data-target="statisticsContent">Statistics</button>
+      </div>
+      
+      <div class="tab-content active" id="historyContent">
+        <!-- History content goes here -->
+        <h2>Statistics</h2>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Amount</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Plan A</td>
+                    <td>$100</td>
+                    <td>30 days</td>
+                    <td>Completed</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      
+      <div class="tab-content" id="statisticsContent">
+        <!-- Statistics content goes here -->
+        <h3>History</h3>
+          <div class="statistics-record">
+              <p>Total Stakes: $300</p>
+              <p>Active Stakes: 2</p>
+              <p>Average Stake Duration: 45 Days</p>
+          </div>
+      </div>
+      
+  </div>
+ 
+<!-- Popup Modals -->
+<div class="modal" id="stakeModal">
+    <div class="modal-content">
+        <p id="stakeMessage"></p>
+        <button onclick="confirmStake()">Confirm</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+<div class="modal" id="extendModal">
+    <div class="modal-content">
+        <p>Extend the stake for <span id="extendPlanName"></span></p>
+        <select id="extensionDropdown" class="dropdown">
+            <option value="30">30 Days</option>
+            <option value="60">60 Days</option>
+            <option value="90">90 Days</option>
+        </select>
+        <button onclick="confirmExtend()">Extend</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+<div class="modal" id="endModal">
+    <div class="modal-content">
+        <p>Are you sure you want to end the stake for <span id="endPlanName"></span>?</p>
+        <button onclick="confirmEnd()">End Stake</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+        </div>
+    </main>
+    <!-- Right Section -->
+    <div class="right_section">
+            <div class="charts-container">
+                <div class="chart">
+                    <h3>Total Growth</h3>
+                    <canvas id="totalGrowthChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Staking/Investment Growth</h3>
+                    <canvas id="stakingGrowthChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="trending">
+                <div class="trending-header">
+                    <h2>Trending</h2>
+                    <div class="trending-icon-container">
+                        <i class="fa fa-arrow-up up-arrow"></i>
+                        <i class="fa fa-arrow-down down-arrow" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="trending-content">
+                    <ul>
+                        <li>#SustainableFarming</li>
+                        <li>#AgriTech</li>
+                        <li>#GreenEnergy</li>
+                        <li>#OrganicGinger</li>
+                        <li>#BlockchainInAg</li>
+                        <li>#GreenEnergy</li>
+                    </ul>
+                </div>
+                <!-- Hot Deals Section -->
+                <div class="hot-deals">
+                    <h2>Hot Deals</h2>
+                    <div class="deals-container">
+                        <div class="deal-card">
+                            <h3>Deal 1</h3>
+                            <p>Special offer on organic ginger</p>
+                        </div>
+                        <div class="deal-card">
+                            <h3>Deal 2</h3>
+                            <p>AgriTech equipment sale</p>
+                        </div>
+                        <div class="deal-card">
+                            <h3>Deal 1</h3>
+                            <p>Special offer on organic ginger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="charts.js"></script>
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+<script src="message.js"></script>
+<script src="staking.js"></script>
+      
+</html>

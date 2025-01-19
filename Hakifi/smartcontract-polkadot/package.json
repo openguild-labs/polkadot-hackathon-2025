@@ -1,0 +1,66 @@
+{
+    "name": "hakifi-evm",
+    "version": "1.0.0",
+    "description": "Hakifi smart contract on EVM",
+    "main": "index.js",
+    "author": "Tule <chaunm@nami.trade>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@bitbucket.org/namicorp/hakifi-evm.git"
+    },
+    "dependencies": {
+        "-": "^0.0.1",
+        "D": "^1.0.0",
+        "babel-eslint": "^10.1.0",
+        "dotenv": "^16.3.1",
+        "eslint-config-prettier": "^9.0.0",
+        "solidity-docgen": "^0.6.0-beta.35"
+    },
+    "scripts": {
+        "compile": "hardhat compile",
+        "test": "hardhat test",
+        "test-staging": "hardhat test ./test/staging/*.spec.ts --network bscTestnet",
+        "lint": "solhint 'contracts/*.sol'",
+        "lint:fix": "solhint 'contracts/**/*.sol' --fix",
+        "format": "prettier --write .",
+        "coverage": "hardhat coverage --solcoverjs ./.solcover.js"
+    },
+    "devDependencies": {
+        "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+        "@nomicfoundation/hardhat-ethers": "^3.0.0",
+        "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+        "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+        "@nomicfoundation/hardhat-verify": "^1.1.1",
+        "@nomiclabs/hardhat-etherscan": "^3.1.7",
+        "@openzeppelin/contracts": "^4.9.3",
+        "@openzeppelin/contracts-upgradeable": "^4.9.3",
+        "@openzeppelin/hardhat-upgrades": "^2.2.1",
+        "@typechain/ethers-v6": "^0.4.0",
+        "@typechain/hardhat": "^8.0.0",
+        "@types/chai": "^4.2.0",
+        "@types/mocha": ">=9.1.0",
+        "@types/node": ">=16.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.3",
+        "@typescript-eslint/parser": "^6.7.3",
+        "chai": "^4.2.0",
+        "eslint": "^8.0.1",
+        "eslint-config-standard-with-typescript": "^39.1.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+        "eslint-plugin-promise": "^6.0.0",
+        "ethers": "^6.4.0",
+        "hardhat": "^2.17.3",
+        "hardhat-gas-reporter": "^1.0.8",
+        "prettier": "^3.0.3",
+        "prettier-plugin-solidity": "^1.1.3",
+        "solhint": "^3.6.2",
+        "solidity-coverage": "^0.8.5",
+        "ts-node": ">=8.0.0",
+        "typechain": "^8.1.0",
+        "typescript": "*"
+    },
+    "mocha": {
+        "timeout": 10000000
+    }
+}

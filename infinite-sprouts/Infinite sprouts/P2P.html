@@ -1,0 +1,1612 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P Trading System - Home</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Link to Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* styles.css */
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #101010;
+    color: #ffffff;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(145deg, #1f1f1f, #0d0d0d);
+    border: 1px solid rgb(46, 44, 44);
+    padding: 20px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 4px 0 15px rgba(0, 255, 128, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+    position: fixed;
+    height: 100vh;
+    transition: width 0.3s, background 0.3s;
+}
+
+body.light-theme .sidebar {
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    border: 1px solid #cccccc;
+    box-shadow: 4px 0 15px rgba(0, 255, 128, 0.1);
+}
+
+/* Account Switcher */
+.account-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.account-switcher button {
+    background: none;
+    border: none;
+    color: #00ff99;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+body.light-theme .account-switcher button {
+    color: #00cc66;
+}
+
+.account-switcher button:hover {
+    color: goldenrod;
+}
+
+.accounts-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.accounts-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.accounts-container img.account {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #00ff99;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+body.light-theme .accounts-container img.account {
+    border-color: #00cc66;
+}
+
+.accounts-container img.account:hover {
+    transform: scale(1.1);
+    border-color: goldenrod;
+}
+
+/* Navigation Links */
+.sidebar ul {
+    gap: 10px;
+    width: 100%;
+    height: 60%;
+    box-shadow: 8px 8px 16px #222222, -8px -8px 16px #2b2b2b;
+    border: 1px solid rgb(46, 44, 44);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light-theme .sidebar ul {
+    background-color: #e0e0e0;
+    border-color: #cccccc;
+    box-shadow: 8px 8px 16px #d0d0d0, -8px -8px 16px #f0f0f0;
+}
+
+.sidebar ul li {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar ul li a {
+    gap: 12px;
+    display: flex;
+    width: 90%;
+    padding: 12px;
+    padding-left: 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #00ff99;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #00ff99;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px #000000, -4px -4px 8px #2b2b2b;
+    background-image: linear-gradient(145deg, #202020, #121212);
+    align-items: center;
+}
+
+.body.light-theme .sidebar ul li a {
+    color: #00cc66;
+}
+
+.sidebar ul li a:hover {
+    background: #02be73;
+    transform: scale(1.01) translateY(4px);
+    color: #ffffff;
+}
+
+body.light-theme .sidebar ul li a:hover {
+    background: #00ad68;
+    color: #ffffff;
+}
+
+.nav-link.active a {
+    background: #02be73;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 0 6px 1px #33ffcc;
+}
+
+body.light-theme .nav-link.active a {
+    background: #00ad68;
+    box-shadow: 0 0 6px 1px #00cc66;
+}
+
+/* Settings */
+.setting {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.setting h2 {
+    width: 70%;
+    padding: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border: 2px solid rgb(196, 124, 124);
+    box-shadow: 0 0 6px rgb(0, 0, 0);
+    background-color: red;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.setting h2:hover {
+    transform: scale(0.95);
+    background-color: darkred;
+}
+
+body.light-theme .setting h2 {
+    background-color: #ff4d4d;
+    border-color: #cc0000;
+    color: #ffffff;
+}
+
+body.light-theme .setting h2:hover {
+    background-color: #cc0000;
+}
+
+/* Theme Switch Button */
+#theme-switcher {
+    padding: 10px 15px;
+    color: #00ff99;
+    border: 1px solid #00b66d;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #0d0d0d;
+    cursor: pointer;
+    box-shadow: 0 0 8px 2px black;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+
+body.light-theme #theme-switcher {
+    background-color: #ffffff;
+    color: #00cc66;
+    border-color: #00cc66;
+    box-shadow: 0 0 8px 2px #00cc66;
+}
+
+#theme-switcher:hover {
+    background-color: #00ad68;
+    color: #000000;
+    font-weight: 550;
+}
+
+body.light-theme #theme-switcher:hover {
+    background-color: #00cc66;
+    color: #ffffff;
+}
+
+/* Logout Button */
+.log_out_btn h2 {
+    width: 70%;
+    padding: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border: 2px solid rgb(196, 124, 124);
+    box-shadow: 0 0 6px 1px #000000;
+    background-color: red;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 10px;
+}
+
+.log_out_btn h2:hover {
+    transform: scale(0.95);
+    background-color: darkred;
+}
+
+body.light-theme .log_out_btn h2 {
+    background-color: #ff4d4d;
+    border-color: #cc0000;
+    color: #ffffff;
+}
+
+body.light-theme .log_out_btn h2:hover {
+    background-color: #cc0000;
+}
+
+/* Social Buttons */
+.log_container {
+    gap: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-buttons {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+    padding: 10px 15px;
+    color: #00ff99;
+    border: 1px solid #00b66d;
+    border-radius: 8px;
+    text-align: center;
+    background: #0d0d0d;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px 2px black;
+}
+
+/* Plus Button */
+.plus-btn {
+    background-color: goldenrod;
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    height: 40px;
+    font-size: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .3s ease-in-out;
+}
+
+.plus-btn:hover {
+    transform: scale(1.05);
+    color: #00b66d;
+    background: black;
+    border: 1px solid #00b66d;
+}
+
+/* Go Live Button */
+.live-btn {
+    background-color: rgb(0, 102, 255);
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.live-btn:hover {
+    transform: scale(1.05);
+    color: #00b66d;
+    background: black;
+    border: 1px solid #00b66d;
+}
+
+/* Main Container Styles */
+.main-container {
+    margin-left: 280px; /* Width of the sidebar */
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1000px;
+    overflow-y: auto;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #121212;
+    transition: margin-left 0.3s, background-color 0.3s;
+}
+
+body.light-theme .main-container {
+    background-color: #f0f0f0;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+body.light-theme .top-nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.top-nav ul li a {
+    color: #00ff99;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+body.light-theme .top-nav ul li a {
+    color: #00cc66;
+}
+
+.top-nav ul li a:hover {
+    color: goldenrod;
+}
+
+body.light-theme .top-nav ul li a:hover {
+    color: #ff9900;
+}
+
+/* Scrollable Sections with Arrows */
+.scrollable-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.scrollable-container .arrow {
+    background: none;
+    border: none;
+    color: #00ff99;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 0 10px;
+    z-index: 1;
+}
+
+body.light-theme .scrollable-container .arrow {
+    color: #00cc66;
+}
+
+.scrollable-container .arrow:hover {
+    color: goldenrod;
+}
+
+.chains-list {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.chain {
+    min-width: 100px;
+    height: 38px;
+    background: #252525;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+body.light-theme .chain {
+    background: #e0e0e0;
+    color: #000000;
+}
+
+.chain:hover {
+    background: #00ff80;
+}
+
+body.light-theme .chain:hover {
+    background: #00cc66;
+}
+
+.chain.selected {
+    border: 2px solid #00ff99;
+}
+
+body.light-theme .chain.selected {
+    border: 2px solid #00cc66;
+}
+
+/* Trader Card */
+.trader-card {
+    background: #252525;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 6px 2px #000000;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+body.light-theme .trader-card {
+    background: #e0e0e0;
+    box-shadow: 0 0 6px 2px #cccccc;
+}
+
+.trader-card:hover {
+    transform: scale(1.02);
+    background-color: #00ff99;
+    color: #000;
+}
+
+body.light-theme .trader-card:hover {
+    background-color: #00cc66;
+    color: #ffffff;
+}
+
+.trader-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.trader-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00ff99;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+body.light-theme .trader-info img {
+    border-color: #00cc66;
+}
+
+.trader-info img:hover {
+    transform: scale(1.1);
+    border-color: goldenrod;
+}
+
+.trader-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.trader-details .username {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.trader-details .verified {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #00ff99;
+}
+
+body.light-theme .trader-details .verified {
+    color: #00cc66;
+}
+
+.trader-details .trade-volume {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Buy and Sell Button Styles */
+.trade-button.buy-btn {
+    background-color: #28a745; /* Green */
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.trade-button.buy-btn:hover {
+    background-color: #218838;
+}
+
+.trade-button.sell-btn {
+    background-color: #dc3545; /* Red */
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.trade-button.sell-btn:hover {
+    background-color: #c82333;
+}
+
+/* Trader Listings Container */
+#p2pListings {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Join P2P Trading Section */
+.container.join-container {
+    background: #1e1e1e;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 255, 128, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+body.light-theme .container.join-container {
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 255, 128, 0.1);
+}
+
+.container.join-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #00ff80;
+}
+
+body.light-theme .container.join-container h2 {
+    color: #00cc66;
+}
+
+/* Input and Button Styles */
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+body.light-theme .input-group label {
+    color: #000000;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #252525;
+    color: #ffffff;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light-theme .input-group input {
+    background: #e0e0e0;
+    color: #000000;
+}
+
+.input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #00ff99;
+}
+
+body.light-theme .input-group input:focus {
+    box-shadow: 0 0 5px #00cc66;
+}
+
+button {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #00ff80;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #00cc66;
+}
+
+body.light-theme button {
+    background: #00cc66;
+    color: #ffffff;
+}
+
+body.light-theme button:hover {
+    background: #00994d;
+}
+
+.warning {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.balance-display {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Chat Section (Hidden by Default) */
+.container.chat-container {
+    background: #1e1e1e;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 255, 128, 0.3);
+    display: none; /* Hidden by default */
+    transition: background 0.3s;
+}
+
+body.light-theme .container.chat-container {
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 255, 128, 0.1);
+}
+
+.container.chat-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #00ff80;
+}
+
+body.light-theme .container.chat-container h2 {
+    color: #00cc66;
+}
+
+#chatMessages {
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    background: #252525;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+body.light-theme #chatMessages {
+    background: #e0e0e0;
+    color: #000000;
+}
+
+#chatInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #252525;
+    color: #ffffff;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light-theme #chatInput {
+    background: #e0e0e0;
+    color: #000000;
+}
+
+#chatInput:focus {
+    outline: none;
+    box-shadow: 0 0 5px #00ff99;
+}
+
+body.light-theme #chatInput:focus {
+    box-shadow: 0 0 5px #00cc66;
+}
+
+/* Post Input Popup */
+.post-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: none; /* Initially hidden */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.post-popup textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.post-popup .post-attachments {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.attachment-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.attachment-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-post-btn {
+    background-color: #28a745; /* Green for post submission */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 14px;
+}
+
+.submit-post-btn:hover {
+    background-color: #218838;
+}
+
+/* Go Live Popup */
+.go-live-popup {
+    position: fixed;
+    bottom: 170px;
+    right: 30px;
+    background-image: linear-gradient(black, #00ff99, black);
+    border: 1px solid #00ff99;
+    padding: 15px;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.go-live-popup:hover {
+    background: rgb(0, 0, 0);
+}
+
+.go-live-popup .live-option {
+    background-color: #dc3545; /* Red for Sell option */
+    border: 1px solid #c82333;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s, border 0.3s;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.go-live-popup .live-option:hover {
+    background-color: #c82333;
+    border: 1px solid #bd2130;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 220px;
+    }
+    .main-container {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+    .main-container {
+        margin-left: 0;
+    }
+    .social-buttons {
+        position: fixed;
+        right: 10px;
+        bottom: 20px;
+    }
+    .post-popup,
+    .go-live-popup {
+        right: 10px;
+    }
+}
+
+</style>
+<body>
+
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="Sproutlink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Sproutlink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Registration and Main Interface -->
+        <div id="registrationSection" class="container join-container">
+            <h2>Join P2P Trading</h2>
+            <form id="joinP2PForm">
+                <div class="input-group">
+                    <label for="username">Your Name</label>
+                    <input type="text" id="username" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label for="paymentMethods">Payment Methods (comma-separated)</label>
+                    <input type="text" id="paymentMethods" placeholder="Bank Transfer, PayPal" required>
+                </div>
+                <div class="input-group">
+                    <label for="currency">Currency</label>
+                    <input type="text" id="currency" placeholder="e.g., BTC, ETH" required>
+                </div>
+                <button type="submit">Join P2P</button>
+            </form>
+        </div> 
+
+        <div id="mainInterface" style="display: none;">
+            <!-- Top Navigation Bar -->
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-chart-pie"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Order's(0)</a></li>
+                </ul>
+            </nav>
+
+            <!-- Trade Section -->
+            <div class="container listings-container">
+                <h2>Trade</h2>
+                <!-- Buy and Sell Toggle Buttons -->
+                <div class="top-buttons">
+                    <button id="buyToggle" class="trade-toggle active">Buy</button>
+                    <button id="sellToggle" class="trade-toggle">Sell</button>
+                </div>
+                <!-- Scrollable Chains List -->
+                <div class="scrollable-container">
+                    <button class="arrow" aria-label="Scroll Listings Left" onclick="scrollChains(-1)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="chains-list" id="chainSelector">
+                        <div class="chain selected" data-chain="BTC">BTC</div>
+                        <div class="chain" data-chain="ETH">ETH</div>
+                        <div class="chain" data-chain="USDT">USDT</div>
+                        <div class="chain" data-chain="BNB">BNB</div>
+                        <div class="chain" data-chain="ADA">ADA</div>
+                        <div class="chain" data-chain="SOL">SOL</div>
+                        <div class="chain" data-chain="DOT">DOT</div>
+                        <div class="chain" data-chain="XRP">XRP</div>
+                        <div class="chain" data-chain="DOGE">DOGE</div>
+                        <div class="chain" data-chain="LTC">LTC</div>
+                        <!-- Add more chains as needed -->
+                    </div>
+                    <button class="arrow" aria-label="Scroll Listings Right" onclick="scrollChains(1)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <!-- Trader Listings -->
+                <div id="p2pListings">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="js/active.js"></script>
+   <!-- JavaScript for Functionality -->
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Elements
+        const joinForm = document.getElementById('joinP2PForm');
+        const buyToggle = document.getElementById('buyToggle');
+        const sellToggle = document.getElementById('sellToggle');
+        const p2pListings = document.getElementById('p2pListings');
+        const registrationSection = document.getElementById('registrationSection');
+        const mainInterface = document.getElementById('mainInterface');
+
+        const addPostBtn = document.getElementById('addPostBtn');
+        const postInputPopup = document.getElementById('postInputPopup');
+        const goLiveBtn = document.getElementById('goLiveBtn');
+        const goLivePopup = document.getElementById('goLivePopup');
+        const postSubmitBtn = document.getElementById('postSubmitBtn');
+        const postTextInput = document.getElementById('postTextInput');
+
+        // Fully Populated Sample Data for Listings
+        const sampleListings = {
+            BTC: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_1.jpg', username: 'Alice', verified: true, max: 0.5, min: 0.1 },
+                    { pfp: 'Assets/NFT_sneak_peak_2.jpg', username: 'Bob', verified: true, max: 1, min: 0.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_3.jpg', username: 'Evan', verified: false, max: 0.8, min: 0.05 },
+                    { pfp: 'Assets/NFT_sneak_peak_4.jpg', username: 'Daisy', verified: true, max: 1.5, min: 0.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_5.jpg', username: 'Fred', verified: false, max: 0.6, min: 0.1 },
+                    { pfp: 'Assets/NFT_sneak_peak_1.jpg', username: 'Grace', verified: true, max: 2, min: 0.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_2.jpg', username: 'Hank', verified: false, max: 1.2, min: 0.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_3.jpg', username: 'Isabel', verified: true, max: 0.9, min: 0.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_4.jpg', username: 'Jack', verified: false, max: 0.7, min: 0.15 },
+                    { pfp: 'Assets/NFT_sneak_peak_5.jpg', username: 'Kim', verified: true, max: 1.8, min: 0.6 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_3.jpg', username: 'Charlie', verified: true, max: 0.3, min: 0.05 },
+                    { pfp: 'Assets/NFT_sneak_peak_4.jpg', username: 'David', verified: false, max: 0.4, min: 0.1 },
+                    { pfp: 'Assets/NFT_sneak_peak_5.jpg', username: 'Elaine', verified: true, max: 0.6, min: 0.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_1.jpg', username: 'Frank', verified: false, max: 0.9, min: 0.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_2.jpg', username: 'George', verified: true, max: 1.4, min: 0.8 },
+                    { pfp: 'Assets/NFT_sneak_peak_3.jpg', username: 'Holly', verified: true, max: 0.5, min: 0.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_4.jpg', username: 'Ivy', verified: false, max: 0.7, min: 0.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_5.jpg', username: 'Jake', verified: true, max: 1, min: 0.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_1.jpg', username: 'Lana', verified: false, max: 0.8, min: 0.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_2.jpg', username: 'Mike', verified: true, max: 1.6, min: 0.7 }
+                ]
+            },
+            ETH: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_6.jpg', username: 'Nina', verified: true, max: 10, min: 1 },
+                    { pfp: 'Assets/NFT_sneak_peak_7.jpg', username: 'Oscar', verified: false, max: 8, min: 0.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_8.jpg', username: 'Paula', verified: true, max: 12, min: 1.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_9.jpg', username: 'Quinn', verified: true, max: 15, min: 1.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_10.jpg', username: 'Rita', verified: false, max: 9, min: 0.8 },
+                    { pfp: 'Assets/NFT_sneak_peak_6.jpg', username: 'Sam', verified: true, max: 11, min: 1 },
+                    { pfp: 'Assets/NFT_sneak_peak_7.jpg', username: 'Tina', verified: false, max: 7, min: 0.6 },
+                    { pfp: 'Assets/NFT_sneak_peak_8.jpg', username: 'Uma', verified: true, max: 13, min: 1.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_9.jpg', username: 'Vince', verified: true, max: 14, min: 1.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_10.jpg', username: 'Wendy', verified: false, max: 6, min: 0.7 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_6.jpg', username: 'Xander', verified: true, max: 5, min: 0.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_7.jpg', username: 'Yara', verified: false, max: 4, min: 0.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_8.jpg', username: 'Zane', verified: true, max: 6, min: 0.6 },
+                    { pfp: 'Assets/NFT_sneak_peak_9.jpg', username: 'Amy', verified: true, max: 7, min: 0.7 },
+                    { pfp: 'Assets/NFT_sneak_peak_10.jpg', username: 'Brian', verified: false, max: 3, min: 0.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_6.jpg', username: 'Cathy', verified: true, max: 5.5, min: 0.55 },
+                    { pfp: 'Assets/NFT_sneak_peak_7.jpg', username: 'Derek', verified: false, max: 4.5, min: 0.45 },
+                    { pfp: 'Assets/NFT_sneak_peak_8.jpg', username: 'Ella', verified: true, max: 6.5, min: 0.65 },
+                    { pfp: 'Assets/NFT_sneak_peak_9.jpg', username: 'Fiona', verified: true, max: 7.5, min: 0.75 },
+                    { pfp: 'Assets/NFT_sneak_peak_10.jpg', username: 'Garry', verified: false, max: 3.5, min: 0.35 }
+                ]
+            },
+            USDT: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_11.jpg', username: 'Helen', verified: true, max: 2000, min: 200 },
+                    { pfp: 'Assets/NFT_sneak_peak_12.jpg', username: 'Ian', verified: false, max: 1600, min: 100 },
+                    { pfp: 'Assets/NFT_sneak_peak_13.jpg', username: 'Jasmine', verified: true, max: 2200, min: 220 },
+                    { pfp: 'Assets/NFT_sneak_peak_14.jpg', username: 'Kevin', verified: true, max: 2500, min: 250 },
+                    { pfp: 'Assets/NFT_sneak_peak_15.jpg', username: 'Laura', verified: false, max: 1800, min: 150 },
+                    { pfp: 'Assets/NFT_sneak_peak_11.jpg', username: 'Matt', verified: true, max: 2100, min: 210 },
+                    { pfp: 'Assets/NFT_sneak_peak_12.jpg', username: 'Nora', verified: false, max: 1700, min: 130 },
+                    { pfp: 'Assets/NFT_sneak_peak_13.jpg', username: 'Owen', verified: true, max: 2300, min: 230 },
+                    { pfp: 'Assets/NFT_sneak_peak_14.jpg', username: 'Pam', verified: true, max: 2400, min: 240 },
+                    { pfp: 'Assets/NFT_sneak_peak_15.jpg', username: 'Quincy', verified: false, max: 1900, min: 190 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_11.jpg', username: 'Rachel', verified: true, max: 1500, min: 150 },
+                    { pfp: 'Assets/NFT_sneak_peak_12.jpg', username: 'Steve', verified: false, max: 1200, min: 120 },
+                    { pfp: 'Assets/NFT_sneak_peak_13.jpg', username: 'Tina', verified: true, max: 1600, min: 160 },
+                    { pfp: 'Assets/NFT_sneak_peak_14.jpg', username: 'Uma', verified: true, max: 1700, min: 170 },
+                    { pfp: 'Assets/NFT_sneak_peak_15.jpg', username: 'Victor', verified: false, max: 1300, min: 130 },
+                    { pfp: 'Assets/NFT_sneak_peak_11.jpg', username: 'Wendy', verified: true, max: 1550, min: 155 },
+                    { pfp: 'Assets/NFT_sneak_peak_12.jpg', username: 'Xavier', verified: false, max: 1250, min: 125 },
+                    { pfp: 'Assets/NFT_sneak_peak_13.jpg', username: 'Yvonne', verified: true, max: 1650, min: 165 },
+                    { pfp: 'Assets/NFT_sneak_peak_14.jpg', username: 'Zack', verified: true, max: 1750, min: 175 },
+                    { pfp: 'Assets/NFT_sneak_peak_15.jpg', username: 'Amy', verified: false, max: 1350, min: 135 }
+                ]
+            },
+            BNB: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_16.jpg', username: 'Ben', verified: true, max: 20, min: 2 },
+                    { pfp: 'Assets/NFT_sneak_peak_17.jpg', username: 'Cleo', verified: false, max: 16, min: 1 },
+                    { pfp: 'Assets/NFT_sneak_peak_18.jpg', username: 'Diana', verified: true, max: 24, min: 2.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_19.jpg', username: 'Eli', verified: true, max: 30, min: 3 },
+                    { pfp: 'Assets/NFT_sneak_peak_20.jpg', username: 'Faye', verified: false, max: 18, min: 1.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_16.jpg', username: 'George', verified: true, max: 22, min: 2.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_17.jpg', username: 'Hannah', verified: false, max: 14, min: 1.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_18.jpg', username: 'Ian', verified: true, max: 26, min: 2.6 },
+                    { pfp: 'Assets/NFT_sneak_peak_19.jpg', username: 'Judy', verified: true, max: 28, min: 2.8 },
+                    { pfp: 'Assets/NFT_sneak_peak_20.jpg', username: 'Kyle', verified: false, max: 12, min: 1.2 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_16.jpg', username: 'Lara', verified: true, max: 10, min: 1 },
+                    { pfp: 'Assets/NFT_sneak_peak_17.jpg', username: 'Mike', verified: false, max: 8, min: 0.8 },
+                    { pfp: 'Assets/NFT_sneak_peak_18.jpg', username: 'Nina', verified: true, max: 12, min: 1.2 },
+                    { pfp: 'Assets/NFT_sneak_peak_19.jpg', username: 'Omar', verified: true, max: 14, min: 1.4 },
+                    { pfp: 'Assets/NFT_sneak_peak_20.jpg', username: 'Paula', verified: false, max: 9, min: 0.9 },
+                    { pfp: 'Assets/NFT_sneak_peak_16.jpg', username: 'Quentin', verified: true, max: 11, min: 1.1 },
+                    { pfp: 'Assets/NFT_sneak_peak_17.jpg', username: 'Rita', verified: false, max: 7, min: 0.7 },
+                    { pfp: 'Assets/NFT_sneak_peak_18.jpg', username: 'Sam', verified: true, max: 13, min: 1.3 },
+                    { pfp: 'Assets/NFT_sneak_peak_19.jpg', username: 'Tara', verified: true, max: 15, min: 1.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_20.jpg', username: 'Ulysses', verified: false, max: 6, min: 0.6 }
+                ]
+            },
+            ADA: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_21.jpg', username: 'Violet', verified: true, max: 500, min: 50 },
+                    { pfp: 'Assets/NFT_sneak_peak_22.jpg', username: 'Walter', verified: false, max: 450, min: 45 },
+                    { pfp: 'Assets/NFT_sneak_peak_23.jpg', username: 'Xena', verified: true, max: 600, min: 60 },
+                    { pfp: 'Assets/NFT_sneak_peak_24.jpg', username: 'Yusuf', verified: true, max: 550, min: 55 },
+                    { pfp: 'Assets/NFT_sneak_peak_25.jpg', username: 'Zara', verified: false, max: 400, min: 40 },
+                    { pfp: 'Assets/NFT_sneak_peak_21.jpg', username: 'Alan', verified: true, max: 650, min: 65 },
+                    { pfp: 'Assets/NFT_sneak_peak_22.jpg', username: 'Bella', verified: false, max: 350, min: 35 },
+                    { pfp: 'Assets/NFT_sneak_peak_23.jpg', username: 'Carl', verified: true, max: 700, min: 70 },
+                    { pfp: 'Assets/NFT_sneak_peak_24.jpg', username: 'Diana', verified: true, max: 750, min: 75 },
+                    { pfp: 'Assets/NFT_sneak_peak_25.jpg', username: 'Ethan', verified: false, max: 300, min: 30 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_21.jpg', username: 'Fiona', verified: true, max: 500, min: 50 },
+                    { pfp: 'Assets/NFT_sneak_peak_22.jpg', username: 'Gavin', verified: false, max: 450, min: 45 },
+                    { pfp: 'Assets/NFT_sneak_peak_23.jpg', username: 'Hannah', verified: true, max: 600, min: 60 },
+                    { pfp: 'Assets/NFT_sneak_peak_24.jpg', username: 'Ian', verified: true, max: 550, min: 55 },
+                    { pfp: 'Assets/NFT_sneak_peak_25.jpg', username: 'Jenna', verified: false, max: 400, min: 40 },
+                    { pfp: 'Assets/NFT_sneak_peak_21.jpg', username: 'Kevin', verified: true, max: 650, min: 65 },
+                    { pfp: 'Assets/NFT_sneak_peak_22.jpg', username: 'Lily', verified: false, max: 350, min: 35 },
+                    { pfp: 'Assets/NFT_sneak_peak_23.jpg', username: 'Mason', verified: true, max: 700, min: 70 },
+                    { pfp: 'Assets/NFT_sneak_peak_24.jpg', username: 'Nora', verified: true, max: 750, min: 75 },
+                    { pfp: 'Assets/NFT_sneak_peak_25.jpg', username: 'Owen', verified: false, max: 300, min: 30 }
+                ]
+            },
+            SOL: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_26.jpg', username: 'Paige', verified: true, max: 300, min: 30 },
+                    { pfp: 'Assets/NFT_sneak_peak_27.jpg', username: 'Quincy', verified: false, max: 270, min: 27 },
+                    { pfp: 'Assets/NFT_sneak_peak_28.jpg', username: 'Riley', verified: true, max: 330, min: 33 },
+                    { pfp: 'Assets/NFT_sneak_peak_29.jpg', username: 'Sophie', verified: true, max: 360, min: 36 },
+                    { pfp: 'Assets/NFT_sneak_peak_30.jpg', username: 'Tom', verified: false, max: 240, min: 24 },
+                    { pfp: 'Assets/NFT_sneak_peak_26.jpg', username: 'Uma', verified: true, max: 390, min: 39 },
+                    { pfp: 'Assets/NFT_sneak_peak_27.jpg', username: 'Vince', verified: false, max: 210, min: 21 },
+                    { pfp: 'Assets/NFT_sneak_peak_28.jpg', username: 'Wanda', verified: true, max: 420, min: 42 },
+                    { pfp: 'Assets/NFT_sneak_peak_29.jpg', username: 'Xander', verified: true, max: 450, min: 45 },
+                    { pfp: 'Assets/NFT_sneak_peak_30.jpg', username: 'Yvonne', verified: false, max: 180, min: 18 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_26.jpg', username: 'Zack', verified: true, max: 300, min: 30 },
+                    { pfp: 'Assets/NFT_sneak_peak_27.jpg', username: 'Amy', verified: false, max: 270, min: 27 },
+                    { pfp: 'Assets/NFT_sneak_peak_28.jpg', username: 'Ben', verified: true, max: 330, min: 33 },
+                    { pfp: 'Assets/NFT_sneak_peak_29.jpg', username: 'Cathy', verified: true, max: 360, min: 36 },
+                    { pfp: 'Assets/NFT_sneak_peak_30.jpg', username: 'Derek', verified: false, max: 240, min: 24 },
+                    { pfp: 'Assets/NFT_sneak_peak_26.jpg', username: 'Ella', verified: true, max: 390, min: 39 },
+                    { pfp: 'Assets/NFT_sneak_peak_27.jpg', username: 'Frank', verified: false, max: 210, min: 21 },
+                    { pfp: 'Assets/NFT_sneak_peak_28.jpg', username: 'Gina', verified: true, max: 420, min: 42 },
+                    { pfp: 'Assets/NFT_sneak_peak_29.jpg', username: 'Hank', verified: true, max: 450, min: 45 },
+                    { pfp: 'Assets/NFT_sneak_peak_30.jpg', username: 'Ivy', verified: false, max: 180, min: 18 }
+                ]
+            },
+            DOT: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_31.jpg', username: 'Jack', verified: true, max: 400, min: 40 },
+                    { pfp: 'Assets/NFT_sneak_peak_32.jpg', username: 'Karen', verified: false, max: 360, min: 36 },
+                    { pfp: 'Assets/NFT_sneak_peak_33.jpg', username: 'Leo', verified: true, max: 440, min: 44 },
+                    { pfp: 'Assets/NFT_sneak_peak_34.jpg', username: 'Mia', verified: true, max: 480, min: 48 },
+                    { pfp: 'Assets/NFT_sneak_peak_35.jpg', username: 'Nate', verified: false, max: 320, min: 32 },
+                    { pfp: 'Assets/NFT_sneak_peak_31.jpg', username: 'Olivia', verified: true, max: 520, min: 52 },
+                    { pfp: 'Assets/NFT_sneak_peak_32.jpg', username: 'Paul', verified: false, max: 280, min: 28 },
+                    { pfp: 'Assets/NFT_sneak_peak_33.jpg', username: 'Quinn', verified: true, max: 560, min: 56 },
+                    { pfp: 'Assets/NFT_sneak_peak_34.jpg', username: 'Rita', verified: true, max: 600, min: 60 },
+                    { pfp: 'Assets/NFT_sneak_peak_35.jpg', username: 'Sam', verified: false, max: 240, min: 24 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_31.jpg', username: 'Tina', verified: true, max: 400, min: 40 },
+                    { pfp: 'Assets/NFT_sneak_peak_32.jpg', username: 'Uma', verified: false, max: 360, min: 36 },
+                    { pfp: 'Assets/NFT_sneak_peak_33.jpg', username: 'Vince', verified: true, max: 440, min: 44 },
+                    { pfp: 'Assets/NFT_sneak_peak_34.jpg', username: 'Wendy', verified: true, max: 480, min: 48 },
+                    { pfp: 'Assets/NFT_sneak_peak_35.jpg', username: 'Xavier', verified: false, max: 320, min: 32 },
+                    { pfp: 'Assets/NFT_sneak_peak_31.jpg', username: 'Yara', verified: true, max: 520, min: 52 },
+                    { pfp: 'Assets/NFT_sneak_peak_32.jpg', username: 'Zane', verified: false, max: 280, min: 28 },
+                    { pfp: 'Assets/NFT_sneak_peak_33.jpg', username: 'Amy', verified: true, max: 560, min: 56 },
+                    { pfp: 'Assets/NFT_sneak_peak_34.jpg', username: 'Brian', verified: true, max: 600, min: 60 },
+                    { pfp: 'Assets/NFT_sneak_peak_35.jpg', username: 'Cathy', verified: false, max: 240, min: 24 }
+                ]
+            },
+            XRP: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_36.jpg', username: 'Derek', verified: true, max: 350, min: 35 },
+                    { pfp: 'Assets/NFT_sneak_peak_37.jpg', username: 'Ella', verified: false, max: 315, min: 31.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_38.jpg', username: 'Frank', verified: true, max: 385, min: 38.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_39.jpg', username: 'Gina', verified: true, max: 420, min: 42 },
+                    { pfp: 'Assets/NFT_sneak_peak_40.jpg', username: 'Hank', verified: false, max: 280, min: 28 },
+                    { pfp: 'Assets/NFT_sneak_peak_36.jpg', username: 'Ivy', verified: true, max: 455, min: 45.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_37.jpg', username: 'Jack', verified: false, max: 245, min: 24.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_38.jpg', username: 'Karen', verified: true, max: 490, min: 49 },
+                    { pfp: 'Assets/NFT_sneak_peak_39.jpg', username: 'Leo', verified: true, max: 525, min: 52.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_40.jpg', username: 'Mia', verified: false, max: 210, min: 21 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_36.jpg', username: 'Nina', verified: true, max: 350, min: 35 },
+                    { pfp: 'Assets/NFT_sneak_peak_37.jpg', username: 'Oscar', verified: false, max: 315, min: 31.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_38.jpg', username: 'Paula', verified: true, max: 385, min: 38.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_39.jpg', username: 'Quinn', verified: true, max: 420, min: 42 },
+                    { pfp: 'Assets/NFT_sneak_peak_40.jpg', username: 'Rita', verified: false, max: 280, min: 28 },
+                    { pfp: 'Assets/NFT_sneak_peak_36.jpg', username: 'Sam', verified: true, max: 455, min: 45.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_37.jpg', username: 'Tina', verified: false, max: 245, min: 24.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_38.jpg', username: 'Uma', verified: true, max: 490, min: 49 },
+                    { pfp: 'Assets/NFT_sneak_peak_39.jpg', username: 'Vince', verified: true, max: 525, min: 52.5 },
+                    { pfp: 'Assets/NFT_sneak_peak_40.jpg', username: 'Wendy', verified: false, max: 210, min: 21 }
+                ]
+            },
+            DOGE: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_41.jpg', username: 'Xavier', verified: true, max: 800, min: 80 },
+                    { pfp: 'Assets/NFT_sneak_peak_42.jpg', username: 'Yvonne', verified: false, max: 720, min: 72 },
+                    { pfp: 'Assets/NFT_sneak_peak_43.jpg', username: 'Zack', verified: true, max: 880, min: 88 },
+                    { pfp: 'Assets/NFT_sneak_peak_44.jpg', username: 'Amy', verified: true, max: 960, min: 96 },
+                    { pfp: 'Assets/NFT_sneak_peak_45.jpg', username: 'Brian', verified: false, max: 640, min: 64 },
+                    { pfp: 'Assets/NFT_sneak_peak_41.jpg', username: 'Cathy', verified: true, max: 1040, min: 104 },
+                    { pfp: 'Assets/NFT_sneak_peak_42.jpg', username: 'Derek', verified: false, max: 560, min: 56 },
+                    { pfp: 'Assets/NFT_sneak_peak_43.jpg', username: 'Ella', verified: true, max: 1120, min: 112 },
+                    { pfp: 'Assets/NFT_sneak_peak_44.jpg', username: 'Frank', verified: true, max: 1200, min: 120 },
+                    { pfp: 'Assets/NFT_sneak_peak_45.jpg', username: 'Grace', verified: false, max: 480, min: 48 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_41.jpg', username: 'Hank', verified: true, max: 800, min: 80 },
+                    { pfp: 'Assets/NFT_sneak_peak_42.jpg', username: 'Ivy', verified: false, max: 720, min: 72 },
+                    { pfp: 'Assets/NFT_sneak_peak_43.jpg', username: 'Jack', verified: true, max: 880, min: 88 },
+                    { pfp: 'Assets/NFT_sneak_peak_44.jpg', username: 'Karen', verified: true, max: 960, min: 96 },
+                    { pfp: 'Assets/NFT_sneak_peak_45.jpg', username: 'Leo', verified: false, max: 640, min: 64 },
+                    { pfp: 'Assets/NFT_sneak_peak_41.jpg', username: 'Mia', verified: true, max: 1040, min: 104 },
+                    { pfp: 'Assets/NFT_sneak_peak_42.jpg', username: 'Nina', verified: false, max: 560, min: 56 },
+                    { pfp: 'Assets/NFT_sneak_peak_43.jpg', username: 'Oscar', verified: true, max: 1120, min: 112 },
+                    { pfp: 'Assets/NFT_sneak_peak_44.jpg', username: 'Paula', verified: true, max: 1200, min: 120 },
+                    { pfp: 'Assets/NFT_sneak_peak_45.jpg', username: 'Quincy', verified: false, max: 480, min: 48 }
+                ]
+            },
+            LTC: {
+                buy: [
+                    { pfp: 'Assets/NFT_sneak_peak_46.jpg', username: 'Rita', verified: true, max: 900, min: 90 },
+                    { pfp: 'Assets/NFT_sneak_peak_47.jpg', username: 'Sam', verified: false, max: 810, min: 81 },
+                    { pfp: 'Assets/NFT_sneak_peak_48.jpg', username: 'Tina', verified: true, max: 990, min: 99 },
+                    { pfp: 'Assets/NFT_sneak_peak_49.jpg', username: 'Uma', verified: true, max: 1080, min: 108 },
+                    { pfp: 'Assets/NFT_sneak_peak_50.jpg', username: 'Vince', verified: false, max: 720, min: 72 },
+                    { pfp: 'Assets/NFT_sneak_peak_46.jpg', username: 'Wendy', verified: true, max: 1170, min: 117 },
+                    { pfp: 'Assets/NFT_sneak_peak_47.jpg', username: 'Xander', verified: false, max: 630, min: 63 },
+                    { pfp: 'Assets/NFT_sneak_peak_48.jpg', username: 'Yara', verified: true, max: 1260, min: 126 },
+                    { pfp: 'Assets/NFT_sneak_peak_49.jpg', username: 'Zane', verified: true, max: 1350, min: 135 },
+                    { pfp: 'Assets/NFT_sneak_peak_50.jpg', username: 'Amy', verified: false, max: 540, min: 54 }
+                ],
+                sell: [
+                    { pfp: 'Assets/NFT_sneak_peak_46.jpg', username: 'Brian', verified: true, max: 900, min: 90 },
+                    { pfp: 'Assets/NFT_sneak_peak_47.jpg', username: 'Cathy', verified: false, max: 810, min: 81 },
+                    { pfp: 'Assets/NFT_sneak_peak_48.jpg', username: 'Derek', verified: true, max: 990, min: 99 },
+                    { pfp: 'Assets/NFT_sneak_peak_49.jpg', username: 'Ella', verified: true, max: 1080, min: 108 },
+                    { pfp: 'Assets/NFT_sneak_peak_50.jpg', username: 'Fiona', verified: false, max: 720, min: 72 },
+                    { pfp: 'Assets/NFT_sneak_peak_46.jpg', username: 'George', verified: true, max: 1170, min: 117 },
+                    { pfp: 'Assets/NFT_sneak_peak_47.jpg', username: 'Hannah', verified: false, max: 630, min: 63 },
+                    { pfp: 'Assets/NFT_sneak_peak_48.jpg', username: 'Ian', verified: true, max: 1260, min: 126 },
+                    { pfp: 'Assets/NFT_sneak_peak_49.jpg', username: 'Jenna', verified: true, max: 1350, min: 135 },
+                    { pfp: 'Assets/NFT_sneak_peak_50.jpg', username: 'Kyle', verified: false, max: 540, min: 54 }
+                ]
+            }
+            // Add more chains as needed
+        };
+
+        let currentTradeType = 'buy'; // 'buy' or 'sell'
+        let currentChain = 'BTC'; // Default chain
+
+        // Handle Join P2P Trading Form Submission
+        joinForm.onsubmit = function(event) {
+            event.preventDefault();
+            // Capture user data (You can expand this to store user data as needed)
+            const username = document.getElementById('username').value.trim();
+            const paymentMethods = document.getElementById('paymentMethods').value.trim();
+            const currency = document.getElementById('currency').value.trim();
+
+            if (username && paymentMethods && currency) {
+                alert(`Welcome, ${username}! You have successfully joined P2P Trading.`);
+                // Hide registration section and show main interface
+                registrationSection.style.display = 'none';
+                mainInterface.style.display = 'block';
+                // Automatically select Buy as default and display P2P Listings
+                buyToggle.classList.add('active');
+                sellToggle.classList.remove('active');
+                currentTradeType = 'buy';
+                showP2PListings(currentChain, currentTradeType);
+            } else {
+                alert('Please fill out all fields to join P2P Trading.');
+            }
+        };
+
+        // Toggle Buy and Sell Buttons
+        buyToggle.onclick = () => {
+            if (currentTradeType !== 'buy') {
+                buyToggle.classList.add('active');
+                sellToggle.classList.remove('active');
+                currentTradeType = 'buy';
+                showP2PListings(currentChain, currentTradeType);
+            }
+        };
+
+        sellToggle.onclick = () => {
+            if (currentTradeType !== 'sell') {
+                sellToggle.classList.add('active');
+                buyToggle.classList.remove('active');
+                currentTradeType = 'sell';
+                showP2PListings(currentChain, currentTradeType);
+            }
+        };
+
+        // Display P2P Listings Based on Selected Chain and Trade Type
+        function showP2PListings(chain, tradeType) {
+            p2pListings.innerHTML = '';
+            const listings = sampleListings[chain][tradeType];
+            if (!listings || listings.length === 0) {
+                p2pListings.innerHTML = '<p>No traders available for this selection.</p>';
+                return;
+            }
+            listings.forEach(trader => {
+                const traderCard = document.createElement('div');
+                traderCard.classList.add('trader-card');
+                traderCard.innerHTML = `
+                    <div class="trader-info">
+                        <img src="${trader.pfp}" alt="${trader.username}" loading="lazy">
+                        <div class="trader-details">
+                            <div class="username">${trader.username}</div>
+                            <div class="verified">
+                                ${trader.verified ? '<i class="fas fa-check-circle"></i>' : ''}
+                                ${trader.verified ? 'Verified' : 'Unverified'}
+                            </div>
+                            <div class="trade-volume">Max: ${trader.max} | Min: ${trader.min}</div>
+                        </div>
+                    </div>
+                    <button class="trade-button ${tradeType === 'buy' ? 'buy-btn' : 'sell-btn'}">${tradeType === 'buy' ? 'Buy' : 'Sell'}</button>
+                `;
+                p2pListings.appendChild(traderCard);
+            });
+        }
+
+        // Handle Chain Selection
+        document.getElementById('chainSelector').addEventListener('click', function(event) {
+            if (event.target.classList.contains('chain')) {
+                // Remove 'selected' class from all chains
+                document.querySelectorAll('.chain').forEach(chain => {
+                    chain.classList.remove('selected');
+                });
+                // Add 'selected' class to clicked chain
+                event.target.classList.add('selected');
+                currentChain = event.target.dataset.chain;
+                // Display listings for the selected chain and current trade type
+                showP2PListings(currentChain, currentTradeType);
+            }
+        });
+
+        // Scroll Functions
+        window.scrollAccounts = function(direction) {
+            const container = document.getElementById("accountScroll");
+            container.scrollBy({
+                top: 0,
+                left: direction * 150, // Adjust scroll amount as needed
+                behavior: 'smooth'
+            });
+        };
+
+        window.scrollChains = function(direction) {
+            const container = document.getElementById("chainSelector");
+            container.scrollBy({
+                top: 0,
+                left: direction * 150, // Adjust scroll amount as needed
+                behavior: 'smooth'
+            });
+        };
+
+        window.scrollLive = function(direction) {
+            const container = document.getElementById("liveScroll");
+            container.scrollBy({
+                top: 0,
+                left: direction * 100, // Adjust scroll amount as needed
+                behavior: 'smooth'
+            });
+        };
+
+        // Add Post Popup Functionality
+        addPostBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling up
+            postInputPopup.classList.toggle('hidden');
+            goLivePopup.classList.add('hidden'); // Ensure Go Live popup is hidden
+        });
+
+        goLiveBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling up
+            goLivePopup.classList.toggle('hidden');
+            postInputPopup.classList.add('hidden'); // Ensure Post Input popup is hidden
+        });
+
+        // Close popups when clicking outside
+        window.addEventListener('click', (event) => {
+            if (!postInputPopup.contains(event.target) && !addPostBtn.contains(event.target)) {
+                postInputPopup.classList.add('hidden');
+            }
+            if (!goLivePopup.contains(event.target) && !goLiveBtn.contains(event.target)) {
+                goLivePopup.classList.add('hidden');
+            }
+        });
+
+        // Handle Post Submission
+        postSubmitBtn.addEventListener('click', () => {
+            const postText = postTextInput.value.trim();
+            if (postText !== "") {
+                // For demonstration, simply alerting the post
+                alert(`New Post: ${postText}`);
+                // Clear the textarea and hide the popup
+                postTextInput.value = "";
+                postInputPopup.classList.add('hidden');
+            }
+        });
+
+        // Handle Trade Button Clicks
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('trade-button')) {
+                const action = event.target.textContent;
+                const traderCard = event.target.closest('.trader-card');
+                const username = traderCard.querySelector('.username').textContent;
+                const tradeType = action.toLowerCase();
+                alert(`${tradeType === 'buy' ? 'Buying from' : 'Selling to'} ${username}`);
+            }
+        });
+
+        // Theme Switcher Functionality
+        const themeSwitcher = document.getElementById('theme-switcher');
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            if (document.body.classList.contains('light-theme')) {
+                themeSwitcher.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                themeSwitcher.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+        });
+    });
+</script> 
+</body>
+</html>

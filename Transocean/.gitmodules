@@ -1,0 +1,6 @@
+[submodule "FE-PortTrack"]
+	path = FE-PortTrack
+	url = https://github.com/WeTranscend-labs/FE-PortTrack.git
+[submodule "SC-PortTrack"]
+	path = SC-PortTrack
+	url = https://github.com/WeTranscend-labs/SC-PortTrack.git

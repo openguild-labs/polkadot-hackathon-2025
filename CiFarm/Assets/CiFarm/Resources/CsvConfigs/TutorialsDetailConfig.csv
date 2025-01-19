@@ -1,0 +1,119 @@
+ID	Type	Localization	Details	CharacterId	TargetClickType	TargetClickId	TargetImageId	AllowSave	Note	Art	Art
+1	PopupMessage	_Tutorial	Oh, hello! Guess who we have here!	normal				TRUE	PopupMessage: hiển thị popup text PopupMessageImage ActionClick: req người chơi hành động Input:req người chơi input	Biểu cảm xin chào, thân thiện. tay phải xin chào (I)	Done
+2	PopupMessage	_Tutorial	Who am I? I'm Lumi, the one who watches over this land	normal				TRUE		I	
+3	PopupMessage	_Tutorial	At the request of your grandmother, I will now hand over this land to you; it is her most treasured possession	normal				TRUE		I	
+4	PopupMessage	_Tutorial	You've never tried farming before, have you? Now, I'll help you with a few basic steps	normal				TRUE		I	
+5	PopupMessage	_Tutorial	Now, let's go to the shop and buy some seeds to try	shopping				TRUE		Biểu cảm hơi mệt, 2 tay bê cái giỏ hàng mua hạt giống, hơi nặng trĩu 1 xíu (tham khảo hạt giống của chị Đài) (II)	wip
+6	ActionClick	_Tutorial	Click shop button			MarketBtn		TRUE		II	
+7	PopupMessage	_Tutorial	This is the seed shop. You can see its description information	shopping						II	
+8	PopupMessage	_Tutorial	 Each type of seed will have a different growth time, and plants will go through a total of 5 growth stages	shopping						II	
+9	PopupMessage	_Tutorial	Try clicking to buy one seed	shopping						II	
+10	ActionClick	_Tutorial	Click buy			CarrotBuyItemBtn				Biểu cảm vui vẻ, đang mở balo. (III)	
+11	PopupMessage	_Tutorial	Congratulations! You've successfully purchased it. Now, please check your inventory	happyBackpack						II	
+12	ActionClick	_Tutorial	Click close		UIObject	CloseShopButton				III	
+13	ActionClick	_Tutorial	Click inventory		UIObject	InventoryBtn		TRUE		III	
+14	PopupMessage	_Tutorial	Here's the seed you just purchased. Now, let's start planting it!	farming						Biểu cảm hơi mệt 1 xíu, đang cầm cuốc  trồng cây. (IV)	
+15	ActionClick	_Tutorial	Click Close		UIObject	CloseInventoryBtn				IV	
+16	ActionClick	_Tutorial	Click Empty tile		GameObject	EmptyTile				IV	
+17	ActionClick	_Tutorial	Click Carrot		UIObject	carrotItem				IV	
+18	PopupMessage	_Tutorial	That's it! Now you can click on the plant to check when it will grow	farming				TRUE		IV	
+19	PopupMessage	_Tutorial	 It will show the time it will take for the plant to grow to the next stage.	farming			GrowPlant	TRUE		IV	
+20	PopupMessage	_Tutorial	Because the plant may need watering, if you don't water it, the plant will stop growing	watering			WaterPlant	TRUE		Biểu cảm vẻ vẻ đang tưới nước (Tham khảo bình tưới chị đài)	
+21	PopupMessage	_Tutorial	Sometimes, the plant may also get infected 	infected			InfectedPlant	TRUE		Biểu cảm vẻ vẻ đang cầm bình thuốc trừ sâu (Tham khải bình thuốc trừ sâu c đài)	
+22	PopupMessage	_Tutorial	Or weeds	weeds			WeedsPlant	TRUE		Biểu cảm vẻ vẻ đang cầm bình thuốc diệt cỏ (Tham khải bình diệt cỏ sâu c đài)	
+23	PopupMessage	_Tutorial	The plant will continue to grow, but if not treated in time, it will affect the yield	goodbye				TRUE		Biểu cảm vui vẻ, trung lập	
+24	PopupMessage	_Tutorial	That's it! Now, please continue with your farming. I have a little errand to run, bye bye ~ <3	goodbye				TRUE		Biểu cảm vui vẻ, chào tạm biệt	
+25											
+26											
+27											
+28											
+29											
+30											
+31											
+32											
+33											
+34											
+35											
+36											
+37											
+38											
+39											
+40											
+41											
+42											
+43											
+44											
+45											
+46											
+47											
+48											
+49											
+50											
+51											
+52											
+53											
+54											
+55											
+56											
+57											
+58											
+59											
+60											
+61											
+62											
+63											
+64											
+65											
+66											
+67											
+68											
+69											
+70											
+71											
+72											
+73											
+74											
+75											
+76											
+77											
+78											
+79											
+80											
+81											
+82											
+83											
+84											
+85											
+86											
+87											
+88											
+89											
+90											
+91											
+92											
+93											
+94											
+95											
+96											
+97											
+98											
+99											
+100											
+101											
+102											
+103											
+104											
+105											
+106											
+107											
+108											
+109											
+110											
+111											
+112											
+113											
+114											
+115											
+116											
+117											
+118											

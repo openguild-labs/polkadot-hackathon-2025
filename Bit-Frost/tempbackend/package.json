@@ -1,0 +1,43 @@
+{
+  "name": "tempbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start-server": "node --loader ts-node/esm src/server.ts",
+    "start-watcher": "node --loader ts-node/esm src/watcher/watcher.ts",
+    "dev-server": "nodemon --exec node --loader ts-node/esm src/server.ts",
+    "dev-watcher": "nodemon --exec node --loader ts-node/esm src/watcher/watcher.ts",
+    "export-env": "# export $(cat .env | xargs)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "axios": "^1.7.2",
+    "bip32": "^4.0.0",
+    "bitcoinjs-lib": "^6.1.6",
+    "cors": "^2.8.5",
+    "ecpair": "^2.1.0",
+    "ethers": "^6.13.1",
+    "express": "^4.19.2",
+    "fhenixjs": "^0.4.0-alpha.0",
+    "node-seal": "^5.1.4",
+    "reflect-metadata": "^0.2.2",
+    "secp256k1": "^5.0.0",
+    "sqlite3": "^5.1.7",
+    "tiny-secp256k1": "^2.2.3",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.5.2",
+    "web3-utils": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/secp256k1": "^4.0.6",
+    "nodemon": "^3.1.4"
+  }
+}

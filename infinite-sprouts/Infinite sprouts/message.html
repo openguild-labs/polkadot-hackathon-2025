@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="right.css">
+    <link rel="stylesheet" href="message.css">
+
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main class="chat-main">
+        <div class="chat-container">
+            <div class="center_section_header">
+                <div class="section-tabs">
+                    <button class="tab active" onclick="switchSection('dmSection')">
+                        <span class="icon">💬</span>Messages
+                    </button>
+                    <button class="tab" onclick="switchSection('messageRequestSection')">
+                        <span class="icon">📩</span> Message Requests
+                    </button>
+                    <button class="tab" onclick="switchSection('friendRequestSection')">
+                        <span class="icon">👥</span> Friend Requests
+                    </button>
+                </div>
+                
+                <div class="icon-group">
+                    <!-- Notifications Icon -->
+                    <div class="icon-container" data-dropdown="notifications">
+                        <i class="fas fa-bell"></i>
+                        <div class="dropdown-content" id="notifications">
+                            <h3>Notifications</h3>
+                            <div class="notification-item">
+                                <p>Your profile has been updated successfully.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Support Icon -->
+                    <div class="icon-container" data-dropdown="support">
+                        <i class="fas fa-headset"></i>
+                        <div class="dropdown-content" id="support">
+                            <h3>Support</h3>
+                            <p>Reach us at support@domain.com.</p>
+                        </div>
+                    </div>
+                
+                    <!-- Notepad Icon -->
+                    <div class="icon-container" data-dropdown="notepad">
+                        <i class="fas fa-edit" id="notepadIcon"></i>
+                        <div class="dropdown-content" id="notepadDropdown">
+                            <button class="close-button">✖</button>
+                            <h3>Notepad</h3>
+                            
+                            <!-- Note Management Panel -->
+                            <div class="note-management">
+                                <input type="text" id="noteTitle" placeholder="Title your note" />
+                                <textarea id="noteContent" placeholder="Write your note here..." rows="5"></textarea>
+                                <div class="note-actions">
+                                    <button id="saveNoteBtn">Save Note</button>
+                                    <button id="editNoteBtn" style="display: none;">Edit Note</button>
+                                    <button id="deleteNoteBtn" style="display: none;">Delete Note</button>
+                                </div>
+                            </div>
+                
+                            <!-- Tagging Section -->
+                            <div class="tags-section">
+                                <input type="text" id="noteTags" placeholder="Add tags (comma separated)" />
+                            </div>
+                
+                            <!-- Notes List and Search -->
+                            <div class="notes-list">
+                                <input type="text" id="searchNotes" placeholder="Search notes..." />
+                                <ul id="notesList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs for Sections -->
+            <!-- DM Section -->
+            <div id="dmSection" class="section visible">
+                <div class="friend-list">
+                    <div class="friend-item" onclick="openChat('AI Assistant', 'Welcome! How can I assist you?')">
+                        <div class="avatar">A</div>
+                        <div class="friend-info">
+                            <h3>AI Assistant</h3>
+                            <p>Welcome! How can I assist you?</p>
+                        </div>
+                    </div>
+                    <div class="friend-item" onclick="openChat('John Doe', 'Hey! Long time no chat.')">
+                        <div class="avatar">J</div>
+                        <div class="friend-info">
+                            <h3>John Doe</h3>
+                            <p>Hey! Long time no chat.</p>
+                        </div>
+                    </div>
+                    <div class="friend-item" onclick="openChat('Sarah Lee', 'Let\'s catch up soon.')">
+                        <div class="avatar">S</div>
+                        <div class="friend-info">
+                            <h3>Sarah Lee</h3>
+                            <p>Let's catch up soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Message Requests Section -->
+            <div id="messageRequestSection" class="section">
+                <div class="request-list">
+                    <div class="request-item">
+                        <div class="avatar">M</div>
+                        <div class="request-info">
+                            <h3>Mark Watson</h3>
+                            <p>Can we connect?</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept" onclick="acceptRequest('Mark Watson')">Accept</button>
+                            <button class="reject" onclick="rejectRequest('Mark Watson')">Reject</button>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <div class="avatar">K</div>
+                        <div class="request-info">
+                            <h3>Katie Brown</h3>
+                            <p>Hi, I’d like to chat!</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept" onclick="acceptRequest('Katie Brown')">Accept</button>
+                            <button class="reject" onclick="rejectRequest('Katie Brown')">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Friend Requests Section -->
+            <div id="friendRequestSection" class="section">
+                <div class="request-list">
+                    <div class="request-item">
+                        <div class="avatar">P</div>
+                        <div class="request-info">
+                            <h3>Peter Parker</h3>
+                            <p>Wants to be friends.</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept" onclick="acceptRequest('Peter Parker')">Accept</button>
+                            <button class="reject" onclick="rejectRequest('Peter Parker')">Reject</button>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <div class="avatar">L</div>
+                        <div class="request-info">
+                            <h3>Laura Smith</h3>
+                            <p>Wants to connect.</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept" onclick="acceptRequest('Laura Smith')">Accept</button>
+                            <button class="reject" onclick="rejectRequest('Laura Smith')">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Dynamic Chat Sections (Opens a new section for each friend) -->
+        <div id="activeChatsContainer"></div>
+    </main>
+      
+    
+            <!-- Message Requests Section -->
+            <div id="messageRequestSection" class="section">
+                <div class="request-list">
+                    <div class="request-item">
+                        <div class="avatar">M</div>
+                        <div class="request-info">
+                            <h3>Mark Watson</h3>
+                            <p>Can we connect?</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept">Accept</button>
+                            <button class="reject">Reject</button>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <div class="avatar">K</div>
+                        <div class="request-info">
+                            <h3>Katie Brown</h3>
+                            <p>Hi, I’d like to chat!</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept">Accept</button>
+                            <button class="reject">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Friend Requests Section -->
+            <div id="friendRequestSection" class="section">
+                <div class="request-list">
+                    <div class="request-item">
+                        <div class="avatar">P</div>
+                        <div class="request-info">
+                            <h3>Peter Parker</h3>
+                            <p>Wants to be friends.</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept">Accept</button>
+                            <button class="reject">Reject</button>
+                        </div>
+                    </div>
+                    <div class="request-item">
+                        <div class="avatar">L</div>
+                        <div class="request-info">
+                            <h3>Laura Smith</h3>
+                            <p>Wants to connect.</p>
+                        </div>
+                        <div class="request-actions">
+                            <button class="accept">Accept</button>
+                            <button class="reject">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Dynamic Chat Section (Opens a new section for each friend) -->
+        <div id="activeChatsContainer"></div>
+    </main>
+    
+        
+     <!-- Right Section -->
+    <div class="right_section">
+            <div class="charts-container">
+                <div class="chart">
+                    <h3>Total Growth</h3>
+                    <canvas id="totalGrowthChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Staking/Investment Growth</h3>
+                    <canvas id="stakingGrowthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="charts.js"></script>
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+<script src="main.js"></script>
+<script src="ai.js"></script>
+<script src="message.js"></script>
+</html>

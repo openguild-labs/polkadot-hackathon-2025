@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a1d35872485da2747bdad852793b1d93
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Example/Main Example/SampleSceneSettings.lighting
+  uploadId: 683247

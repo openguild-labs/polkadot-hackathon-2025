@@ -1,0 +1,8 @@
+/Users/aniruddhdubge/icantcodefyi/hackathons/ethindia2024/backend/polkadot/target/ink/release/deps/libderive_syn_parse-6a1a1e0826caea5e.dylib: /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/lib.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/error_macros.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/fields.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/variants.rs
+
+/Users/aniruddhdubge/icantcodefyi/hackathons/ethindia2024/backend/polkadot/target/ink/release/deps/derive_syn_parse-6a1a1e0826caea5e.d: /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/lib.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/error_macros.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/fields.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/variants.rs
+
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/lib.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/error_macros.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/fields.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/derive-syn-parse-0.2.0/src/variants.rs:

@@ -1,0 +1,75 @@
+$color-light-2: theme('colors.support.black');
+$color-grey-2: theme('colors.typo.secondary');
+$color-primary-1: theme('colors.background.secondary');
+$color-white: theme('colors.typo.accent');
+
+/* Rounded sliders */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  input {
+   
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-light-2;
+  border: 1px solid #3f3f3f;
+  transition: all 0.3s ease-out;
+  // -webkit-transition: 0.3s;
+  // transition: 0.3s;
+  &:before {
+    position: absolute;
+    content: '';
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: $color-grey-2;
+    // -webkit-transition: 0.3s;
+    // transition: 0.3s;
+    transition: all 0.3s ease-out;
+  }
+}
+input {
+  &:checked {
+    + {
+      .slider {
+        background-color: $color-primary-1;
+        border: 1px solid $color-white;
+        transition: all -0.3s ease-out;
+        &:before {
+          transition: all -0.3s ease-out;
+          background-color: $color-white;
+          -webkit-transform: translateX(20px);
+          -ms-transform: translateX(20px);
+          transform: translate(20px, -50%);
+        }
+      }
+    }
+  }
+  // &:focus {
+  //   + {
+  //     .slider {
+  //       box-shadow: 0 0 1px $color-white;
+  //     }
+  //   }
+  // }
+}
+.slider.round {
+  border-radius: 34px;
+  &:before {
+    border-radius: 50%;
+  }
+}

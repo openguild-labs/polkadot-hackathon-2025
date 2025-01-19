@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 267 84% 81%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 10% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 25%;
+    --muted-foreground: 240 5% 84.9%;
+    --accent: 267 84% 81%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 267 84% 81%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+.blob-button {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blob-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.blob-button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}

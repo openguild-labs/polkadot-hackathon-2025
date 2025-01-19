@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2328878227380581963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2316685567340283097}
+  - component: {fileID: 7447802685226811611}
+  - component: {fileID: 1602844812581178767}
+  - component: {fileID: 6616302030822056925}
+  - component: {fileID: 1483126429237669449}
+  - component: {fileID: 8515697114261210811}
+  - component: {fileID: 6693157797563031162}
+  - component: {fileID: 7705744654907592501}
+  - component: {fileID: 3112657604779473215}
+  - component: {fileID: 374563676962013783}
+  - component: {fileID: 8306669354461030226}
+  - component: {fileID: 4256745325057689916}
+  - component: {fileID: 4715894180058677029}
+  m_Layer: 0
+  m_Name: NakamaService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2316685567340283097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7447802685226811611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054d476c5d0c4a34fb37204ae629edea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useLocal: 0
+  useHttps: 1
+  host: cifarm.server.starci.net
+  port: 443
+  serverKey: defaultkey
+  testChainKey: 0
+  testAccountNumber: 18
+  authenticated: 0
+--- !u!114 &1602844812581178767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e91cdc0f4fe84a85ef17ecd46714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crops: []
+  tiles: []
+  animals: []
+  buildings: []
+--- !u!114 &6616302030822056925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983feb88ef01db84d95b7e887adad167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugPlacedItems: 1
+  placedItems: []
+  playerStats:
+    key: 
+    levelInfo:
+      experiences: 0
+      experienceQuota: 0
+      level: 0
+    tutorialInfo:
+      tutorialIndex: 0
+      stepIndex: 0
+    energyInfo:
+      currentEnergy: 0
+      maxEnergy: 0
+      energyQuota: 0
+      recoveryTimeCount: 0
+    invites: 
+  nextDeliveryTime: 0
+--- !u!114 &1483126429237669449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b59beb1c67bdb74aaef4b7d9ac062ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8515697114261210811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9882119fc2e0f014991903965ee15156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userId: 
+  username: 
+  displayName: 
+  avatarUrl: 
+  metadata:
+    key: 
+    accountAddress: 
+    chainKey: 
+    network: 
+    telegramData:
+      userId: 0
+  playerStats:
+    key: 
+    levelInfo:
+      experiences: 0
+      experienceQuota: 0
+      level: 0
+    tutorialInfo:
+      tutorialIndex: 0
+      stepIndex: 0
+    energyInfo:
+      currentEnergy: 0
+      maxEnergy: 0
+      energyQuota: 0
+      recoveryTimeCount: 0
+    invites: 
+  golds: 0
+  inventoryPage: 0
+  inventories: []
+  playerTools: []
+--- !u!114 &6693157797563031162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ff6a6bb8dc6824fa5875dcc1853e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deliveringProducts: []
+--- !u!114 &7705744654907592501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a27584c2629154aa4cd1c26096e7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchUsers: []
+  visitUserId: 
+  randomUser:
+    userId: 
+    username: 
+--- !u!114 &3112657604779473215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bc44b9ae652da4b8ed1e074c6e47fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &374563676962013783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74022c9a680455ab496165ad72e1e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8306669354461030226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddae6aed3ab44119b4cb6660ec2ccf35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4256745325057689916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf3fd57063e2ce4996e3f24b3bc0718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activities:
+    key: 
+    water:
+      experiencesGain: 0
+      energyCost: 0
+    feedAnimal:
+      experiencesGain: 0
+      energyCost: 0
+    usePestiside:
+      experiencesGain: 0
+      energyCost: 0
+    useFertilizer:
+      experiencesGain: 0
+      energyCost: 0
+    useHerbicide:
+      experiencesGain: 0
+      energyCost: 0
+    helpUseHerbicide:
+      experiencesGain: 0
+      energyCost: 0
+    helpUsePestiside:
+      experiencesGain: 0
+      energyCost: 0
+    helpWater:
+      experiencesGain: 0
+      energyCost: 0
+    thiefCrop:
+      experiencesGain: 0
+      energyCost: 0
+    helpFeedAnimal:
+      experiencesGain: 0
+      energyCost: 0
+    thiefAnimalProduct:
+      experiencesGain: 0
+      energyCost: 0
+  rewards:
+    key: 
+    fromInvites:
+      key: 
+      metrics:
+        _serializedList: []
+    referred: 0
+  cropRandomness:
+    key: 
+    theif3: 0
+    theif2: 0
+    needWater: 0
+    isWeedyOrInfested: 0
+  tokenConfigure:
+    key: 
+    decimals: 0
+  starterConfigure:
+    key: 
+    goldAmount: 0
+  spinConfigure:
+    key: 
+    spinPrice: 0
+    freeSpinTime: 0
+--- !u!114 &4715894180058677029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328878227380581963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339d1d21c9deab847ba431c342e352b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dailyRewards: []
+  spins: []

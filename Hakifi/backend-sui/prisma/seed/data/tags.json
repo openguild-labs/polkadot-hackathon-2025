@@ -1,0 +1,102 @@
+[
+    {
+      "id": 1,
+      "name": "Layer 1",
+      "description": "Layer 1s are the foundation level of a blockchain. They are the main chain of the network, where blocks are added and transactions are finalized."
+    },
+    {
+      "id": 2,
+      "name": "Layer 2",
+      "description": "Layer 2s are off-chain vertical scaling solutions that run on top of Layer 1 blockchains like Ethereum to improve scalability, while maintaining the decentralization and security standards of the Layer 1."
+    },
+    {
+      "id": 3,
+      "name": "Dex",
+      "description": "Decentralized exchanges, or DEXs, allow users to trade with one another in a permissionless manner and without any intermediaries. As long as someone provides liquidity, anyone can purchase and sell that token on the exchange."
+    },
+    {
+      "id": 4,
+      "name": "Storage",
+      "description": "Storage protocols allow users to store their data on the blockchain network in a decentralized manner."
+    },
+    {
+      "id": 5,
+      "name": "Gaming",
+      "description": "Video games that are administered with or built in part using blockchain technology."
+    },
+    {
+      "id": 6,
+      "name": "Wallet",
+      "description": "A crypto wallet is a way to manage, secure, and use cryptocurrencies such as Bitcoin and Ethereum and other digital assets based on a blockchain."
+    },
+    {
+      "id": 7,
+      "name": "NFT",
+      "description": "Non-fungible tokens, or NFTs, are collectible elements within the Ethereum blockchain that usually follow the ERC-721 or ERC-1155 standard. They represent something unique and therefore are not mutually interchangeable."
+    },
+    {
+      "id": 8,
+      "name": "Audit",
+      "description": "Blockchain auditing is the process of evaluating a blockchain's security, functionality, and compliance with industry standards."
+    },
+    {
+      "id": 9,
+      "name": "Pow",
+      "description": "Proof-of-work (PoW) is a blockchain consensus mechanism that incentivizes network validation by rewarding miners for adding computational power and difficulty to the network."
+    },
+    {
+      "id": 10,
+      "name": "Pos",
+      "description": "Proof-of-stake is a cryptocurrency consensus mechanism for processing transactions and creating new blocks in a blockchain."
+    },
+    {
+      "id": 11,
+      "name": "Metaverse",
+      "description": "The metaverse refers to a digital world where participants can interact with each other in a shared virtual reality."
+    },
+    {
+      "id": 12,
+      "name": "Lending/Borrowing",
+      "description": "Protocols that allow users to offer crypto loans by staking their assets in them without the need for a bank account."
+    },
+    {
+      "id": 13,
+      "name": "Defi",
+      "description": "Decentralized Finance refers to financial services that are built on top of distributed networks with no central intermediaries."
+    },
+    {
+      "id": 14,
+      "name": "Payment",
+      "description": "Blockchain payment systems are decentralized structures employing blockchain technology to facilitate secure, direct transactions devoid of intermediaries."
+    },
+    {
+      "id": 15,
+      "name": "LSD",
+      "description": "Liquid Staking Derivative (LSD) Network is an opportunity to connect liquidity to node operators, built on top of the Stakehouse Protocol."
+    },
+    {
+      "id": 16,
+      "name": "Web 3",
+      "description": "Web3 is a term used to describe the next iteration of the internet, one that is built on blockchain technology and is communally controlled by its users."
+    },
+    {
+      "id": 17,
+      "name": "DAO",
+      "description": "A decentralized autonomous organization (DAO) is a management structure that uses blockchain technology to automate some aspects of voting and transaction processing."
+    },
+    {
+      "id": 18,
+      "name": "Oracles",
+      "description": "Oracles are used by protocols in their smart contracts in order to obtain external data."
+    },
+    {
+      "id": 19,
+      "name": "IoT",
+      "description": "The Internet of Things (IoT) ecosystem consists of interconnected computing devices, with the ability to transfer data over a network without the need for any human interaction."
+    },
+    {
+      "id": 20,
+      "name": "Privacy",
+      "description": "Privacy coins are cryptocurrencies which allow users to conduct transactions privately and anonymously."
+    }
+  ]

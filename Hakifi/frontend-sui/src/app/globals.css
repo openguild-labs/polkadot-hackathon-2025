@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+}
+
+@layer base {
+  /* Basic */
+  body::-webkit-scrollbar {
+    display: none !important;
+    margin-right: 0 !important;
+  }
+  /* Track */
+  body::-webkit-scrollbar-track {
+  }
+
+  /* Handle */
+  body::-webkit-scrollbar-thumb {
+  }
+}
+
+@layer components {
+  /*
+    Typography
+  */
+
+  /* Heading */
+  .text-heading-1 {
+    @apply text-[88px] font-normal leading-[88px] tracking-[5.28px] font-determination;
+  }
+  .text-heading-2 {
+    @apply text-[48px] font-normal leading-[48px] tracking-[2.88px] font-determination;
+  }
+  .text-heading-3 {
+    @apply text-[28px] font-normal leading-[42px] tracking-[1.68px] font-determination;
+  }
+  .text-heading-4 {
+    @apply text-[20px] font-normal leading-[31.2px] tracking-[1.2px] font-determination;
+  }
+
+  /* Tab */
+  .text-tab-16 {
+    @apply text-[16px] font-normal leading-[24px] tracking-[0.96px] font-determination;
+  }
+  .text-tab-14 {
+    @apply text-[14px] font-normal leading-[22px] tracking-[0.84px] font-determination;
+  }
+
+  /* Title */
+  .text-title-40 {
+    @apply text-[40px] font-semibold leading-[40px] font-saira;
+  }
+  .text-title-24 {
+    @apply text-[24px] font-medium leading-[36px] font-saira;
+  }
+  .text-title-20 {
+    @apply text-[20px] font-medium leading-[24px] font-saira;
+  }
+
+  /* Body */
+  .text-body-16 {
+    @apply text-base font-medium leading-[24px] font-saira;
+  }
+  .text-body-14 {
+    @apply text-[14px] font-medium leading-[22px] font-saira;
+  }
+  .text-body-12 {
+    @apply text-[12px] font-medium leading-[16.8px] font-saira;
+  }
+
+  /* Custom scrollbar style */
+  .custom-scroll {
+    @apply overflow-y-hidden;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    @apply rounded-lg w-1;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    @apply rounded-full bg-transparent my-2 mx-0;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-support-scroll;
+  }
+
+  /* Scrollable content behavior on interaction */
+  .custom-scroll:hover,
+  .custom-scroll:active,
+  .custom-scroll:focus {
+    @apply overflow-auto;
+  }
+
+  .desktop-screen {
+    @apply mx-auto max-w-[1240px];
+  }
+
+  /* Custom scroll for table */
+  .scroll-table::-webkit-scrollbar {
+    @apply rounded-lg h-0.5 w-3;
+  }
+
+  /* Track */
+  .scroll-table::-webkit-scrollbar-track {
+    @apply rounded bg-background-quaternary;
+  }
+
+  /* Handle */
+  .scroll-table::-webkit-scrollbar-thumb {
+    @apply rounded h-2 bg-support-scroll;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    @apply hidden;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .guideline {
+    pointer-events: auto !important;
+  }
+
+  .guideline rect:not(.reactour__mask--disable-interaction) {
+    @apply fill-background-scrim;
+    pointer-events: auto !important;
+  }
+
+  .guideline .reactour__mask--disable-interaction {
+    @apply p-2;
+  }
+
+  .reactour_hakifi {
+    @apply border-none;
+    background-color: transparent !important;
+    padding: 0px !important;
+  }
+
+  .reactour_hakifi::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    border: 6px solid transparent;
+  }
+  .reactour_hakifi.bottom {
+    @apply my-1;
+  }
+
+  .reactour_hakifi.bottom::before {
+    /* @apply left-[20px] top-0 border-t-0 border-b-[10px] border-typo-tertiary trans */
+    left: 16px;
+    top: 0;
+    border-top: 0;
+    border-bottom: 6px solid #111314;
+    transform: translate(-50%, -100%);
+  }
+
+  .reactour_hakifi.left {
+    @apply left-[-80px];
+  }
+
+  .reactour_hakifi.left::before {
+    top: 112px;
+    right: -73px;
+    border-right: 0;
+    border-left: 6px solid #111314;
+    transform: translate(100%);
+  }
+
+  .reactour_hakifi.right {
+    @apply ml-[4px];
+  }
+
+  .reactour_hakifi.right::before {
+    top: 24px;
+    left: 0;
+    border-left: 0;
+    border-right: 6px solid #111314;
+    transform: translate(-100%);
+  }
+
+  .reactour_hakifi.top {
+    top: -5px;
+    left: -5px;
+  }
+  .reactour_hakifi.top::before {
+    bottom: 0;
+    left: 16px;
+    border-bottom: 0;
+    border-top: 6px solid #111314;
+    transform: translate(0, 100%);
+  }
+
+  .scrolling-mobile {
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .p-claim-slider .rc-slider-mark {
+    @apply top-[-25px];
+  }
+
+  .slider-tooltip {
+    @apply relative;
+  }
+
+  .slider-tooltip::after {
+    @apply absolute text-xs sm:text-sm font-saira bg-background-tertiary border border-divider-secondary rounded-sm p-3 whitespace-nowrap;
+    content: 'Expected P-Claim';
+    max-width: 140px;
+    top: -84px;
+    left: -60px;
+  }
+
+  .slider-tooltip::before {
+    @apply absolute border-l-[1px] border-b-[1px] border-divider-secondary bg-background-tertiary;
+    content: '';
+    left: 0;
+    top: -43px;
+    width: 10px;
+    height: 10px;
+    z-index: 10;
+    transform: rotate(-45deg);
+  }
+
+  .max-w-desktop {
+    @apply max-w-[1440px];
+  }
+
+  .day-range-end, .rdp-day_range_start {
+    @apply border-typo-accent;
+  }
+}

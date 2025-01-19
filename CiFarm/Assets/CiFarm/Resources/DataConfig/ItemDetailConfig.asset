@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574dff65050e47a6b088026df3045522, type: 3}
+  m_Name: ItemDetailConfig
+  m_EditorClassIdentifier: 
+  itemDetail:
+  - key: cauliflower
+    itemName: Cauliflower
+    type: 0
+    itemDescription: 'Cauliflower seeds yield high-quality vegetables with a crisp,
+      tender texture and mild flavor. Rich in vitamins, it''s a nutritious choice,
+      perfect for a variety of dishes, known for its versatility and health benefits.       '
+  - key: carrot
+    itemName: Carrot
+    type: 0
+    itemDescription: 'Carrot seeds produce vibrant, crunchy roots with a sweet flavor.
+      Known for their rich orange color and high vitamin A content, they are a nutritious
+      and delicious addition to any meal, perfect for snacking, salads, or cooking.       '
+  - key: pineapple
+    itemName: Pineapple
+    type: 0
+    itemDescription: 'Pineapple plants produce juicy, sweet fruits with a tropical
+      flavor and vibrant yellow flesh. Known for their refreshing taste and rich
+      vitamin C content, pineapples are perfect for fresh eating, smoothies, or adding
+      a zesty twist to various dishes.       '
+  - key: watermelon
+    itemName: Watermelon
+    type: 0
+    itemDescription: 'Watermelon seeds grow into large, juicy fruits with sweet,
+      refreshing red flesh. Known for their high water content and natural sweetness,
+      watermelons are a perfect hydrating snack, loved for their vibrant flavor and
+      ideal for hot summer days.       '
+  - key: cucumber
+    itemName: Cucumber
+    type: 0
+    itemDescription: 'Cucumber seeds produce crisp, refreshing vegetables with a
+      mild, slightly sweet flavor. Rich in water and low in calories, cucumbers are
+      perfect for salads, snacks, and pickling, offering both hydration and a light,
+      cooling taste.       '
+  - key: bellPepper
+    itemName: Bell Pepper
+    type: 0
+    itemDescription: 'Bell pepper seeds grow into vibrant, crisp vegetables with
+      a sweet, mild flavor. Rich in vitamins A and C, bell peppers add color and
+      crunch to salads, stir-fries, and many dishes, making them a nutritious and
+      versatile ingredient.       '
+  - key: potato
+    itemName: Potato
+    type: 0
+    itemDescription: 'Potato tubers produce starchy, versatile vegetables with a
+      smooth, creamy texture. Rich in carbohydrates and nutrients, potatoes are a
+      staple in many cuisines, perfect for baking, mashing, frying, or adding heartiness
+      to a variety of dishes.       '
+  - key: fertileTile
+    itemName: NFT crop
+    type: 1
+    itemDescription: NFT crop
+  - key: coop
+    itemName: Coop
+    type: 3
+    itemDescription: Provide animals product
+  - key: pasture
+    itemName: Pasture
+    type: 3
+    itemDescription: Provide bigger animals product

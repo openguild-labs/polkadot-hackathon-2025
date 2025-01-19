@@ -1,0 +1,14 @@
+{
+    "name": "Firesplash.GameDevAssets.SocketIOPlus",
+    "rootNamespace": "Firesplash.GameDevAssets.SocketIOPlus",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

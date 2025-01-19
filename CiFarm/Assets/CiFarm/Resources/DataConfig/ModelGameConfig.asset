@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47264c83eee4699afa52a5fc01d682a, type: 3}
+  m_Name: ModelGameConfig
+  m_EditorClassIdentifier: 
+  tileMapper:
+  - key: starterTile
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: fd40f427fcc3eea46b6b324a0f3d93ac, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 16decb3644ae78845afbf7244c2e39f0, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: basicTile1
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: fd40f427fcc3eea46b6b324a0f3d93ac, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 16decb3644ae78845afbf7244c2e39f0, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: basicTile2
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: fd40f427fcc3eea46b6b324a0f3d93ac, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 16decb3644ae78845afbf7244c2e39f0, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: basicTile3
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: fd40f427fcc3eea46b6b324a0f3d93ac, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 16decb3644ae78845afbf7244c2e39f0, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: basicTile4
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: fd40f427fcc3eea46b6b324a0f3d93ac, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 16decb3644ae78845afbf7244c2e39f0, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: fertileTile
+    itemName: 
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7360233726201006671, guid: b6de7067fa900f7408a20f7263a1a552, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 41039d56d004c8940a242d7f7d43bbda, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: coop
+    itemName: Coop
+    tileSize: {x: 3, y: 3}
+    prefabModel: {fileID: 5646978862015493990, guid: f1e9b56a628b73f4cbb250cee45ece91, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 1994c97658d262440b021c03f867a109, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: pasture
+    itemName: Pasture
+    tileSize: {x: 3, y: 3}
+    prefabModel: {fileID: 5646978862015493990, guid: 7f097764168709d489f4de9f4226ef73, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 33c137ff0dbdda145802b947ca4f5fcd, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: home
+    itemName: Home
+    tileSize: {x: 2, y: 3}
+    prefabModel: {fileID: 5646978862015493990, guid: 4b4acc9cacd6c1741b99fe285f0a0c0c, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: ec05577267483ce46a452633f05293ca, type: 3}
+    gameHarvestIcon: {fileID: 0}
+  - key: chicken
+    itemName: Chicken
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7879896179682794598, guid: 386ae8323a83a464c82035772358bd27, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: a671fcdeba72240479f8de87fc4d0fd1, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: e82c884b96bfa914da158b129a65f577, type: 3}
+  - key: cow
+    itemName: Cow
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 7879896179682794598, guid: 47539b716c51751479195c14211f8bfd, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 37cf82a619392d745895ae7edccac69b, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 6edea0754bc50e44b98ebe2be19e67d3, type: 3}
+  plantMapper:
+  - key: cauliflower
+    itemName: Cauliflower
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 4f4b72c51e2d1644d8629d7287bd4b8c, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: dd497ffeb4968114aa60fc066650e589, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 4d1a35c11a27d5747b906561b40da842, type: 3}
+  - key: carrot
+    itemName: Carrot
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: f037a6288d43dff4ab6709dc5619e09b, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 8aa3495ff514f0a469e94ae1cbb83316, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 1fb865f36105b464ebe8111786947b08, type: 3}
+  - key: pineapple
+    itemName: Pineapple
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: a836ac0abe428844f8f4b916883480f0, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 0719284c009ca8542ac7689800a4c5d4, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 2791df69c69821342b27fe19dcb72ff7, type: 3}
+  - key: watermelon
+    itemName: Watermelon
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 52bbf58fd026b164f84df12581310a10, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 5a4426b8877ff2241b33545eb4d1c9d3, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 965d283a221a9554b9858650ed7793dc, type: 3}
+  - key: cucumber
+    itemName: Cucumber
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 1457bcb785280af44b18d59564b2b139, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 04a4624e0da32de429ec21b5b1961554, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: a0c77fc100c36cf44b83061a50d3b349, type: 3}
+  - key: bellPepper
+    itemName: Bell Pepper
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: b82723a35cca55c488517d05e0541fb7, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: d6e42fd964fa4f640a6dbe9c81da3737, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 399a7532cdf23ce4090a18998af478f8, type: 3}
+  - key: potato
+    itemName: Potato
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 5c81c55820bd8444fadb58a75c97adf6, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 10d90b2e8bd69454f99f09abed716621, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: a6acdf792ff4b7c4a9ceb3c56b091c24, type: 3}
+  - key: chicken
+    itemName: Chicken
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 5c81c55820bd8444fadb58a75c97adf6, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: a671fcdeba72240479f8de87fc4d0fd1, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 3e26256cd1151c940b010f8fd86eb022, type: 3}
+  - key: cow
+    itemName: Cow
+    tileSize: {x: 1, y: 1}
+    prefabModel: {fileID: 1158725481770596654, guid: 5c81c55820bd8444fadb58a75c97adf6, type: 3}
+    gameShopIcon: {fileID: 21300000, guid: 37cf82a619392d745895ae7edccac69b, type: 3}
+    gameHarvestIcon: {fileID: 21300000, guid: 95c92aeaac365274289ae1a3daec8c93, type: 3}
+  animalMapper:
+  - key: chicken
+    miniSpriteUI: {fileID: 21300000, guid: a671fcdeba72240479f8de87fc4d0fd1, type: 3}
+    bigSpriteUI: {fileID: 21300000, guid: 82174009f480b6248ae366f4ac8ba911, type: 3}
+    animalMiniSpineUIModel: {fileID: 2948365193124987784, guid: d8c0d16cfc014b847b7387bbd248f6f1, type: 3}
+    animalBigSpineUIModel: {fileID: 8116995581377953622, guid: 6c2ec4dc20ee88140a372a676a5383f4, type: 3}
+    animalMiniSpineGameObjectModel: {fileID: 6322126060684178052, guid: 446dbacf963c2e748928871b8f470d35, type: 3}
+    animalBigSpineGameObjectModel: {fileID: 1240498470812380863, guid: f4d57cf3d9db98b4c9c96856a5eb800d, type: 3}
+  - key: cow
+    miniSpriteUI: {fileID: 21300000, guid: 37cf82a619392d745895ae7edccac69b, type: 3}
+    bigSpriteUI: {fileID: 21300000, guid: 381337836ca3f4644a308838a5c6d90d, type: 3}
+    animalMiniSpineUIModel: {fileID: 6260915685926025175, guid: aa94bd5be29ef4142af3b3b41e89d35d, type: 3}
+    animalBigSpineUIModel: {fileID: 5454676486098151243, guid: fce5aad412c1d5744b3a36ca82154d32, type: 3}
+    animalMiniSpineGameObjectModel: {fileID: 7249611285702626037, guid: dd3c2ab0e1b5f934fb285406a7cc35f7, type: 3}
+    animalBigSpineGameObjectModel: {fileID: 2145561286402765264, guid: 724cda4356656fc449575a74bc7cad4a, type: 3}

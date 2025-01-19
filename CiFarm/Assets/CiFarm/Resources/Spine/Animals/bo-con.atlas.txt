@@ -1,0 +1,48 @@
+
+bo-con.png
+size: 152,81
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animal/bo-con/body
+  rotate: false
+  xy: 2, 2
+  size: 79, 77
+  orig: 79, 77
+  offset: 0, 0
+  index: -1
+animal/bo-con/duoi
+  rotate: true
+  xy: 83, 3
+  size: 25, 32
+  orig: 25, 32
+  offset: 0, 0
+  index: -1
+animal/bo-con/mat
+  rotate: false
+  xy: 117, 6
+  size: 30, 22
+  orig: 32, 24
+  offset: 1, 1
+  index: -1
+animal/bo-con/mieng
+  rotate: true
+  xy: 83, 30
+  size: 49, 45
+  orig: 51, 47
+  offset: 1, 1
+  index: -1
+animal/bo-con/tai-phai
+  rotate: false
+  xy: 130, 40
+  size: 20, 17
+  orig: 20, 17
+  offset: 0, 0
+  index: -1
+animal/bo-con/tai-trai
+  rotate: false
+  xy: 130, 59
+  size: 18, 20
+  orig: 18, 20
+  offset: 0, 0
+  index: -1

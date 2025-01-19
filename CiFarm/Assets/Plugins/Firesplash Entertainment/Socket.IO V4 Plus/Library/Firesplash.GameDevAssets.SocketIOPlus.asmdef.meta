@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cbf36dabbc8bdb8439e871a6efea1cbe
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Library/Firesplash.GameDevAssets.SocketIOPlus.asmdef
+  uploadId: 683247

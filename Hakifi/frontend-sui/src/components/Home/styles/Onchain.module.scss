@@ -1,0 +1,62 @@
+@keyframes loopRtl {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+@keyframes loopLtr {
+  from {
+    transform: translateX(calc(-50%));
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+.marquee {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+}
+
+// .marquee span {
+//   /* display: inline-block; */
+//   // padding-left: 90%;
+//   animation: marquee 6s linear infinite;
+// }
+
+.loop-looper-rtl {
+  display: flex;
+  flex-wrap: nowrap;
+  user-select: none;
+  animation: 30s linear 0s infinite reverse none running marquee;
+  //   animation: 30s linear 0s infinite reverse none running loopRtl;
+  width: max-content;
+}
+
+.loop-looper-ltr {
+  display: flex;
+  flex-wrap: nowrap;
+  user-select: none;
+  width: max-content;
+  animation: 30s linear 0s infinite reverse none running loopLtr;
+}
+
+.loop-looper-ltr:hover {
+  animation-play-state: paused;
+}
+.loop-looper-rtl:hover {
+  animation-play-state: paused;
+}

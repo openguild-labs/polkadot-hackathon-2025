@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1732b176770afa0498b5a3dc3ff1b012
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Example/Authentication
+    Example/SampleAuthScene.unity
+  uploadId: 683247

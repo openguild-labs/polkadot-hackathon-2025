@@ -1,0 +1,16 @@
+
+> tempbackend@1.0.0 start-server
+> node --loader ts-node/esm src/server.ts
+
+Server is running on http://localhost:8008
+Connected to database
+Request Received: ✅ 
+ {
+  amount: 2000,
+  fromChain: 'evm:sepolia',
+  toChain: 'evm:hedera',
+  fromAddress: '',
+  toAddress: '0x5CECf445bCCAE148FE3fb0854E6ca074bF76B3c5',
+  fromAsset: '0xa0907fA317E90d6cE330d28565E040f0474E932E',
+  toAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D'
+}

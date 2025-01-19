@@ -1,0 +1,12 @@
+[Participant 1] (node:6492) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[Participant 1] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
+[Participant 1] (Use `node --trace-warnings ...` to show where the warning was created)
+[Participant 1] Participant 1 running on http://localhost:3001
+[Participant 3] (node:6168) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[Participant 3] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
+[Participant 3] (Use `node --trace-warnings ...` to show where the warning was created)
+[Participant 3] Participant 3 running on http://localhost:3003
+[Participant 2] (node:10028) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+[Participant 2] --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
+[Participant 2] (Use `node --trace-warnings ...` to show where the warning was created)
+[Participant 2] Participant 2 running on http://localhost:3002

@@ -1,0 +1,20 @@
+{
+    "contracts": [
+        {
+            "name": "ERC20Mint",
+            "contract": "#[starknet::contract]\nmod erc20_mint {\n    #[storage]\n    struct Storage {\n        total_supply: felt252,\n        balances: LegacyMap<felt252, felt252>\n    }\n\n    #[constructor]\n    fn constructor(ref self: ContractState) {}\n\n    #[external(v0)]\n    fn mint(ref self: ContractState, recipient: felt252, amount: felt252) {\n        self.total_supply.write(self.total_supply.read() + amount);\n        self.balances.write(recipient, self.balances.read(recipient) + amount);\n    }\n}"
+        },
+        {
+            "name": "SimpleSwap",
+            "contract": "#[starknet::contract]\nmod simple_swap {\n    #[storage]\n    struct Storage {\n        token_a_balance: felt252,\n        token_b_balance: felt252\n    }\n\n    #[constructor]\n    fn constructor(ref self: ContractState) {}\n\n    #[external(v0)]\n    fn swap(ref self: ContractState, amount_in: felt252, min_amount_out: felt252) -> felt252 {\n        // Basic swap logic placeholder\n        amount_in * 2\n    }\n}"
+        },
+        {
+            "name": "NFTMint",
+            "contract": "#[starknet::contract]\nmod nft_mint {\n    #[storage]\n    struct Storage {\n        token_count: felt252,\n        token_owners: LegacyMap<felt252, felt252>\n    }\n\n    #[constructor]\n    fn constructor(ref self: ContractState) {}\n\n    #[external(v0)]\n    fn mint_nft(ref self: ContractState, recipient: felt252) -> felt252 {\n        let token_id = self.token_count.read();\n        self.token_count.write(token_id + 1);\n        self.token_owners.write(token_id, recipient);\n        token_id\n    }\n}"
+        },
+        {
+            "name": "Staking",
+            "contract": "#[starknet::contract]\nmod staking {\n    #[storage]\n    struct Storage {\n        total_staked: felt252,\n        user_stakes: LegacyMap<felt252, felt252>\n    }\n\n    #[constructor]\n    fn constructor(ref self: ContractState) {}\n\n    #[external(v0)]\n    fn stake(ref self: ContractState, amount: felt252) {\n        self.total_staked.write(self.total_staked.read() + amount);\n        self.user_stakes.write(starknet::get_caller_address(), amount);\n    }\n}"
+        }
+    ]
+}

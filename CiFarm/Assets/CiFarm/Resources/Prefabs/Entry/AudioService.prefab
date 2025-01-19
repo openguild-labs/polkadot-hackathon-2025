@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8211250432834288941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8206230976750006334}
+  - component: {fileID: 1846383361580452009}
+  m_Layer: 0
+  m_Name: AudioService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8206230976750006334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211250432834288941}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1846383361580452009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211250432834288941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0e362ee4b6742b0b710432ecd4e70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _database:
+  - AudioName: 1
+    Type: 1
+    AudioClip: {fileID: 8300000, guid: fb064478e58db08439252a1eaa709bb7, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 2
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 0dea486c1f659524aa9b8c4d8395b3ed, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 3
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: cf14940c9dcf48e439dc952d85a5111f, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 4
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 931bb13571f91df4fa6327cba10e0dca, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 5
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 050ee741475cd734f979a226afa1572b, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 6
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: b692534aad670074f862f3bd8785ed3b, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 7
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 5048f664ea4ea9248ad460662c5e4297, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 8
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 85c3a6859582c214baaae2d783d360f6, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 9
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 2e4b7e2aacd19f1458f5ac2e73e0fdb7, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 10
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 46500a7d157fe5842a1b14820389d455, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 11
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 2caff89e0dee2ea43bd9ee295b77edc0, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  - AudioName: 12
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: dd3cda4baf377a745b8e7bce2340dec8, type: 3}
+    Volume: 1
+    Priority: 0
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 1
+    PlayOnAwake: 0
+  _musicVolume: 1
+  _audioVolume: 1

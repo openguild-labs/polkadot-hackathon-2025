@@ -1,0 +1,227 @@
+        /* Main content */
+        .center_section {
+            width: 100%;
+        }
+
+        /* Section switch buttons at top */
+        .section-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main_sub_heading {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .section-buttons button {
+            margin-right: 10px;
+            padding: 10px;
+            background-color: var(--button-bg);
+            color: lime;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            border: var(--border);
+            transition: background-color 0.3s;
+        }
+
+        .section-buttons button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        /* General section styling */
+.section {
+    display: none; /* Hide all sections by default */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for sections */
+    border: 1px solid #ddd; /* Border for distinction */
+    border-radius: 8px;
+}
+
+/* Show only the active section */
+.section.active-section {
+    display: block;
+}
+
+/* Button styling */
+.section-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: var(--button-bg);
+    color: #ddd8d8;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: var(--border);
+    transition: background-color 0.3s ease;
+}
+
+/* Active button styling */
+.section-buttons button.active {
+    background-color: lime; /* Active button color */
+    color: #000000;
+}
+
+/* Button hover effect */
+.section-buttons button:hover {
+    background-color: lime; /* Darker blue on hover */
+    color: #000000;
+}
+
+        /* Staking, Manage Stake, and History Sections */
+        .section {
+            height: 90vh;
+            width: 100%;
+            display: none;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border: var(--border);
+            overflow: hidden;
+            overflow-y: auto;
+        }
+
+        .staking-plan, .stake-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: var(--border);
+        }
+
+        .staking-plan button, .stake-card button {
+            padding: 8px 12px;
+            background-color: rgb(0, 0, 0);
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            border: 1px solid gold;
+            transition: background-color 0.3s;
+        }
+
+        .staking-plan button:hover, .stake-card button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        /* Duration Dropdown */
+        .dropdown {
+            margin-top: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            color: var(--text-color);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+        }
+
+        .modal-content button {
+            padding: 8px 12px;
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        /* Active section styling */
+        .active-section {
+            display: block;
+        }
+
+        /* History Section */
+        .history-record {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 15px;
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .history-table, .history-table th, .history-table td {
+            border: 1px solid #3c3c3c;
+            padding: 10px;
+        }
+
+        th, td {
+            background-color: #2a2a2a;
+            color: var(--text-color);
+        }
+
+        .sub-section-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: var(--border);
+  cursor: pointer;
+  background: #141414;
+  color: #fff;
+  font-weight: bold;
+}
+
+.tab-button.active {
+  background: #555;
+  color: #00ff00; /* Highlight for active tab */
+}
+
+.tab-content {
+  display: none;
+  border: var(--border);
+
+}
+
+.tab-content.active {
+  display: block;
+}
+.tab-content {
+  display: none; /* Hide inactive tabs */
+}
+
+.tab-content.active {
+  display: block; /* Show active tab */
+}

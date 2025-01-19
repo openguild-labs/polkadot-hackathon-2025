@@ -1,0 +1,40 @@
+
+> tempbackend@1.0.0 start-watcher
+> node --loader ts-node/esm src/watcher/watcher.ts
+
+(node:29080) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+Connected to database
+DKG initialization complete
+Nonce generation complete
+Amount: 0
+No funding detected for order 1
+Amount: 0
+No funding detected for order 1
+Amount: 0
+No funding detected for order 1
+Amount: 0
+No funding detected for order 1
+Amount: 0
+No funding detected for order 1
+Amount: 0
+No funding detected for order 1
+Amount: 2000
+Funding detected for order 1
+Completed order 1
+ror: Error: nonce has already been used (transaction="0x02f9015082012803808602d66e7de0008301468094deb4c7ab99e46afebfe374f6a7bbfb63d309166f80b8e4e97a7c21000000000000000000000000dbfa6d8ac5e5d684e4fe6b0830242d8a716e748d00000000000000000000000000000000000000000000000000000000000007d00000000000000000000000005cecf445bccae148fe3fb0854e6ca074bf76b3c500000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000040214e2a1d677463fe8b625987b37d61222d819fd7d125986df79dd480d1bb9bb6f3f5853b10cd496d33c412b61bc251fab73f49d158d31a93cc13404987e13d15c001a0a7af0243d149d56c719f284e1d80a1f08803fcddb5f113a8cab15935d755b481a05d18f10e960e51cef131ae158513a2f525e08410551ec3f24161e6f5c8a0eb12", info={ "error": { "code": 32001, "message": "[Request ID: 5223fa31-1876-4512-9d1c-c77b82ca38be] Nonce too low. Provided nonce: 3, current nonce: 4" } }, code=NONCE_EXPIRED, version=6.13.1)
+    at makeError (file:///D:/codebases/hackathons/ozone/tempbackend/node_modules/ethers/lib.esm/utils/errors.js:124:21)
+    at JsonRpcProvider.getRpcError (file:///D:/codebases/hackathons/ozone/tempbackend/node_modules/ethers/lib.esm/providers/provider-jsonrpc.js:703:24)
+    at file:///D:/codebases/hackathons/ozone/tempbackend/node_modules/ethers/lib.esm/providers/provider-jsonrpc.js:298:45
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'NONCE_EXPIRED',
+  transaction: '0x02f9015082012803808602d66e7de0008301468094deb4c7ab99e46afebfe374f6a7bbfb63d309166f80b8e4e97a7c21000000000000000000000000dbfa6d8ac5e5d684e4fe6b0830242d8a716e748d00000000000000000000000000000000000000000000000000000000000007d00000000000000000000000005cecf445bccae148fe3fb0854e6ca074bf76b3c500000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000040214e2a1d677463fe8b625987b37d61222d819fd7d125986df79dd480d1bb9bb6f3f5853b10cd496d33c412b61bc251fab73f49d158d31a93cc13404987e13d15c001a0a7af0243d149d56c719f284e1d80a1f08803fcddb5f113a8cab15935d755b481a05d18f10e960e51cef131ae158513a2f525e08410551ec3f24161e6f5c8a0eb12',
+  info: {
+    error: {
+      code: 32001,
+      message: '[Request ID: 5223fa31-1876-4512-9d1c-c77b82ca38be] Nonce too low. Provided nonce: 3, current nonce: 4'
+    }
+  },
+  shortMessage: 'nonce has already been used'
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 250px;
+            background: #1a1a1a;
+            color: #fff;
+            transition: width 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .sidebar.closed {
+            width: 80px;
+        }
+
+        .nav-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease, padding 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #2e2e2e;
+        }
+
+        .nav-link i {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .link-text {
+            margin-left: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        /* When sidebar is closed, hide text */
+        .sidebar.closed .link-text {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Additional Sidebar Elements */
+        .nav_extension {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gm-gn-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .gm-gn-section .gn, .gm-gn-section .gm {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .sidebar {
+                width: 80px;
+            }
+
+            .sidebar.closed {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-seedling"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="messageLink">
+                    <i class="fas fa-envelope"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-store"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="stakeLink">
+                    <i class="fas fa-coins"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="farmLink">
+                    <i class="fas fa-tractor"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="labsLink">
+                    <i class="fas fa-flask"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="profileLink">
+                    <i class="fas fa-user"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                <div class="gn">
+                    <i class="fas fa-moon"></i><h2>GN</h2>
+                </div>
+                <div class="gm">
+                    <i class="fas fa-sun"></i><h2>GM</h2>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const mediaQuery = window.matchMedia('(max-width: 1100px)');
+
+        function handleSidebarState(e) {
+            if (e.matches) {
+                sidebar.classList.add('closed');
+            } else {
+                sidebar.classList.remove('closed');
+            }
+        }
+
+        mediaQuery.addEventListener('change', handleSidebarState);
+
+        // Initial load
+        handleSidebarState(mediaQuery);
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="farm.css">
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main>
+        <!-- CENTER SECTION -->
+     <section class="center_section" style="display: flex; flex-direction: column;">
+     <!-- Center Section Header -->
+      <div class="center_section_header">
+        <!-- Button to open the sidebar -->
+        <button id="menuBtn" class="menu-btn">☰</button>
+        
+        <!-- Sub Heading Navigation -->
+        <div class="main_sub_heading">
+            <!-- Search Bar -->
+            <div class="button-container">
+                <button class="button active" id="dataButton">Data</button>
+                <button class="button" id="statisticsButton">Chart</button>
+                <button class="button" id="showStatisticsButton">Statistics</button>
+            </div>
+            <div class="icon-group">
+                <!--Support Icon-->
+                <div class="support_div">
+                    <i class="fas fa-headset support" aria-label="Support"></i>
+                    <div class="support-dropdown" id="supportDropdown">
+                        <button class="close-button" id="closeSupport">✖</button>
+                        <h3>Support Options</h3>
+                        <ul>
+                            <li><a href="https://wa.me/" target="_blank">WhatsApp Support</a></li>
+                            <li><a href="https://discord.com/" target="_blank">Discord Support</a></li>
+                            <li><a href="https://telegram.org/" target="_blank">Telegram Support</a></li>
+                            <li>
+                                <a href="#chatBot" id="chatBotLink">
+                                    <i class="fas fa-comment-dots" aria-label="Chat Bot"></i> Chat Bot
+                                </a>
+                            </li>                
+                        </ul>
+                    </div>
+                </div>
+                <!-- Notepad Icon -->
+                <div class="notepad_div">
+                    <i class="fas fa-edit notepad" aria-label="Notepad"></i>
+                    <div class="notepad-dropdown" id="notepadDropdown">
+                        <button class="close-button" id="closeNotepad">✖</button>
+                        <div class="notepad-header">
+                            <button id="createNoteBtn">Create Note</button>
+                            <button id="viewAllNotesBtn">All Notes</button>
+                        </div>
+                        <div class="notepad-content">
+                            <div id="createNoteSection">
+                                <h3>Create a New Note</h3>
+                                <form id="createNoteForm">
+                                    <input type="text" placeholder="Note Title" id="noteTitle" required>
+                                    <textarea placeholder="Write your note here..." id="noteContent" required></textarea>
+                                    <button type="submit">Save Note</button>
+                                </form>
+                            </div>
+                            <div id="allNotesSection" style="display: none;">
+                                <h3>Saved Notes</h3>
+                                <div class="saved-notes" id="savedNotes">
+                                    <!-- Notes will be listed here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Notifications Icon -->
+                <div class="notification-container">
+                    <i class="fas fa-bell" id="notificationIcon" aria-label="Notifications"></i>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <button class="close-button" id="closeNotifications">✖</button>
+                        <h3>Notifications</h3>
+                        <div class="order-filter_container">
+                            <button class="order-filter active" data-type="system">System Alerts</button>
+                            <button class="order-filter" data-type="market">Market Orders</button>
+                            <button class="order-filter" data-type="p2p">P2P Orders</button>
+                            <button class="order-filter" data-type="trading">Trading Orders</button>
+                        </div>
+                        <div class="notifications-content">
+                            <div class="notifications-group active" data-type="system">
+                                <div class="notification-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>System maintenance scheduled at midnight.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Security update available.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Your profile has been verified.</span>
+                                </div>
+                            </div>
+                            <!-- Other notification types (market, P2P, trading) here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="dashboard">
+                <div class="chart">
+                    <div id="cardsContainer" class="cards-container">
+                        <div class="cards_section">
+                            <div class="card_list">
+                                <!-- Example Card -->
+                                <div class="card">
+                                   <img src="image1.jpg" alt="Card Image 1" class="card-img">
+                                   <h2 class="card-title">Card Title 1</h2>
+                                   <p class="card-description">This is the description for card 1. It contains static information and other relevant details.</p>
+                                   <!-- Any additional static content here -->
+                                </div>
+                                 
+                                <div class="card">
+                                   <img src="image2.jpg" alt="Card Image 2" class="card-img">
+                                   <h2 class="card-title">Card Title 2</h2>
+                                   <p class="card-description">This is the description for card 2. It contains static information and other relevant details.</p>
+                                </div>
+       
+                                <div class="card">
+                                   <img src="image2.jpg" alt="Card Image 2" class="card-img">
+                                   <h2 class="card-title">Card Title 2</h2>
+                                   <p class="card-description">This is the description for card 2. It contains static information and other relevant details.</p>
+                                </div>
+       
+                                <div class="card">
+                                   <img src="image2.jpg" alt="Card Image 2" class="card-img">
+                                   <h2 class="card-title">Card Title 2</h2>
+                                   <p class="card-description">This is the description for card 2. It contains static information and other relevant details.</p>
+                                </div>
+       
+                                <div class="card">
+                                   <img src="image2.jpg" alt="Card Image 2" class="card-img">
+                                   <h2 class="card-title">Card Title 2</h2>
+                                   <p class="card-description">This is the description for card 2. It contains static information and other relevant details.</p>
+                                </div>
+       
+                                <div class="card">
+                                   <img src="image2.jpg" alt="Card Image 2" class="card-img">
+                                   <h2 class="card-title">Card Title 2</h2>
+                                   <p class="card-description">This is the description for card 2. It contains static information and other relevant details.</p>
+                                </div>
+                               </div>
+                               <div class="right_section">
+                                    <h2>charts</h2>
+                                    <div id="dataUpdatesContainer">
+                                        <!-- Weather Update Card -->
+                                    <div class="update-card" id="weatherCard">
+                                        <h3>
+                                          Weather Update
+                                          <span class="expand-icon">↓</span>
+                                        </h3>
+                                        <p id="weatherInfo">Loading weather...</p>
+                                        <div class="expandable-content" id="weatherDetails">
+                                        <p>Detailed weather information...</p>
+                                    </div>
+                                </div>
+                                <!-- Market Price Card -->
+                                <div class="update-card" id="marketPriceCard">
+                                    <h3>
+                                       Market Prices
+                                       <span class="expand-icon">↓</span>
+                                    </h3>
+                                    <ul id="marketPrices">
+                                        <p>Loading market prices...</p>
+                                    </ul>
+                                    <div class="expandable-content" id="marketPriceDetails">
+                                        <p>Additional market price details...</p>
+                                    </div>
+                                </div>
+                                <!-- Yield Update Card -->
+                                <div class="update-card" id="yieldCard">
+                                    <h3>
+                                        Yield Update
+                                        <span class="expand-icon">↓</span>
+                                    </h3>
+                                    <p id="yieldInfo">Loading yield updates...</p>
+                                    <div class="expandable-content" id="yieldDetails">
+                                       <p>Detailed yield updates...</p>
+                                    </div>
+                                </div>
+
+                                <div class="update-card" id="yieldCard">
+                                    <h3>
+                                        Yield Update
+                                        <span class="expand-icon">↓</span>
+                                    </h3>
+                                    <p id="yieldInfo">Loading yield updates...</p>
+                                    <div class="expandable-content" id="yieldDetails">
+                                       <p>Detailed yield updates...</p>
+                                    </div>
+                                </div>
+
+                                <div class="update-card" id="yieldCard">
+                                    <h3>
+                                        Yield Update
+                                        <span class="expand-icon">↓</span>
+                                    </h3>
+                                    <p id="yieldInfo">Loading yield updates...</p>
+                                    <div class="expandable-content" id="yieldDetails">
+                                       <p>Detailed yield updates...</p>
+                                    </div>
+                                </div>
+
+                                    <!-- Disease Update Card -->
+                                    <div class="update-card" id="diseaseCard">
+                                        <h3>
+                                           Disease Updates
+                                           <span class="expand-icon">↓</span>
+                                        </h3>
+                                        <p id="diseaseInfo">Loading disease updates...</p>
+                                        <div class="expandable-content" id="diseaseDetails">
+                                           <p>Detailed disease updates...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Statistics Section -->
+                    <div id="statisticsSection" style="display: none;">
+                        <!-- Bar Chart for Agriculture Countries -->
+                        <canvas id="statsChart" width="400" height="200"></canvas>
+                        
+                        <button id="toggleChartButton">See More</button>
+
+                        <!-- Line Chart for Monthly Agriculture Data -->
+                        <canvas id="monthlyChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+                <div class="pre-statistics">
+                    <h2>Top 25 Countries Statistics</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Country</th>
+                                <th>Population</th>
+                                <th>GDP (Trillions)</th>
+                                <th>Area (km²)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>China</td><td>1,412,600,000</td><td>17.73</td><td>9,596,961</td></tr>
+                            <tr><td>2</td><td>India</td><td>1,366,420,000</td><td>2.94</td><td>3,287,263</td></tr>
+                            <tr><td>3</td><td>United States</td><td>331,893,745</td><td>23.12</td><td>9,525,067</td></tr>
+                            <tr><td>4</td><td>Indonesia</td><td>276,361,783</td><td>1.07</td><td>1,904,569</td></tr>
+                            <tr><td>5</td><td>Pakistan</td><td>225,199,937</td><td>0.29</td><td>881,913</td></tr>
+                            <tr><td>6</td><td>Brazil</td><td>213,993,437</td><td>1.44</td><td>8,515,767</td></tr>
+                            <tr><td>7</td><td>Nigeria</td><td>211,400,708</td><td>0.45</td><td>923,768</td></tr>
+                            <tr><td>8</td><td>Bangladesh</td><td>166,303,498</td><td>0.34</td><td>148,460</td></tr>
+                            <tr><td>9</td><td>Russia</td><td>146,599,183</td><td>1.48</td><td>17,098,242</td></tr>
+                            <tr><td>10</td><td>Mexico</td><td>126,190,788</td><td>1.27</td><td>1,964,375</td></tr>
+                            <tr><td>11</td><td>Japan</td><td>125,507,472</td><td>4.93</td><td>377,975</td></tr>
+                            <tr><td>12</td><td>Philippines</td><td>113,880,000</td><td>0.37</td><td>300,000</td></tr>
+                            <tr><td>13</td><td>Egypt</td><td>104,124,440</td><td>0.39</td><td>1,001,450</td></tr>
+                            <tr><td>14</td><td>Ethiopia</td><td>117,876,000</td><td>0.09</td><td>1,104,300</td></tr>
+                            <tr><td>15</td><td>Vietnam</td><td>98,168,833</td><td>0.35</td><td>331,212</td></tr>
+                            <tr><td>16</td><td>DR Congo</td><td>95,889,000</td><td>0.05</td><td>2,344,858</td></tr>
+                            <tr><td>17</td><td>Turkey</td><td>87,893,000</td><td>0.73</td><td>783,356</td></tr>
+                            <tr><td>18</td><td>Iran</td><td>85,028,759</td><td>0.64</td><td>1,648,195</td></tr>
+                            <tr><td>19</td><td>Germany</td><td>83,166,711</td><td>4.84</td><td>357,022</td></tr>
+                            <tr><td>20</td><td>Taiwan</td><td>23,487,800</td><td>0.87</td><td>36,197</td></tr>
+                            <tr><td>21</td><td>Thailand</td><td>70,000,000</td><td>0.54</td><td>513,120</td></tr>
+                            <tr><td>22</td><td>United Kingdom</td><td>67,328,000</td><td>2.83</td><td>243,610</td></tr>
+                            <tr><td>23</td><td>France</td><td>65,426,000</td><td>2.78</td><td>551,695</td></tr>
+                            <tr><td>24</td><td>Italy</td><td>60,245,000</td><td>2.01</td><td>301,340</td></tr>
+                            <tr><td>25</td><td>South Africa</td><td>59,392,000</td><td>0.35</td><td>1,221,037</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<!-- External JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="farm.js"></script>
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+</html>

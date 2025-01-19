@@ -1,0 +1,29 @@
+html .chart-page {
+  background-color: #111314 !important;
+}
+.button-5-QHyx-s .icon-5-QHyx-s svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+.noWrap-1WIwNaDF .series-1WIwNaDF.item-1WIwNaDF,
+.series-1WIwNaDF .titleWrapper-1WIwNaDF,
+.sources-1WIwNaDF .item-1WIwNaDF {
+  font-size: 10px !important;
+}
+.series-1WIwNaDF .valuesWrapper-1WIwNaDF {
+  display: flex !important;
+  align-items: center !important;
+  border: none !important;
+}
+
+.drawingToolbar-2_so5thS {
+    border-right: 1px solid #3f3f3f;
+}
+
+:root {
+  --tv-color-pane-background: #111314;
+}
+
+.withCustomTextColor {
+  font-size: 12px;
+}

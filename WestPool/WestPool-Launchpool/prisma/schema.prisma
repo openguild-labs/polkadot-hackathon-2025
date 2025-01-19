@@ -1,0 +1,165 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id                   String            @id
+  projectName          String
+  projectOwnerAddress  String
+  verifiedTokenAddress String            @unique
+  tokenSymbol          String
+  projectLogo          String
+  projectImage         String[]
+  shortDescription     String
+  longDescription      String
+  acceptedVToken       String[]
+  minStake             Decimal
+  maxStake             Decimal
+  fromDate             DateTime
+  toDate               DateTime
+  txHashCreated        String
+  projectStatus        ProjectStatus
+  chainName            String
+  poolBudget           Decimal
+  targetStake          Decimal
+  projectOwner         ProjectOwner      @relation(fields: [projectOwnerAddress], references: [userAddress], onDelete: Cascade, onUpdate: Cascade)
+  // userId               String?
+  offers               Offer[]
+  invested             InvestedProject[]
+}
+
+// model AvailableNetwork {
+//   id          String      @id @default(uuid())
+//   networkName String
+//   chainId     Int         @unique
+//   networkLogo String
+//   TokenData   TokenData[]
+// }
+
+// model TokenData {
+//   id               String           @id @default(uuid())
+//   tokenName        String
+//   tokenSymbol      String
+//   tokenDecimals    Int
+//   tokenLogo        String
+//   tokenAddress     String
+//   chainId          Int
+//   availableNetwork AvailableNetwork @relation(fields: [chainId], references: [chainId], onDelete: Cascade, onUpdate: Cascade) // Relation to AvailableNetwork
+// }
+
+model LaunchPool {
+  id                 String @id @default(dbgenerated("1"))
+  totalProject       Int
+  uniqueParticipants Int
+  totalTx            Int
+}
+
+model User {
+  id           String            @id @default(uuid())
+  userAddress  String            @unique
+  offers       UserOffer[]
+  invested     InvestedProject[]
+  ProjectOwner ProjectOwner[]
+  // projects    Project[]
+  // offerId     String?
+  // User        User?     @relation(fields: [userId], references: [id])
+}
+
+model ProjectOwner {
+  id String @id @default(uuid())
+
+  userAddress String    @unique
+  User        User      @relation(fields: [userAddress], references: [userAddress], onDelete: Cascade, onUpdate: Cascade)
+  Project     Project[]
+}
+
+//Offer model buy sell like premarket
+model Offer {
+  id                     String            @id @default(uuid())
+  index                  Int               @default(autoincrement())
+  pricePerToken          Decimal
+  amount                 Decimal
+  collateral             Decimal
+  tokenPreTokenAddress   String
+  tokenCollateralAddress String
+  txHash                 String
+  offerType              OfferType
+  startDate              DateTime
+  filledTime             DateTime //Filler
+  creatorStatus          CreateOfferStatus
+  fillerStatus           FillerOfferStatus //Filler
+  creatorAddress         String
+  fillerAddress          String //Filler
+  projectId              String
+  project                Project           @relation(fields: [projectId], references: [id])
+  users                  UserOffer[]
+}
+
+model UserOffer {
+  userId  String
+  offerId String
+
+  User  User  @relation(fields: [userId], references: [id])
+  Offer Offer @relation(fields: [offerId], references: [id])
+
+  @@id([userId, offerId])
+}
+
+model InvestedProject {
+  id          String    @id @default(uuid())
+  userAddress String
+  projectId   String
+  stakeType   StakeType
+  txHash      String
+  createdAt   DateTime  @default(now())
+  project     Project   @relation(fields: [projectId], references: [id])
+  user        User      @relation(fields: [userAddress], references: [userAddress])
+}
+
+// model InvestedProject {
+//   userId    String
+//   projectId String
+
+//   User    User    @relation(fields: [userId], references: [id])
+//   Project Project @relation(fields: [projectId], references: [id])
+
+//   @@id([userId, projectId])
+// }
+
+enum ProjectStatus {
+  Upcoming
+  Ongoing
+  Completed
+}
+
+enum CreateOfferStatus {
+  Open
+  Pending
+  Settled
+  Canceled
+  CanceledWithdraw
+  Closed
+}
+
+enum FillerOfferStatus {
+  NotYet
+  Pending
+  Completed
+  Canceled
+  CanceledWithdraw
+}
+
+enum OfferType {
+  Buy
+  Sell
+}
+
+enum StakeType {
+  Stake
+  Unstake
+}

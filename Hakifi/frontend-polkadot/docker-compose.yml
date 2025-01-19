@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  hakifi-fe:
+    image: dockerhub.vnst.io/hakifi-fe-8bit-sui
+    restart: always
+    build: 
+      context: .
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    ports:
+      - '${PORT:-6006}:3000'

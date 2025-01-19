@@ -1,0 +1,197 @@
+.right_section {
+    width: 350px;
+    background-color: var(--background-color);
+    padding: 10px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1000;
+}
+/* Trending section styles */
+.trending {
+    width: 100%;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 255, 0, 0.2);
+    z-index: 1;
+    transition: height 0.4s ease;
+    right: 0;
+    border: var(--border);
+    background-image: linear-gradient(145deg, #333, var(--background-color));
+}
+
+.trending.full-screen {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    border-radius: 0;
+    box-shadow: 0px 4px 20px rgba(0, 255, 0, 0.3);
+    overflow-y: auto;
+}
+
+/* Trending section header */
+.trending-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #39ff14;
+    cursor: pointer;
+}
+
+/* Trending title */
+.trending-header h2 {
+    width: 90%;
+    font-size: 22px;
+}
+
+/* Icon container styling */
+.trending-icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.trending-icon-container i {
+    font-size: 18px;
+    color: #39ff14;
+    background-color: #1a1a1a;
+    border: 1px solid #39ff14;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 6px 1px lime;
+    transition: transform 0.3s ease;
+}
+
+/* Icon visibility control */
+.up-arrow {
+    display: inline-block;
+}
+
+.down-arrow {
+    display: none;
+}
+
+/* Trending content styling */
+.trending-content {
+    display: none;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Show content when expanded */
+.trending.full-screen .trending-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Trending content item styling */
+.trending-content .content-card {
+    background-color: #1a1a1a;
+    color: #39ff14;
+    padding: 10px;
+    border: 1px solid #39ff14;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.trending-content .content-card:hover {
+    transform: translateY(-3px);
+}
+.trending-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.trending-content ul li {
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #c8ff00;
+}
+/* Hot Deals Section - hidden by default */
+.hot-deals {
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.hot-deals h2 {
+    color: #39ff14;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.deals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual deal cards in Hot Deals */
+.deal-card {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #39ff14;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.deal-card:hover, .deal-card h3:hover {
+    color: black;
+    background-color: lime;
+    transform: translateY(-5px);
+}
+
+.deal-card h3 {
+    font-size: 16px;
+    color: #39ff14;
+}
+
+
+.charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #1e1e1e;
+    width: 100%;
+    height: 80vh;
+    border-radius: 0 0 12px 12px;
+}
+.chart {
+    width: 300px;
+    height: 35vh;
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.chart h3 {
+    text-align: center;
+    margin-bottom: 5px;
+    color: lime;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}

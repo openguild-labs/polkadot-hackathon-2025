@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprouts Labs</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #3d3d3d;
+        }
+
+        h1 {
+            color: #00ff00;
+            font-size: 2em;
+        }
+
+        .toggle-container {
+            display: flex;
+        }
+
+        .toggle-container button {
+            background-color: black;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 10px;
+        }
+
+        .toggle-container button:hover {
+            background-color: #00ff00;
+            color: black;
+        }
+
+        .active-btn {
+            background-color: #00ff00;
+            color: black;
+        }
+
+        #search-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        #search-bar {
+            width: 60%;
+            padding: 12px;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            background-color: #000;
+            color: #fff;
+            outline: none;
+        }
+
+        #search-btn {
+            background-color: #00ff00;
+            color: black;
+            padding: 12px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+        }
+
+        #search-btn:hover {
+            background-color: #009900;
+        }
+
+        /* Data Section */
+        #data-updates, #ai-chat, #farm-report {
+            margin-top: 30px;
+        }
+
+        #data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .data-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .data-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 255, 0, 0.6);
+        }
+
+        h2 {
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+
+        /* Chat Section */
+        #chat-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+        }
+
+        #chat-input {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+            margin-right: 10px;
+        }
+
+        #send-btn {
+            padding: 12px;
+            background-color: #00ff00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+        }
+
+        #send-btn:hover {
+            background-color: #009900;
+        }
+
+        /* Farm Report Section */
+        #farm-report {
+            display: none;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .form-section form input, .form-section form textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #00ff00;
+            background-color: black;
+            color: white;
+        }
+
+        .form-section form button {
+            padding: 12px;
+            background-color: #00ff00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .form-section form button:hover {
+            background-color: #009900;
+        }
+
+        /* Report Form Section */
+        #report-section {
+            display: none;
+        }
+
+        .filter-container {
+            margin-bottom: 20px;
+        }
+
+        #report-type {
+            padding: 10px;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+        }
+
+        /* Report Buttons */
+        .report-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            #search-bar {
+                width: 80%;
+            }
+
+            .toggle-container button {
+                margin: 5px;
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .data-card {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            #chat-input {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toggle-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #search-bar {
+                width: 100%;
+            }
+
+            .data-card {
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            #chat-input {
+                width: 65%;
+            }
+
+            #send-btn {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Sprouts Labs</h1>
+            <div class="toggle-container">
+                <button id="data-btn" class="active-btn">Data Updates</button>
+                <button id="chat-btn">Chat with AI</button>
+                <button id="report-btn">Farm Report</button>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section id="search-section">
+            <input type="text" id="search-bar" placeholder="Search for farm insights...">
+            <button id="search-btn">Search</button>
+        </section>
+
+        <!-- Data Updates Section -->
+        <section id="data-updates" class="content-section">
+            <h2>Live Data Updates</h2>
+            <div id="data-container">
+                <div class="data-card">
+                    <h3>Update 1</h3>
+                    <p>Data on farm yields and trends.</p>
+                </div>
+                <div class="data-card">
+                    <h3>Update 2</h3>
+                    <p>New research findings on crop diseases.</p>
+                </div>
+                <div class="data-card">
+                    <h3>Update 3</h3>
+                    <p>Weather forecasts impacting farming.</p>
+                </div>
+                <div class="data-card">
+                    <h3>Update 4</h3>
+                    <p>Market prices for various crops.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chat Section -->
+        <section id="ai-chat" class="content-section hidden">
+            <h2>Chat with AI</h2>
+            <div id="chat-box">
+                <textarea id="chat-input" rows="4" placeholder="Type your message..."></textarea>
+                <button id="send-btn">Send</button>
+            </div>
+        </section>
+
+        <!-- Farm Report Section -->
+        <section id="farm-report" class="content-section hidden">
+            <header>
+                <h1>Farming Management System</h1>
+            </header>
+
+            <div class="report-buttons">
+                <button id="individual-report-btn">Individual Report</button>
+                <button id="group-report-btn">Group Report</button>
+            </div>
+
+            <!-- Report Form Section -->
+            <div id="report-section">
+                <h2>Report Form</h2>
+                <div class="filter-container">
+                    <label for="report-type">Select Report Type:</label>
+                    <select id="report-type">
+                        <option value="">Select...</option>
+                        <option value="yield">Yield Report</option>
+                        <option value="pest">Pest Report</option>
+                        <option value="farming">Farming Practices</option>
+                        <option value="weather">Weather Conditions</option>
+                        <option value="harvest">Harvest Report</option>
+                        <option value="crop-health">Crop Health</option>
+                        <option value="market">Market Analysis</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Handle toggling of sections
+        document.getElementById('data-btn').addEventListener('click', () => toggleSection('data-updates'));
+        document.getElementById('chat-btn').addEventListener('click', () => toggleSection('ai-chat'));
+        document.getElementById('report-btn').addEventListener('click', () => toggleSection('farm-report'));
+
+        function toggleSection(sectionId) {
+            const sections = ['data-updates', 'ai-chat', 'farm-report'];
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                section.style.display = (id === sectionId) ? 'block' : 'none';
+            });
+
+            // Change active button
+            const buttons = document.querySelectorAll('.toggle-container button');
+            buttons.forEach(button => {
+                button.classList.toggle('active-btn', button.id.includes(sectionId.split('-')[0]));
+            });
+        }
+
+        // Handle Individual and Group Report button clicks
+        document.getElementById('individual-report-btn').addEventListener('click', () => {
+            showReportForm('individual');
+        });
+        document.getElementById('group-report-btn').addEventListener('click', () => {
+            showReportForm('group');
+        });
+
+        function showReportForm(type) {
+            document.getElementById('report-section').style.display = 'block';
+
+            if (type === 'individual') {
+                console.log("Individual Report selected");
+                // Add any additional logic for Individual Report
+            } else if (type === 'group') {
+                console.log("Group Report selected");
+                // Add any additional logic for Group Report
+            }
+        }
+    </script>
+</body>
+</html>

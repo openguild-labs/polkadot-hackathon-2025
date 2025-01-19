@@ -1,0 +1,96 @@
+.ball1Ani {
+  bottom: 270px;
+  left: 450px;
+  animation: move1 1.5s ease alternate infinite;
+}
+@keyframes move1 {
+  0% {
+    bottom: 270px;
+    left: 450px;
+  }
+  100% {
+    //
+    bottom: 290px;
+    left: 470px;
+  }
+}
+
+.ball2Ani {
+  top: 210px;
+  left: 590px;
+  animation: move2 1.5s 0.3s alternate infinite;
+}
+@keyframes move2 {
+  0% {
+    top: 210px;
+    left: 590px;
+  }
+  100% {
+    top: 190px;
+    left: 610px;
+  }
+}
+
+.ball3Ani {
+  top: 50px;
+  left: 702px;
+  animation: move3 1.5s 0.6s alternate infinite;
+}
+@keyframes move3 {
+  0% {
+    top: 50px;
+    left: 702px;
+  }
+  100% {
+    top: 30px;
+    left: 722px;
+  }
+}
+
+.ball1AniMobile {
+  bottom: 160px;
+  left: 105px;
+  animation: move1mobile 1.5s ease alternate infinite;
+}
+@keyframes move1mobile {
+  0% {
+    bottom: 160px;
+    left: 105px;
+  }
+  100% {
+    bottom: 180px;
+    left: 125px;
+  }
+}
+
+.ball2AniMobile {
+  top: 110px;
+  left: 195px;
+  animation: move2mobile 1.5s 0.3s alternate infinite;
+}
+@keyframes move2mobile {
+  0% {
+    top: 110px;
+    left: 195px;
+  }
+  100% {
+    top: 90px;
+    left: 215px;
+  }
+}
+
+.ball3AniMobile {
+  top: 10px;
+  left: 260px;
+  animation: move3mobile 1.5s 0.6s alternate infinite;
+}
+@keyframes move3mobile {
+  0% {
+    top: 10px;
+    left: 260px;
+  }
+  100% {
+    top: -10px;
+    left: 280px;
+  }
+}

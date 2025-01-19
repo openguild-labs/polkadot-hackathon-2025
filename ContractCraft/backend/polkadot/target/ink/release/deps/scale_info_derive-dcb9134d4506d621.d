@@ -1,0 +1,8 @@
+/Users/aniruddhdubge/icantcodefyi/hackathons/ethindia2024/backend/polkadot/target/ink/release/deps/libscale_info_derive-dcb9134d4506d621.dylib: /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/lib.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/attr.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/trait_bounds.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/utils.rs
+
+/Users/aniruddhdubge/icantcodefyi/hackathons/ethindia2024/backend/polkadot/target/ink/release/deps/scale_info_derive-dcb9134d4506d621.d: /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/lib.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/attr.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/trait_bounds.rs /Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/utils.rs
+
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/lib.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/attr.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/trait_bounds.rs:
+/Users/aniruddhdubge/.cargo/registry/src/index.crates.io-6f17d22bba15001f/scale-info-derive-2.11.6/src/utils.rs:

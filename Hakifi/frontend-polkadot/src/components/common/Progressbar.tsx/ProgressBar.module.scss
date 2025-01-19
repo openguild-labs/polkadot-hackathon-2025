@@ -1,0 +1,17 @@
+.horizontal-progress-bar {
+	appearance: none;
+	width: 100%;
+	height: 100%;
+	background-color: theme("colors.divider.secondary");
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.horizontal-progress-fill {
+	height: 100%;
+	background-color: theme("colors.background.primary");
+}
+
+.horizontal-progress-label {
+	margin-top: 8px;
+}

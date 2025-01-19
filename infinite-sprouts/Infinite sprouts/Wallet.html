@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="wallet.css">
+
+    </style>
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="Sproutlink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Sproutlink.html" id="sproutsLink">
+                    <i class="fas fa-link"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="homeLink">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="servicesLink">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Additional Sidebar Elements -->
+        <div class="nav_extension">
+            <div class="gm-gn-section" id="Gm_Gn">
+                    <div class="gn">
+                       <i class="fas fa-moon"></i><h2>GN</h2>
+                    </div>
+                    <div class="gm">
+                       <i class="fas fa-sun"></i><h2>GM</h2>
+                    </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main>
+        <!-- Main Center Section -->
+        <section class="center_section">
+            <!-- Center Section Header -->
+            <div class="center_section_header">
+                <!-- Main Navigation Buttons (Wallet Home, Asset, History) -->
+                <div class="header-buttons">
+                    <button class="header-button active" id="btnHome" onclick="showSection('home')">Wallet Home</button>
+                    <button class="header-button" id="btnAsset" onclick="showSection('asset')">Asset</button>
+                    <button class="header-button" id="btnHistory" onclick="showSection('history')">History</button>
+                </div>
+        
+                <!-- Icon Group (Messages, Notifications, Support, Notepad) -->
+                <div class="icon-group">
+                    <!-- Messages Icon -->
+                    <div class="icon-container" data-dropdown="messages">
+                        <i class="fas fa-envelope"></i>
+                        <div class="dropdown-content" id="messages">
+                            <h3>Messages</h3>
+                            <div class="chat-item">
+                                <p><strong>John:</strong> Can we discuss the project timeline?</p>
+                                <span>10 mins ago</span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Notifications Icon -->
+                    <div class="icon-container" data-dropdown="notifications">
+                        <i class="fas fa-bell"></i>
+                        <div class="dropdown-content" id="notifications">
+                            <h3>Notifications</h3>
+                            <div class="notification-item">
+                                <p>Your profile has been updated successfully.</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Support Icon -->
+                    <div class="icon-container" data-dropdown="support">
+                        <i class="fas fa-headset"></i>
+                        <div class="dropdown-content" id="support">
+                            <h3>Support</h3>
+                            <p>Reach us at support@domain.com.</p>
+                        </div>
+                    </div>
+            
+                    <!-- Notepad Icon -->
+                    <div class="icon-container" data-dropdown="notepad">
+                        <i class="fas fa-edit" id="notepadIcon"></i>
+                        <div class="dropdown-content" id="notepadDropdown">
+                            <button class="close-button">✖</button>
+                            <h3>Notepad</h3>
+                            
+                            <!-- Note Management Panel -->
+                            <div class="note-management">
+                                <input type="text" id="noteTitle" placeholder="Title your note" />
+                                <textarea id="noteContent" placeholder="Write your note here..." rows="5"></textarea>
+                                <div class="note-actions">
+                                    <button id="saveNoteBtn">Save Note</button>
+                                    <button id="editNoteBtn" style="display: none;">Edit Note</button>
+                                    <button id="deleteNoteBtn" style="display: none;">Delete Note</button>
+                                </div>
+                            </div>
+            
+                            <!-- Tagging Section -->
+                            <div class="tags-section">
+                                <input type="text" id="noteTags" placeholder="Add tags (comma separated)" />
+                            </div>
+            
+                            <!-- Notes List and Search -->
+                            <div class="notes-list">
+                                <input type="text" id="searchNotes" placeholder="Search notes..." />
+                                <ul id="notesList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Main Content Sections -->
+        <div class="content-sections">
+            <!-- Home Section (Default) -->
+            <div class="center_content section active" id="home">
+                <!-- Wallet Balance Overview -->
+                <div class="wallet-balance">
+                    <div class="All_wallet balance">
+                        <h1>$12,540.00</h1>
+                        <p>Total Account Balance</p>
+                    </div>
+                
+                    <div class="sub_account_container">
+                        <div class="fixed_wallet balance">
+                            <h1>$12,540.00</h1>
+                            <p>Total Account Balance</p>
+                        </div>
+                
+                        <div class="trading_wallet balance">
+                            <h1>$12,540.00</h1>
+                            <p>Total Account Balance</p>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Action Buttons Section (Send, Receive, Convert, Transfer) -->
+                <div class="action-buttons-container">
+                    <div class="action-buttons">
+                        <div class="action-button" onclick="toggleSection('sendSection')">
+                            <i class="fas fa-paper-plane"></i> <!-- Send icon -->
+                            <span>Send</span>
+                        </div>
+                        <div class="action-button" onclick="toggleSection('receiveSection')">
+                            <i class="fas fa-download"></i> <!-- Receive icon -->
+                            <span>Receive</span>
+                        </div>
+                        <div class="action-button" onclick="toggleSection('convertSection')">
+                            <i class="fas fa-exchange-alt"></i> <!-- Convert icon -->
+                            <span>Convert</span>
+                        </div>
+                        <div class="action-button" onclick="toggleSection('transferSection')">
+                            <i class="fas fa-arrow-right"></i> <!-- Transfer icon -->
+                            <span>Transfer</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Action Sections (Send, Receive, Convert, Transfer) -->
+                <div class="action-section" id="sendSection">
+                    <div class="back-arrow" onclick="closeSection('sendSection')">
+                        <i class="fas fa-arrow-left"></i> <!-- Back arrow -->
+                    </div>
+                    <h2>Send Section Content</h2>
+                    <!-- Send Form Section -->
+                    <div class="form-container">
+                        <h2>Send Crypto</h2>
+                        <div class="form-group">
+                            <label for="fromAddress">From Address</label>
+                            <input type="text" id="fromAddress" placeholder="Your wallet address">
+                        </div>
+                        <div class="form-group">
+                            <label for="toAddress">To Address</label>
+                            <input type="text" id="toAddress" placeholder="Recipient's wallet address">
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" id="amount" placeholder="Enter amount">
+                        </div>
+                        <button class="send-button" onclick="sendCrypto()">Send</button>
+                        <div class="transaction-status" id="transactionStatus"></div>
+                        <div class="result-card" id="resultCard" style="display:none;">
+                            <span id="transactionHash">Transaction Hash: #abc123</span>
+                            <button class="copy-button" onclick="copyTransactionHash()">Copy</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Receive Section (Similar Structure as Send Section) -->
+                <div class="action-section" id="receiveSection">
+                    <div class="back-arrow" onclick="closeSection('receiveSection')">
+                        <i class="fas fa-arrow-left"></i> <!-- Back arrow -->
+                    </div>
+                    <h2>Receive Section Content</h2>
+                    <!-- Receive Form Section -->
+                    <section class="crypto-receive-section">
+                        <h2>Receive Crypto</h2>
+                        <div class="form-group">
+                            <label for="network">Select Network</label>
+                            <select id="network">
+                                <option value="erc20">ERC-20</option>
+                                <option value="erc721">ERC-721</option>
+                                <option value="bep20">BEP-20</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="receiveAddress">Receive Address</label>
+                            <input type="text" id="receiveAddress" value="0x12345abcde..." readonly>
+                            <button class="copy-button" onclick="copyReceiveAddress()">Copy Address</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" id="phoneNumber" value="+1234567890" readonly>
+                            <button class="copy-button" onclick="copyPhoneNumber()">Copy Phone</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="text" id="email" value="example@example.com" readonly>
+                            <button class="copy-button" onclick="copyEmail()">Copy Email</button>
+                        </div>
+        
+                        <div class="qr-code-container">
+                            <img id="qrCode" class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?data=0x12345abcde...&size=200x200" alt="QR Code">
+                        </div>
+        
+                        <div class="result-card" id="resultCard" style="display:none;">
+                            <span id="receiveStatus">Awaiting transaction...</span>
+                        </div>
+                    </section>
+                </div>
+    
+                <!-- Convert Section (Similar Structure as Send Section) -->
+                <div class="action-section" id="convertSection">
+                    <div class="back-arrow" onclick="closeSection('convertSection')">
+                        <i class="fas fa-arrow-left"></i> <!-- Back arrow -->
+                    </div>
+                    <h2>Convert Section Content</h2>
+                    <section class="crypto-convert-section">
+                        <h2>Convert Crypto</h2>
+                        <div class="form-group">
+                            <label for="fromCurrency">From Currency</label>
+                            <input type="text" id="fromCurrency" placeholder="e.g., BTC">
+                        </div>
+                        <div class="form-group">
+                            <label for="toCurrency">To Currency</label>
+                            <input type="text" id="toCurrency" placeholder="e.g., ETH">
+                        </div>
+                        <div class="form-group">
+                            <label for="amountToConvert">Amount</label>
+                            <input type="number" id="amountToConvert" placeholder="Amount to convert">
+                        </div>
+                        <button class="convert-button" onclick="convertCrypto()">Convert</button>
+                        <div class="result-card" id="conversionResult" style="display:none;">
+                            <span id="conversionStatus">Conversion Successful</span>
+                        </div>
+                    </section>
+                </div>
+    
+                <!-- Transfer Section (Similar Structure as Send Section) -->
+                <div class="action-section" id="transferSection">
+                    <div class="back-arrow" onclick="closeSection('transferSection')">
+                        <i class="fas fa-arrow-left"></i> <!-- Back arrow -->
+                    </div>
+                    <h2>Transfer Section Content</h2>
+                    <section class="crypto-transfer-section">
+                        <h2>Transfer Crypto</h2>
+                        <div class="form-group">
+                            <label for="fromWallet">From Wallet</label>
+                            <input type="text" id="fromWallet" placeholder="Enter wallet address">
+                        </div>
+                        <div class="form-group">
+                            <label for="toWallet">To Wallet</label>
+                            <input type="text" id="toWallet" placeholder="Recipient's wallet address">
+                        </div>
+                        <div class="form-group">
+                            <label for="transferAmount">Amount</label>
+                            <input type="number" id="transferAmount" placeholder="Enter amount">
+                        </div>
+                        <button class="transfer-button" onclick="transferCrypto()">Transfer</button>
+                        <div class="result-card" id="transferResult" style="display:none;">
+                            <span id="transferStatus">Transfer Successful</span>
+                        </div>
+                    </section>
+                </div>
+                
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search wallet"
+                onfocus="toggleRecommendations(false)"
+                onblur="toggleRecommendations(true)"
+            />
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    
+        <!-- Recommendations -->
+        <div id="recommendations" class="wallet-recommendations">
+            <div class="wallet-card">ETH</div>
+            <div class="wallet-card">BTC</div>
+            <div class="wallet-card">USDT</div>
+            <div class="wallet-card">ISC</div>
+        </div>
+    </div>
+                  <!-- Wallet List -->
+                  <div class="wallet-list">
+                    <h2>Your Wallets</h2>
+                    <div class="wallet-item">
+                      <span>My BTC</span>
+                      <h3>balance</h3>
+                      <span>1.2345 BTC</span>
+                    </div>
+                    <div class="wallet-item">
+                      <span>My ETH</span>
+                      <h3>balance</h3>
+                      <span>12.345 ETH</span>
+                    </div>
+                    <div class="wallet-item">
+                      <span>My USDT</span>
+                      <h3>balance</h3>
+                      <span>3000 USDT</span>
+                    </div>
+                    <div class="wallet-item">
+                        <span>My USDT</span>
+                        <h3>balance</h3>
+                        <span>3000 USDT</span>
+                    </div>
+                      <div class="wallet-item">
+                        <span>My USDT</span>
+                        <h3>balance</h3>
+                        <span>3000 USDT</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+    
+            <!-- Asset Section -->
+            <div class="center_content section hidden" id="asset">
+                <h2>Asset Section</h2>
+                <p>Manage your crypto and other digital assets here.</p>
+            </div>
+    
+            <!-- History Section -->
+            <div class="center_content section hidden" id="history">
+                <!-- History Filter Buttons -->
+                <div class="history-buttons">
+                    <button class="history-sub-button active" onclick="filterHistory('all')">ALL</button>
+                    <button class="history-sub-button" onclick="filterHistory('swap')">Swap</button>
+                    <button class="history-sub-button" onclick="filterHistory('sent')">Sent</button>
+                    <button class="history-sub-button" onclick="filterHistory('deposit')">Deposit</button>
+                    <button class="history-sub-button" onclick="filterHistory('transfer')">Transfer</button>
+                    <button class="history-sub-button" onclick="filterHistory('p2p')">P2P</button>
+                </div>
+    
+                <!-- History Table Content -->
+                <div id="historyContent">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Placeholder row -->
+                            <tr class="placeholder-row">
+                                <td colspan="4">Select a history type to view details.</td>
+                            </tr>
+                            
+                            <!-- Example Data for History Types (Swap, Sent, Deposit, Transfer, P2P) -->
+                            <tr class="history-row hidden" data-type="all">
+                                <td>2024-11-21</td>
+                                <td>Swap</td>
+                                <td>$100</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="all">
+                                <td>2024-11-20</td>
+                                <td>Sent</td>
+                                <td>$250</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="swap">
+                                <td>2024-11-19</td>
+                                <td>Swap</td>
+                                <td>$50</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="sent">
+                                <td>2024-11-18</td>
+                                <td>Sent</td>
+                                <td>$150</td>
+                                <td>Pending</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="deposit">
+                                <td>2024-11-17</td>
+                                <td>Deposit</td>
+                                <td>$200</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="transfer">
+                                <td>2024-11-16</td>
+                                <td>Transfer</td>
+                                <td>$300</td>
+                                <td>Failed</td>
+                            </tr>
+                            <tr class="history-row hidden" data-type="p2p">
+                                <td>2024-11-15</td>
+                                <td>P2P</td>
+                                <td>$400</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Right Section -->
+    <div class="right_section">
+            <div class="charts-container">
+                <div class="chart">
+                    <h3>Total Growth</h3>
+                    <canvas id="totalGrowthChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Staking/Investment Growth</h3>
+                    <canvas id="stakingGrowthChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="trending">
+                <div class="trending-header">
+                    <h2>Trending</h2>
+                    <div class="trending-icon-container">
+                        <i class="fa fa-arrow-up up-arrow"></i>
+                        <i class="fa fa-arrow-down down-arrow" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="trending-content">
+                    <ul>
+                        <li>#SustainableFarming</li>
+                        <li>#AgriTech</li>
+                        <li>#GreenEnergy</li>
+                        <li>#OrganicGinger</li>
+                        <li>#BlockchainInAg</li>
+                        <li>#GreenEnergy</li>
+                    </ul>
+                </div>
+                <!-- Hot Deals Section -->
+                <div class="hot-deals">
+                    <h2>Hot Deals</h2>
+                    <div class="deals-container">
+                        <div class="deal-card">
+                            <h3>Deal 1</h3>
+                            <p>Special offer on organic ginger</p>
+                        </div>
+                        <div class="deal-card">
+                            <h3>Deal 2</h3>
+                            <p>AgriTech equipment sale</p>
+                        </div>
+                        <div class="deal-card">
+                            <h3>Deal 3</h3>
+                            <p>Special offer on organic ginger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="charts.js"></script>
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+<script src="message.js"></script>
+<script src="wallet.js"></script>
+</html>

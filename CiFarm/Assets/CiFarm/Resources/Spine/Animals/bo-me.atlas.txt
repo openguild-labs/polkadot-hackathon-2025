@@ -1,0 +1,48 @@
+
+bo-me.png
+size: 201,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animal/bo-me/body
+  rotate: true
+  xy: 2, 2
+  size: 124, 119
+  orig: 124, 119
+  offset: 0, 0
+  index: -1
+animal/bo-me/duoi
+  rotate: true
+  xy: 123, 3
+  size: 34, 37
+  orig: 34, 39
+  offset: 0, 1
+  index: -1
+animal/bo-me/mat
+  rotate: false
+  xy: 123, 39
+  size: 43, 28
+  orig: 46, 30
+  offset: 2, 1
+  index: -1
+animal/bo-me/mieng
+  rotate: false
+  xy: 123, 69
+  size: 68, 57
+  orig: 70, 59
+  offset: 1, 1
+  index: -1
+animal/bo-me/tai-phai
+  rotate: false
+  xy: 168, 47
+  size: 31, 20
+  orig: 31, 20
+  offset: 0, 0
+  index: -1
+animal/bo-me/tai-trai
+  rotate: false
+  xy: 168, 16
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1

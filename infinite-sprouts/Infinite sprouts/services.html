@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service List (A-Z)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+         /* Scrollbar Styling */
+         ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(lime, gold, white, blue, lime, green);
+            border-radius: 4px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(145deg, #1f1f1f, #0d0d0d);
+            border: 1px solid rgb(46, 44, 44);
+            position: fixed;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .sidebar a img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            gap: 10px;
+            width: 100%;
+            box-shadow: 8px 8px 16px #222222, -8px -8px 16px #2b2b2b;
+            border: 1px solid rgb(46, 44, 44);
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar ul li a {
+            display: flex;
+            width: 90%;
+            height: 60px;
+            padding-left: 15px;
+            line-height: 60px;
+            text-align: left;
+            font-size: 16px;
+            color: #00ff99;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid #2b2b2b;
+            transition: all 0.3s ease;
+            border-radius: 25px 0 25px 0;
+            box-shadow: 4px 4px 8px #0b0b0b, -4px -4px 8px #2b2b2b;
+            background-image: linear-gradient(145deg, #202020, #121212);
+        }
+
+        .sidebar ul li:hover a {
+            background-color: #34495e;
+            transform: scale(1.05) translateY(5px);
+        }
+
+        .nav-link.active a {
+            background: #00ff99;
+            color: #000;
+            box-shadow: 4px 4px 8px #009966, -4px -4px 8px #33ffcc;
+        }
+
+        .log_out_btn h2 {
+            padding: 20px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            text-align: center;
+            color: white;
+            border: 2px solid rgb(219, 156, 156);
+            box-shadow: 0 0 6px white;
+            background-color: red;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .log_out_btn h2:hover {
+            transform: scale(0.95);
+            background-color: darkred;
+        }
+
+        /* Theme Switch Button */
+        #theme-switcher {
+            padding: 10px 15px;
+            color: #00ff99;
+            border: 1px solid #00ff99;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #0d0d0d;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #theme-switcher:hover {
+            background-color: #00ff99;
+            color: #0d0d0d;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 280px; /* Width of the sidebar */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: auto;
+            background-color: #121212;
+        }
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            background-image: linear-gradient(black, #00af58);
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h2 {
+            font-size: 28px;
+            color: #ffffff;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+ /* Search Bar */
+ .search-bar {
+    width: 50%;
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px;
+      background-color: #1e1e1e;
+      border: 2px solid #00ff80;
+      border-radius: 8px 0 0 8px;
+      color: white;
+    }
+
+    .search-bar button {
+      padding: 12px 20px;
+      background-color: #00af58;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+        /* Horizontal Alphabetical Navigation */
+        .alphabet-nav {
+            display: flex;
+            padding: 10px;
+            border-radius: 12px;
+            justify-content: center;
+            background-color: #00af58;
+            border: 1px solid white;
+            gap: 10px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .alphabet-nav button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .alphabet-nav button.active {
+            background-color: red;
+        }
+
+        .alphabet-nav button:hover {
+            background-color: #004099;
+        }
+
+        /* Service list wrapper */
+        .service-list {
+            gap: 20px;
+            padding: 20px;
+            display: flex;
+            background-color: red;
+        }
+
+        /* Service Section Letter */
+        .service-letter {
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .service-letter h3 {
+            font-size: 24px;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Service Card Styling */
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            width: 25%;
+            display: inline-block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h4 {
+            margin: 0;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Section -->
+    <nav class="sidebar">
+        <a href="index.html">
+            <img src="Assets/Infinite Logo.png" alt="Infinite Sprouts Logo">
+        </a>
+        <ul>
+            <li class="nav-link active">
+                <a href="main_app.html">HOME</a>
+            </li>
+            <li class="nav-link">
+                <a href="Market_ag.html">MARKET</a>
+            </li>
+            <li class="nav-link">
+                <a href="services.html">SERVICES</a>
+            </li>
+            <li class="nav-link">
+                <a href="wallet.html">WALLET</a>
+            </li>
+            <li class="nav-link">
+                <a href="Sproutslink.html">SPROUTSLINK</a>
+            </li>
+        </ul>
+        <button id="theme-switcher"><i class="bx bx-moon"></i> Theme</button>
+        <div class="log_out_btn">
+            <h2>Log out</h2>
+        </div>
+    </nav>
+    <main>
+        <!-- Sticky Header with Search and Navigation -->
+<div class="header">
+    <h2>All Services (A-Z)</h2>
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search wallet">
+        <button>Go to</button>
+    </div>
+
+    <!-- Horizontal Alphabetical Navigation -->
+    <div class="alphabet-nav" id="alphabetNav">
+       <button onclick="scrollToLetter('A')" id="nav-A">A</button>
+       <button onclick="scrollToLetter('B')" id="nav-B">B</button>
+       <button onclick="scrollToLetter('C')" id="nav-C">C</button>
+       <!-- Repeat for all letters -->
+       <button onclick="scrollToLetter('Z')" id="nav-Z">Z</button>
+    </div>
+</div>
+
+<!-- Service List Section -->
+<div class="service-list" id="serviceList">
+    <!-- Section for "A" -->
+    <div id="A" class="service-letter">
+        <h3>A</h3>
+        <div class="service-card">
+            <a href="convert.html">
+                <h4>Convert</h4>
+            </a>
+        </div>
+        <div class="service-card">
+            <a href="send.html">
+                <h4>Sent</h4>
+            </a>
+        </div>
+        <div class="service-card">
+            <a href="Receive.html">
+                <h4>Deposit</h4>
+            </a>
+        </div>
+        <div class="service-card">
+            <h4>Analytics</h4>
+        </div>
+        <div class="service-card">
+            <a href="Sproutslink.html">
+                <h4>Sproutslink</h4>
+            </a>
+        </div>
+        <div class="service-card">
+            <a href="Sproutslabs.html">
+                <h4>lab</h4>
+            </a>
+        <!-- More "A" services -->
+    </div>
+
+    <!-- Section for "B" -->
+    <div id="B" class="service-letter">
+        <h3>B</h3>
+        <div class="service-card">
+            <a href="sp">
+                <h4>Billing</h4>
+\            </a>
+        </div>
+        <div class="service-card">
+            <a href="#">
+                <h4>Backup Service</h4>
+\            </a>
+        </div>
+        <div class="service-card">
+            <a href="#"></a>
+        </div>
+        <div class="service-card">
+            <a href="#">
+                <h4>Billing</h4>
+\            </a>
+        </div>
+        <div class="service-card">
+            <a href="#">
+                <h4>Billing</h4>
+\            </a>
+        </div>
+        <!-- More "B" services -->
+    </div>
+
+    <!-- Section for "c" -->
+    <div id="B" class="service-letter">
+        <h3>C</h3>
+        <div class="service-card">
+            <h4>Billing</h4>
+\        </div>
+        <div class="service-card">
+            <h4>Backup Service</h4>
+        </div>
+        <div class="service-card">
+            <h4>Billing</h4>
+        </div>
+        <div class="service-card">
+            <h4>Billing</h4>
+        </div>
+        <div class="service-card">
+            <h4>Billing</h4>
+        </div>
+        <!-- More "B" services -->
+    </div>
+    <!-- More sections for letters like C, D, E, etc. -->
+
+    <!-- Section for "Z" -->
+    <div id="Z" class="service-letter">
+        <h3>Z</h3>
+        <div class="service-card">
+            <h4>Zero Trust Security</h4>
+        </div>
+        <div class="service-card">
+            <h4>Zero Trust Security</h4>
+        </div>
+        <div class="service-card">
+            <h4>Zero Trust Security</h4>
+        </div>
+        <div class="service-card">
+            <h4>Zero Trust Security</h4>
+        </div>
+        <div class="service-card">
+            <h4>Zero Trust Security</h4>
+        </div>
+        <!-- More "Z" services -->
+    </div>
+</div>
+
+    </main>
+<script>
+    // Search function to filter services
+    function searchServices() {
+        let input = document.getElementById('serviceSearch').value.toUpperCase();
+        let serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            let cardText = card.querySelector('h4').textContent.toUpperCase();
+            if (cardText.includes(input)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // Scroll to specific letter section
+    function scrollToLetter(letter) {
+        document.getElementById(letter).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Handle active class on click
+    const alphabetNavButtons = document.querySelectorAll('.alphabet-nav button');
+    alphabetNavButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            removeActiveClass();
+            button.classList.add('active');
+        });
+    });
+
+    function removeActiveClass() {
+        alphabetNavButtons.forEach(button => button.classList.remove('active'));
+    }
+
+    // Scroll-based active state for navigation
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.service-letter');
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const sectionID = section.getAttribute('id');
+            if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                removeActiveClass();
+                document.querySelector(`#nav-${sectionID}`).classList.add('active');
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>

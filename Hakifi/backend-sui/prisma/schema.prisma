@@ -1,0 +1,489 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  walletAddress    String         @unique
+  username         String?
+  email            String?
+  phoneNumber      String?
+  defaultMyRefCode String?
+  refCode          String?
+  nonce            Int?           @default(0)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  invitedAt        DateTime?
+  hierarchy        String?
+  totalFriends     Int            @default(0)
+  level            Int            @default(1)
+  isPartner        Boolean        @default(false)
+  insurances       Insurance[]
+  favoritePairs    FavoritePair[]
+  transactions     Transaction[]
+  userStat         UserStat?
+  toCommissions    Commission[]   @relation("from_user")
+  commissions      Commission[]   @relation("to_user")
+  refferalCode     ReferralCode?  @relation(fields: [refCode], references: [code])
+  myReferralCodes  ReferralCode[] @relation("refcode_owner")
+  wallets          Wallet[]
+  // only devnet, testnet
+  isFaucet         Boolean        @default(false)
+
+  @@map("users")
+}
+
+model Wallet {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String   @db.ObjectId
+  asset           BaseUnit
+  balance         Float    @default(0)
+  locked          Float    @default(0)
+  user            User     @relation(fields: [userId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  totalCommission Float    @default(0)
+
+  @@unique([userId, asset])
+  @@map("wallets")
+}
+
+model ReferralInfo {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  childId  String  @db.ObjectId
+  parentId String  @db.ObjectId
+  note     String?
+
+  @@unique([childId, parentId])
+  @@map("referral_infos")
+}
+
+model UserStat {
+  id                       String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId                   String    @unique @db.ObjectId
+  totalInsurance           Int       @default(0)
+  totalInsuranceClosed     Int       @default(0)
+  totalInsuranceClaimed    Int       @default(0)
+  totalInsuranceRefunded   Int       @default(0)
+  totalInsuranceLiquidated Int       @default(0)
+  totalInsuranceExpired    Int       @default(0)
+  totalPayback             Float     @default(0)
+  totalMargin              Float     @default(0)
+  totalPnl                 Float     @default(0)
+  totalFriendsMargin       Float     @default(0)
+  lastCheckLevelTime       DateTime?
+  user                     User      @relation(fields: [userId], references: [id])
+
+  @@map("user_stats")
+}
+
+model UserStatDaily {
+  id                       String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId                   String   @db.ObjectId
+  totalInsurance           Int      @default(0)
+  totalInsuranceClosed     Int      @default(0)
+  totalInsuranceClaimed    Int      @default(0)
+  totalInsuranceRefunded   Int      @default(0)
+  totalInsuranceLiquidated Int      @default(0)
+  totalInsuranceExpired    Int      @default(0)
+  totalPayback             Float    @default(0)
+  totalMargin              Float    @default(0)
+  totalPnl                 Float    @default(0)
+  time                     DateTime
+
+  @@unique([userId, time])
+  @@map("user_stats_daily")
+}
+
+enum InsuranceSide {
+  BULL
+  BEAR
+}
+
+enum InsuranceState {
+  PENDING // Đang chờ chuyển tiền
+  AVAILABLE // Đã chuyển tiền, đang khả dụng
+  EXPIRED // Đã hết hạn
+  REFUNDED // Đã hoàn tiền
+  REFUND_WAITING // Đang chờ hoàn tiền
+  CLAIMED // Đã được claim
+  CLAIM_WAITING // Đang chờ claim
+  LIQUIDATED // Đã bị thanh lý khi chạm p_liquidation trong khi available
+  INVALID // Hợp đồng không hợp lệ
+  CANCELLED // Hợp đồng đã được cancel bởi người dùng (trong khoảng p_cancel -> p_claim)
+}
+
+enum InsurancePeriodUnit {
+  DAY
+  HOUR
+}
+
+enum BaseUnit {
+  USDT
+  VNST
+}
+
+type InsuranceMetadata {
+  signalId String? @db.ObjectId
+}
+
+type listHourChangeRatio {
+  1  Float?
+  4  Float?
+  12 Float?
+}
+
+type StateLog {
+  state  InsuranceState
+  txhash String?
+  error  String?
+  time   DateTime
+}
+
+model Insurance {
+  id                 String              @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String              @db.ObjectId
+  txhash             String?
+  asset              String
+  unit               BaseUnit
+  margin             Float
+  q_claim            Float
+  q_covered          Float
+  p_open             Float
+  p_close            Float?
+  p_liquidation      Float
+  p_claim            Float
+  p_refund           Float
+  p_cancel           Float
+  leverage           Float
+  periodChangeRatio  Float
+  hedge              Float
+  systemCapital      Float
+  futureQuantity     Float               @default(0) //quantity to transfer to Binance
+  invalidReason      String?
+  period             Int
+  periodUnit         InsurancePeriodUnit
+  state              InsuranceState
+  stateLogs          StateLog[]
+  side               InsuranceSide
+  metadata           InsuranceMetadata?
+  pnlUser            Float               @default(0)
+  pnlProject         Float               @default(0)
+  pnlBinance         Float               @default(0)
+  isTransferBinance  Boolean             @default(false)
+  canTransferBinance Boolean             @default(false)
+  expiredAt          DateTime
+  closedAt           DateTime?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  user               User                @relation(fields: [userId], references: [id])
+  token              Token               @relation(fields: [asset], references: [symbol])
+  transactions       Transaction[]
+  commissions        Commission[]
+  binanceOrders      BinanceOrder[]
+  binanceInsurance   BinanceInsurance?
+
+  @@index([state])
+  @@map("insurances")
+}
+
+enum TransactionType {
+  MARGIN
+  CLAIM
+  REFUND
+  CANCEL
+  WITHDRAW
+}
+
+enum TransactionStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+model Transaction {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String            @db.ObjectId
+  insuranceId String?           @db.ObjectId // null if transaction is not related to insurance
+  txhash      String?
+  time        DateTime          @default(now())
+  status      TransactionStatus
+  error       String?
+  amount      Float
+  unit        BaseUnit
+  type        TransactionType
+  user        User              @relation(fields: [userId], references: [id])
+  insurance   Insurance?        @relation(fields: [insuranceId], references: [id])
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@map("transactions")
+}
+
+type TokenContent {
+  en String?
+  vi String?
+}
+
+model Token {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  symbol     String       @unique
+  decimals   Int
+  address    String?
+  attachment String?
+  content    TokenContent
+  isActive   Boolean      @default(true)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  pairs      Pair[]
+  insurances Insurance[]
+  tagIds     Int[]
+
+  @@map("tokens")
+}
+
+model Tag {
+  id          Int     @id @map("_id")
+  name        String
+  description String?
+
+  @@map("tags")
+}
+
+model Pair {
+  id                 String          @id @default(auto()) @map("_id") @db.ObjectId
+  symbol             String          @unique
+  asset              String
+  unit               BaseUnit
+  isMaintain         Boolean         @default(false)
+  isActive           Boolean         @default(true)
+  isHot              Boolean         @default(false)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  pricePrecision     Int
+  quantityPrecision  Int
+  baseAssetPrecision Int
+  quotePrecision     Int
+  token              Token           @relation(fields: [asset], references: [symbol])
+  config             PairConfig?
+  userFavoritesPairs FavoritePair[]
+  marketStat         PairMarketStat? @relation(fields: [symbol], references: [symbol])
+
+  @@map("pairs")
+}
+
+model PairConfig {
+  id                  String              @id @default(auto()) @map("_id") @db.ObjectId
+  symbol              String              @unique
+  listDayChangeRatio  Float[]
+  listHourChangeRatio listHourChangeRatio
+  pair                Pair                @relation(fields: [symbol], references: [symbol])
+  updatedAt           DateTime            @updatedAt
+
+  @@map("pair_configs")
+}
+
+model FavoritePair {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  symbol    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  pair      Pair     @relation(fields: [symbol], references: [symbol])
+
+  @@unique([userId, symbol])
+  @@map("user_favorite_pairs")
+}
+
+model PairMarketStat {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  symbol        String   @unique
+  asset         String
+  unit          BaseUnit
+  totalBull     Int      @default(0)
+  totalBear     Int      @default(0)
+  totalContract Int      @default(0)
+  margin        Float    @default(0)
+  claimed       Float    @default(0)
+  q_covered     Float    @default(0)
+  payback       Float    @default(0)
+  refunded      Float    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  Pair          Pair?
+
+  @@map("pair_market_stats")
+}
+
+enum CommissionType {
+  DIRECT
+  INDIRECT
+  SHARE_BACK
+}
+
+model Commission {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  insuranceId    String         @db.ObjectId
+  fromUserId     String         @db.ObjectId
+  toUserId       String         @db.ObjectId
+  amount         Float
+  asset          BaseUnit
+  commissionType CommissionType
+  type           Int //1,2,3,4 (F1, F2, F3, F4)
+  toUserLevel    Int?
+  fromUser       User           @relation(fields: [fromUserId], references: [id], name: "from_user")
+  toUser         User           @relation(fields: [toUserId], references: [id], name: "to_user")
+  insurance      Insurance      @relation(fields: [insuranceId], references: [id])
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([fromUserId])
+  @@index([toUserId])
+  @@map("commissions")
+}
+
+model ReferralCode {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  code        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  myPercent   Float    @default(1) // tỉ lệ hoa hồng của owner ref code
+  users       User[]
+  owner       User     @relation(fields: [userId], references: [id], name: "refcode_owner", onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("referral_codes")
+}
+
+model SymbolPrediction {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  symbol        String
+  chartInterval String
+  signal        String
+  metadata      Json?
+  date          Int    @db.Long
+
+  @@unique([symbol, chartInterval, date])
+  @@map("symbol_prediction")
+}
+
+enum OrderSide {
+  BUY
+  SELL
+}
+
+enum PositionSide {
+  LONG
+  SHORT
+}
+
+model BinanceAccount {
+  id                Int                @id @map("_id")
+  name              String?
+  email             String?
+  apiSecret         String
+  apiKey            String
+  isTestnet         Boolean            @default(false)
+  isActive          Boolean            @default(true)
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  orders            BinanceOrder[]
+  binanceInsurances BinanceInsurance[]
+
+  @@map("binance_accounts")
+}
+
+model BinanceOrder {
+  orderId                 Int            @id @map("_id") @db.Long
+  clientOrderId           String
+  insuranceId             String         @db.ObjectId
+  binanceAccountId        Int
+  symbol                  String
+  cumQty                  String
+  cumQuote                String
+  executedQty             String
+  avgPrice                String
+  origQty                 String
+  price                   String
+  reduceOnly              Boolean
+  side                    OrderSide
+  positionSide            PositionSide
+  status                  String
+  stopPrice               String?
+  closePosition           Boolean
+  timeInForce             String
+  type                    String
+  origType                String
+  activatePrice           String?
+  priceRate               String?
+  priceProtect            Boolean?
+  priceMatch              String?
+  selfTradePreventionMode String?
+  goodTillDate            Float?
+  updateTime              Int            @db.Long
+  workingType             String
+  createdAt               DateTime       @default(now())
+  updatedAt               DateTime       @updatedAt
+  binanceAccount          BinanceAccount @relation(fields: [binanceAccountId], references: [id])
+  insurance               Insurance      @relation(fields: [insuranceId], references: [id])
+
+  @@map("binance_orders")
+}
+
+model BinanceInsurance {
+  insuranceId      String         @id @map("_id") @db.ObjectId
+  symbol           String
+  openOrderId      Int            @db.Long
+  closeOrderId     Int?           @db.Long
+  tpOrderId        Int?           @db.Long
+  slOrderId        Int?           @db.Long
+  pnl              Float?
+  binanceAccountId Int
+  isCalculatedPnl  Boolean        @default(false)
+  quantity         String
+  createdAt        DateTime       @default(now())
+  lastScanPnl      DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  insurance        Insurance      @relation(fields: [insuranceId], references: [id])
+  binanceAccount   BinanceAccount @relation(fields: [binanceAccountId], references: [id])
+
+  @@map("binance_insurances")
+}
+
+enum BinanceOrderLogStatus {
+  SUCCESS
+  FAILED
+}
+
+type BinanceOrderLogMetadata {
+  slPrice String?
+  tpPrice String?
+}
+
+model BinanceOrderLog {
+  id           String                   @id @default(auto()) @map("_id") @db.ObjectId
+  accountId    Int
+  positionSide PositionSide
+  side         OrderSide
+  insuranceId  String                   @db.ObjectId
+  symbol       String
+  errorMessage String?
+  orderType    String
+  orderId      Int?                     @db.Long
+  quantity     String
+  metadata     BinanceOrderLogMetadata?
+  status       BinanceOrderLogStatus
+  createdAt    DateTime                 @default(now())
+
+  @@map("binance_order_logs")
+}

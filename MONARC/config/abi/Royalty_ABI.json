@@ -1,0 +1,805 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_globalMinRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_globalMaxRate",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "ArithmeticError",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "CooldownActive",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidAddress",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidBeneficiary",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidRate",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidTimeDecayFactor",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidVolumeMultiplier",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "OwnableInvalidOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "OwnableUnauthorizedAccount",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "RateExceedsLimit",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "UnauthorizedOperator",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "triggeredBy",
+				"type": "address"
+			}
+		],
+		"name": "EmergencyPaused",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "triggeredBy",
+				"type": "address"
+			}
+		],
+		"name": "EmergencyUnpaused",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "status",
+				"type": "bool"
+			}
+		],
+		"name": "OperatorStatusUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "Paused",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "baseRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "volumeMultiplier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeDecayFactor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdateTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "useMarketMetrics",
+						"type": "bool"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct RoyaltyRegistry.RoyaltyConfig",
+				"name": "config",
+				"type": "tuple"
+			}
+		],
+		"name": "RoyaltyConfigUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "RoyaltyPaid",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "Unpaused",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "MAX_BPS",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "MAX_VOLUME_MULTIPLIER",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "authorizedOperators",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "salePrice",
+				"type": "uint256"
+			}
+		],
+		"name": "calculateRoyalty",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "lastSaleTimestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeDecayFactor",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "currentRate",
+				"type": "uint256"
+			}
+		],
+		"name": "calculateTimeDecay",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "volume24h",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "volumeMultiplier",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "currentRate",
+				"type": "uint256"
+			}
+		],
+		"name": "calculateVolumeAdjustment",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "emergencyPause",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "emergencyUnpause",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getRoyaltyInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "baseRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "volumeMultiplier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeDecayFactor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdateTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "useMarketMetrics",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct RoyaltyRegistry.RoyaltyConfig",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "globalMaxRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "globalMinRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "marketMonitor",
+		"outputs": [
+			{
+				"internalType": "contract MarketMonitor",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "paused",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "rateChangeLimit",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "royaltyConfigs",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "baseRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "minRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "maxRate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "volumeMultiplier",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeDecayFactor",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "lastUpdateTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "useMarketMetrics",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "a",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "b",
+				"type": "uint256"
+			}
+		],
+		"name": "safeMultiply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_marketMonitor",
+				"type": "address"
+			}
+		],
+		"name": "setMarketMonitor",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "status",
+				"type": "bool"
+			}
+		],
+		"name": "setOperatorStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "baseRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxRate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "volumeMultiplier",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeDecayFactor",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastUpdateTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "useMarketMetrics",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct RoyaltyRegistry.RoyaltyConfig",
+				"name": "config",
+				"type": "tuple"
+			}
+		],
+		"name": "setRoyaltyConfig",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "useMetrics",
+				"type": "bool"
+			}
+		],
+		"name": "setUseMarketMetrics",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "updateCooldown",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]

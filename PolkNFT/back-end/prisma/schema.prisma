@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String          @id @default(cuid())
+  name           String          @unique
+  avatar         String?
+  wallets        Wallet[]
+  market         String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  Asset          Asset[]
+  Auction_market Auction_market?
+}
+
+model Wallet {
+  id        String   @id @default(cuid())
+  address   String
+  nfts      NFT[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+}
+
+model NFT {
+  polidId   String   @unique
+  assetId   String   @unique
+  name      String
+  url       String?
+  address   String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Wallet    Wallet?  @relation(fields: [walletId], references: [id])
+  walletId  String?
+  Asset     Asset?   @relation(fields: [assetId], references: [id])
+}
+
+model Auction_market {
+  id     String  @id @default(cuid())
+  name   String
+  image  String
+  userId String  @unique
+  user   User    @relation(fields: [userId], references: [id])
+  assets Asset[]
+}
+
+model Asset {
+  id               String          @id @default(cuid())
+  nftId            String          @unique
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  startAt          String
+  endAt            String
+  highest_bid      Int
+  highest_bidder   User            @relation(fields: [userId], references: [name])
+  userId           String          @unique
+  image            String
+  type             String
+  NFT              NFT[]
+  Auction_market   Auction_market? @relation(fields: [auction_marketId], references: [id])
+  auction_marketId String?
+}

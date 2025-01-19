@@ -1,0 +1,95 @@
+.textAnimation {
+	div {
+		animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    animation-iteration-count: 1;
+	}
+	@keyframes scale {
+		0% {
+			transform: translateX(-7%);
+      opacity: 0;
+		}
+		100% {
+			transform: translateX(0%);
+      opacity: 1;
+		}
+	}
+	p {
+		opacity: 0;
+		filter: blur(0px);
+		font-size: 38px;
+		line-height: 1em !important;
+		font-weight: bold;
+		@media only screen and (min-width: 420px) {
+			font-size: 38px;
+			line-height: 1em !important;
+		}
+		@media only screen and (min-width: 768px) {
+			font-size: 48px;
+			line-height: 1.1em !important;
+		}
+		@media only screen and (min-width: 992px) {
+			font-size: 54px;
+			line-height: 1.1em !important;
+			font-weight: 800 !important;
+		}
+	}
+
+	@for $i from 1 through 6 {
+		p:nth-child(#{$i}) {
+			$delay: 0.2 * $i;
+			animation: fade-in 1.2s #{$delay}s forwards cubic-bezier(0.11, 0, 0.99, 0);
+		}
+	}
+
+	@keyframes fade-in {
+		100% {
+			opacity: 1;
+			filter: blur(0px);
+		}
+		50% {
+			opacity: 0.5;
+			filter: blur(5px);
+		}
+		0% {
+			opacity: 0;
+			filter: blur(10px);
+		}
+	}
+}
+
+
+@keyframes jump {
+  100% {
+    transform: translateX(0) translateY(0); 
+		opacity: 1;
+  }
+  50% {
+    transform: translateX(-15px);
+		opacity: 0.5;
+  }
+  0% {
+    transform: translateX(-30px);
+		opacity: 0;
+  }
+}
+
+
+.titleAnimation {
+  width: 100%;
+  text-align: center;
+
+  span {
+    animation: jump 2s ease-in-out 1;
+		display: inline-block;
+		margin-right: 12px;
+		@for $i from 1 through 7 {
+			&:nth-child(#{$i}) {
+				animation-delay: 120ms * $i;
+				@if $i >= 4 {
+					color: theme("colors.typo.primary");
+					word-break: break-all;
+				}
+			}
+		}
+  }
+}

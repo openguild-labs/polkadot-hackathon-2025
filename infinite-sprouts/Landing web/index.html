@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <!-- <link rel="stylesheet" href="Style.css"/> -->
+        <title>infinite_sprouts</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <!----LANDING SECTION---->
+        <header class="header">
+            <a href="index.html" class="logo">
+              <img src="./Assets/Infinite Logo.png" alt="Logo">
+            </a>
+            <input type="checkbox" id="main-check">
+            <label for="main-check" class="menu-icon">
+              <i class='bx bx-menu' id="open-menu"></i>
+              <i class='bx bx-x' id="close-menu"></i>
+            </label>
+            <div class="header-content">
+              <div class="header-content-details">
+                <ul>
+                  <a class="nav-link" href="#main_section" id="home-link">Home</a>
+                  <a class="nav-link" href="#about" id="about-link">About us</a>
+                  <a class="nav-link" href="#ecosystem" id="ecosystem">Ecosystem</a>
+                  <a class="nav-link" href="#features-section" id="features-link">Features</a>
+                  <a class="nav-link" href="#roadmap" id="roadmap">Roadmap</a>
+                  <a class="nav-link" href="#team_section" id="team">Our team</a>
+                </ul>
+                <div class="Fast_icon">
+                  <div class="theme-toggle_switch" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun" style="display: none;"></i> <!-- Sun icon hidden by default -->
+                  </div>                        
+                  <div class="fast-icon-content">
+                    <h5>Connect with us here!</h5>
+                    <div class="shortcut_icon">
+                      <a id="shortcut" href="#"><i class='bx bxl-google'></i></a>
+                      <a id="shortcut" href="#"><i class='bx bxl-facebook'></i></a>
+                      <a id="shortcut" href="#"><i class='bx bxl-twitter'></i></a>
+                    </div>
+                    <p> infinite_sprouts 2024.</p>
+                  </div>
+                  <!-- Button to trigger the pop-up -->
+                  <a class="button" id="dashboard-button">Dashboard</a>
+
+                  <!-- Pop-up Card -->
+                  <div class="popup" id="popup">
+                    <div class="popup-content">
+                      <h2>Coming Soon!</h2>
+                      <p>This feature is under development. Stay tuned for updates!</p>
+                      <button id="close-popup">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          
+        <!----LANDING SECTION---->
+        
+        <section class="main" id="main_section">
+              <div class="main_container">
+                    <div class="main-content">
+                        <h1>
+                            <span class="head intro-green">Welcome to</span> <br />
+                            <span class="head gold">Infinite Sprouts</span>
+                        </h1>
+                        <p>
+                            Bring your concepts to life using Eternity's versatile platform.
+                            Engage with raffles, captivate with puzzles, or incentivize with sweepstakes,
+                            all built on a foundation of transparency and fairness thanks to our robust blockchain technology.
+                        </p>
+                        <div class="main-button">
+                            <a class="btn yellow" href="https://infinite-sprouts.gitbook.io/infinite-sprout">Gitbook</a>
+                            <a class="btn green" href="Point.index.html">Points</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Message Card -->
+                    <div class="floating-message-card">
+                        <div class="card-inner">
+                          <!-- Front side of the card -->
+                          <div class="card-front">
+                            <p style="font-size: 15px; margin: 0; color: black;">net annual revenue</p>
+                            <h5>$3,969,000</h5>
+                            <p>estimated daily revenue</p>
+                            <h6>$10,873</h6>
+                          </div>
+                          <!-- Back side of the card (logo) -->
+                          <div class="card-back">
+                            <img src="./Assets/Infinite Logo.png" alt="Logo" />
+                          </div>
+                        </div>
+                    </div>
+              </div>
+    </section>
+
+    <section class="card-section">
+      <div class="about_heading">
+        <h2>Partnership</h2>
+      </div>
+      <div class="card-container">
+        <!-- Original set of cards -->
+        <div class="card">Partnership 1</div>
+        <div class="card">Partnership 2</div>
+        <div class="card">Partnership 3</div>
+        <div class="card">Partnership 4</div>
+        <div class="card">Partnership 5</div>
+        <div class="card">Partnership 6</div>
+        
+        <!-- Duplicate set of cards for infinite loop -->
+        <div class="card">Partnership 1</div>
+        <div class="card">Partnership 2</div>
+        <div class="card">Partnership 3</div>
+        <div class="card">Partnership 4</div>
+        <div class="card">Partnership 5</div>
+        <div class="card">Partnership 6</div>
+      </div>
+    </section>
+
+
+    <!-------ABOUT SECTION------->
+    <section class="about_us"  id="about">
+      <div class="About_section">
+        <div class="about_heading">
+          <h2>About Us</h2>
+        </div>
+        <div class="about_container">
+          <img src="Assets/AI for Sustainable Pest Control in Organic Agriculture.jpeg" alt="About Us" class="about-image"> <!-- Replace with your image URL -->
+          <div class="message-box">
+            <div class="message_box_content">
+              <div class="message user-message">
+                    <div class="tooltip">
+                      <h3>User:</h3>
+                      <p>What does your company do?</p>
+                    </div>
+                </div>
+                <div class="message bot-response">
+                    <div class="tooltip">
+                       <h3>Bot:</h3>
+                       <p>We are a leading technology company committed to innovation and excellence.</p>
+                    </div>
+                </div>
+                <div class="message user-message">
+                    <div class="tooltip">
+                       <h3>User:</h3>
+                       <p>How do you innovate?</p>
+                    </div>
+                </div>
+                <div class="message bot-response">
+                    <div class="tooltip">
+                       <h3>Bot:</h3>
+                       <p>Our team of experts works diligently to provide cutting-edge solutions.</p>
+                    </div>
+                </div>
+              </div>
+              <div class="main-button about_btn">
+                <a class="btn yellow" href="https://infinite-sprouts.gitbook.io/infinite-sprout">Gitbook</a>
+                <a class="btn green" href="Point.index.html">Points</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="ecosystem_section" id="ecosystem">
+    <div class="ecosystem_heading">
+        <h2>OUR ECOSYSTEM</h2>
+    </div>
+    <div class="ecosystem_container">
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-globe"></i>
+              <h4>Sproutlink</h4>
+              <p>A thriving network for farmers, traders, and investors to connect, exchange insights, and build a collaborative agricultural ecosystem. Promotes knowledge sharing and engagement, driving innovation and growth within the community.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-link"></i>
+                <h4>Sprouts Exchange</h4>
+                <p>A dynamic platform that bridges farmers to a world of buyers and investors, unlocking access to global markets and fair pricing. Empowering farmers to scale their reach and enabling investors to tap into agricultural opportunities worldwide.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-flask"></i>
+                <h4>Sproutslabs</h4>
+                <p>A dynamic platform that bridges farmers to a world of buyers and investors, unlocking access to global markets and fair pricing. Empowering farmers to scale their reach and enabling investors to tap into agricultural opportunities worldwide.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class='bx bx-line-chart'></i>
+                <h4>SproutStake</h4>
+                <p>A rewarding investment opportunity where users can stake their tokens and earn passive income from platform revenues. Supports agricultural growth while providing a sustainable way for investors to share in the platform’s success.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-warehouse"></i>
+                <h4>Sprouts bank</h4>
+                <p>A dynamic platform that bridges farmers to a world of buyers and investors, unlocking access to global markets and fair pricing. Empowering farmers to scale their reach and enabling investors to tap into agricultural opportunities worldwide.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-wallet"></i>
+                <h4>Sprouts Wallet</h4>
+                <p>A dynamic platform that bridges farmers to a world of buyers and investors, unlocking access to global markets and fair pricing. Empowering farmers to scale their reach and enabling investors to tap into agricultural opportunities worldwide.</p>
+            </div>
+        </div>
+        <div class="ecosystem-card">
+            <div class="content-info">
+              <i class="fas fa-wallet"></i>
+                <h4>Sprouts farm</h4>
+                <p>Real-world agricultural ventures as a core revenue source. Users can invest in or actively participate in farming projects, transforming agricultural potential into sustainable profits.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <section class="second_scrollable_card" id="roadmap">
+            <div class="second_card_container">
+                <h2>ROAD MAP</h2>
+                <div class="second_card-wrapper">
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>first card</h1>
+                            <h2>current</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>                   
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>                    
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcomin.. </h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <!-- Duplicate the cards to create the continuous effect -->
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>                   
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcomin</h2>
+                        </div>
+                    </div>                    
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>Upcomin</h1>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>partnersip aliance with</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">
+                        <div class="card_content">
+                            <img src="Assets/download-logo.png" alt="">
+                            <h1>last card</h1>
+                            <h2>Upcoming</h2>
+                        </div>
+                    </div>
+                    <div class="secondcard">Card 10</div>
+                </div>
+            </div>
+        </section>
+    <section class="team_section" id="team_section">
+       <div class="team_container">
+            <div class="team_heading">
+                <h2>OUR TEAM</h2>
+            </div>
+                <div class="team_container_content">
+                    <div class="card-practice">
+                        <div class="team-icon">
+                            <img class="icon-img" src="./Assets/NFT sneak peak...3.jpg" alt="">
+                        </div>
+                        <div class="content-info">
+                            <div class="content_info_contents">
+                                <h3>Emmanuel Alison</h3>
+                                <h4>Founder</h4>
+                                <p>Enterprenuer</p>
+                            </div>
+                            <ul class="team-social-icon">
+                                <a id="link" href="#" i class='bx bxl-google'></i></a>
+                                <a id="link" href="#" i class='bx bxl-facebook'></i></a>
+                                <a id="link" href="#" i class='bx bxl-twitter'></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-practice">
+                        <div class="team-icon">
+                        <img class="icon-img" src="./Assets/NFT sneak peak...3.jpg" alt="">
+                        </div>
+                        <div class="content-info">
+                            <div class="content_info_contents">
+                                <h3>Emmanuel Alison</h3>
+                                <h4>Founder</h4>
+                                <p>Enterprenuer</p>
+                            </div>
+                            <ul class="team-social-icon">
+                                <a id="link" href="#" i class='bx bxl-google'></i></a>
+                                <a id="link" href="#" i class='bx bxl-facebook'></i></a>
+                                <a id="link" href="#" i class='bx bxl-twitter'></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-practice">
+                        <div class="team-icon">
+                             <img class="icon-img" src="./Assets/NFT sneak peak...3.jpg" alt="">
+                        </div>
+                        <div class="content-info">
+                            <div class="content_info_contents">
+                                <h3>Emmanuel Alison</h3>
+                                <h4>Founder</h4>
+                                <p>Enterprenuer</p>
+                            </div>
+                            <ul class="team-social-icon">
+                                <a id="link" href="#" i class='bx bxl-google'></i></a>
+                                <a id="link" href="#" i class='bx bxl-facebook'></i></a>
+                                <a id="link" href="#" i class='bx bxl-twitter'></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-practice">
+                        <div class="team-icon">
+                          <img class="icon-img" src="./Assets/NFT sneak peak...3.jpg" alt="">
+                        </div>
+                        <div class="content-info">
+                            <div class="content_info_contents">
+                                <h3>Emmanuel Alison</h3>
+                                <h4>Founder</h4>
+                                <p>Enterprenuer</p>
+                            </div>
+                            <ul class="team-social-icon">
+                                <a id="link" href="#" i class='bx bxl-google'></i></a>
+                                <a id="link" href="#" i class='bx bxl-facebook'></i></a>
+                                <a id="link" href="#" i class='bx bxl-twitter'></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="see_all_btn">
+                    <a href="#">
+                        <h2>See all..</h2>
+                    </a>
+               </div>
+           </div>
+       </div>
+       <div class="main-button">
+           <a class="btn yellow" href="https://infinite-sprouts.gitbook.io/infinite-sprout">Gitbook</a>
+           <a class="btn green" href="Point.index.html">Points</a>
+       </div>
+    </div>
+    </section>
+    <section class="footer">
+        <div class="footer-logo">
+           <img src="Assets/Infinite Logo.png" alt="Logo"> <!-- Add your logo image here -->
+        </div>
+        <div class="footer-container">
+            <div class="footer-container-content">
+                <!-- Quick Links and Social Media Icons -->
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-social-icon">
+                       <a id="footer-link" href="#"><i class='bx bxl-google'></i></a>
+                       <a id="footer-link" href="#"><i class='bx bxl-facebook'></i></a>
+                       <a id="footer-link" href="#"><i class='bx bxl-twitter'></i></a>
+                    </ul>
+                </div>
+
+                <!-- Subscription Section -->
+                <div class="subscribe-now">
+                    <h3>Newsletter</h3>
+                    <div class="subscribe-now-content">
+                        <div class="input-prepend">
+                           <span class="add-on"><i class="fas fa-envelope"></i></span>
+                           <input class="span2" type="email" id="email-input" placeholder="Email address" required>
+                        </div>
+                        <div class="subscribe_now_btn">
+                          <button id="subscribe-button" class="footer-label">Subscribe Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer">All rights reserved @infinite_sprouts 2024.</div>
+        </div>
+    </section>
+</body>
+</html>

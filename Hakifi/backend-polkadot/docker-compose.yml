@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  hakifi-be:
+    image: dockerhub.vnst.io/hakifi-be-polkadot
+    restart: unless-stopped
+    build:
+      context: .
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    ports:
+      - '${PORT:-3001}:${PORT:-3001}'
+    volumes:
+      - ./.env:/usr/src/app/.env
+
+  redis:
+    image: redis:alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    restart: unless-stopped

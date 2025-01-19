@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c7e385f771c25d141a8dd8ab1300a4fb
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243244
+  packageName: Socket.IO V4 Client PLUS (Standalone & WebGL)
+  packageVersion: 1.4.0
+  assetPath: Assets/Firesplash Entertainment/Socket.IO V4 Plus/Example/ExampleServers.zip
+  uploadId: 683247

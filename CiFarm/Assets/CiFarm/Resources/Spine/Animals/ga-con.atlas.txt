@@ -1,0 +1,41 @@
+
+ga-con.png
+size: 75,77
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+animal/ga-con/body
+  rotate: false
+  xy: 2, 19
+  size: 65, 56
+  orig: 65, 56
+  offset: 0, 0
+  index: -1
+animal/ga-con/eye
+  rotate: false
+  xy: 2, 2
+  size: 25, 15
+  orig: 27, 17
+  offset: 1, 1
+  index: -1
+animal/ga-con/leg-l
+  rotate: false
+  xy: 29, 2
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+animal/ga-con/leg-r
+  rotate: false
+  xy: 45, 3
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+animal/ga-con/mouth
+  rotate: false
+  xy: 61, 4
+  size: 12, 13
+  orig: 14, 15
+  offset: 1, 1
+  index: -1

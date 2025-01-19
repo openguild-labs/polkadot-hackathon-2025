@@ -1,0 +1,20 @@
+{
+    "name": "CiFarmSDK",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:cbf36dabbc8bdb8439e871a6efea1cbe",
+        "GUID:1a3544732f6e41944b397dfd9456a0f3",
+        "GUID:90fe0774a52e10944aca0864c0db25eb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

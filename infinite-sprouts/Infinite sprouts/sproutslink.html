@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sproutlink</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="Sproutlink.css">
+</head>
+    <!-- Close Button outside the sidebar -->
+<div class="sidebar_close">
+    <button class="close-btn" id="closeSidebarBtn">&times;</button>
+</div>
+    <!-- Sidebar Section -->
+    <nav class="sidebar" id="sidebar">
+        <div class="account-switcher">
+            <div class="account-dropdown" onclick="toggleDropdown()">
+                <div class="selected-account">
+                   <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" id="selectedAccountImg">
+                   <span class="dropdown-text" id="selectedAccountName">User 1</span>
+                </div>
+                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
+            </div>
+            <div class="accounts-container" id="accountsContainer">
+            <!-- Account 1 -->
+            <div class="account active" id="account1" onclick="switchAccount('account1', 'User 1', 'Assets/NFT sneak peak...3.jpg')">
+                <img src="Assets/NFT sneak peak...3.jpg" alt="User 1" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 1</span>
+                    <span class="active-check" id="check1">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 2 -->
+            <div class="account" id="account2" onclick="switchAccount('account2', 'User 2', 'Assets/NFT sneak peak...4.jpg')">
+                <img src="Assets/NFT sneak peak...4.jpg" alt="User 2" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 2</span>
+                    <span class="active-check" id="check2">&#10003;</span>
+                </div>
+            </div>
+            <!-- Account 3 -->
+            <div class="account" id="account3" onclick="switchAccount('account3', 'User 3', 'Assets/NFT sneak peak...5.jpg')">
+                <img src="Assets/NFT sneak peak...5.jpg" alt="User 3" class="account-img">
+                <div class="user_contents">
+                    <span class="username">User 3</span>
+                <span class="active-check" id="check3">&#10003;</span>
+                </div>
+            </div>
+        </div>
+        <!-- Theme Switcher -->
+        <button id="theme-switcher" class="theme-switcher" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> Dark
+        </button>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeDropdown()"></div> <!-- Overlay div -->
+        <!-- Navigation Links -->
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <ul class="nav-links">
+            <li class="nav-link">
+                <a href="sproutslink.html" id="sproutsLink">
+                    <i class="fas fa-seedling"></i>
+                    <span class="link-text">SPROUTSLINK</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="message.html" id="messageLink">
+                    <i class="fas fa-envelope"></i>
+                    <span class="link-text">MESSAGES( )</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="market.html" id="marketLink">
+                    <i class="fas fa-store"></i>
+                    <span class="link-text">SPROUTS MARKET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="staking.html" id="stakeLink">
+                    <i class="fas fa-coins"></i>
+                    <span class="link-text">SPROUTS STAKE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Farm.html" id="farmLink">
+                    <i class="fas fa-tractor"></i>
+                    <span class="link-text">SPROUTS FARM</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="Wallet.html" id="walletLink">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-text">SPROUTS WALLET</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="labsLink">
+                    <i class="fas fa-flask"></i>
+                    <span class="link-text">SPROUTS LABS</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="#" id="profileLink">
+                    <i class="fas fa-user"></i>
+                    <span class="link-text">PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-link">
+                <a href="settings.html" id="settingsLink">
+                    <i class="fas fa-cog"></i>
+                    <span class="link-text">SETTINGS</span>
+                </a>
+            </li>
+        </ul>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons">
+                <button id="addPostBtn" class="plus-btn" aria-label="Add Post">
+                    <i class="fas fa-plus"></i> Post
+                </button>
+            </div>
+        </div>
+        <!-- New Sidebar Overlay -->
+        <div class="overlay-sidebar" id="overlaySidebar"></div>
+        <!-- Add Post Popup -->
+    <div class="popup" id="postPopup">
+        <textarea id="postText" placeholder="What's on your mind?"></textarea>
+        <div class="post-attachments">
+            <button id="attachmentBtn" class="attachment-btn"><i class="fas fa-paperclip"></i> Attach</button>
+            <div class="attachment-options" id="attachmentOptions">
+                <button class="attachment-option"><i class="fas fa-image"></i> Image</button>
+                <button class="attachment-option"><i class="fas fa-video"></i> Video</button>
+                <button class="attachment-option"><i class="fas fa-microphone"></i> Audio</button>
+                <button class="attachment-option"><i class="fas fa-file-alt"></i> Document</button>
+            </div>
+        </div>
+        <div class="popup-actions">
+            <button id="submitPost" class="submit-post-btn">Post</button>
+            <button id="cancelPost" class="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Go Live Popup -->
+    <div class="go-live-popup" id="goLivePopup" style="display: none;">
+        <button class="live-option" id="audioLiveBtn"><i class="fas fa-microphone"></i> Audio</button>
+        <button class="live-option" id="videoLiveBtn"><i class="fas fa-video"></i> Video</button>
+        <div class="go-live-options" id="goLiveOptions">
+            <button id="proceedLive" class="proceed-btn">Proceed</button>
+            <button id="cancelLive" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Home Button Wrapper -->
+    <div class="home-container">
+       <button class="home-btn" id="homeBtn">Home</button>
+    </div>
+    <main>
+        <!-- CENTER SECTION -->
+     <section class="center_section" style="display: flex; flex-direction: column;">
+     <!-- Center Section Header -->
+      <div class="center_section_header">
+        <!-- Button to open the sidebar -->
+        <button id="menuBtn" class="menu-btn">☰</button>
+        
+        <!-- Sub Heading Navigation -->
+        <div class="main_sub_heading">
+            <div class="sub_heading_nav">
+                <button id="feedsBtn" class="sub_heading_btn active">Feeds</button>
+                <button id="communitiesBtn" class="sub_heading_btn">Communities</button>
+                <button id="messagesBtn" class="sub_heading_btn">EMC HUB</button>
+                <button id="sproutsHubSection" class="sub_heading_btn">SPROUTS HUB</button> <!-- SPROUTS HUB Button -->
+            </div>
+            <div class="icon-group">
+                <!-- Support Icon -->
+                <div class="support_div">
+                    <i class="fas fa-headset support" aria-label="Support"></i>
+                    <div class="support-dropdown" id="supportDropdown">
+                        <button class="close-button" id="closeSupport">✖</button>
+                        <h3>Support Options</h3>
+                        <ul>
+                            <li><a href="https://wa.me/" target="_blank">WhatsApp Support</a></li>
+                            <li><a href="https://discord.com/" target="_blank">Discord Support</a></li>
+                            <li><a href="https://telegram.org/" target="_blank">Telegram Support</a></li>
+                            <li>
+                                <a href="#chatBot" id="chatBotLink">
+                                    <i class="fas fa-comment-dots" aria-label="Chat Bot"></i> Chat Bot
+                                </a>
+                            </li>                
+                        </ul>
+                    </div>
+                </div>
+                <!-- Notepad Icon -->
+                <div class="notepad_div">
+                    <i class="fas fa-edit notepad" aria-label="Notepad"></i>
+                    <div class="notepad-dropdown" id="notepadDropdown">
+                        <button class="close-button" id="closeNotepad">✖</button>
+                        <div class="notepad-header">
+                            <button id="createNoteBtn">Create Note</button>
+                            <button id="viewAllNotesBtn">All Notes</button>
+                        </div>
+                        <div class="notepad-content">
+                            <div id="createNoteSection">
+                                <h3>Create a New Note</h3>
+                                <form id="createNoteForm">
+                                    <input type="text" placeholder="Note Title" id="noteTitle" required>
+                                    <textarea placeholder="Write your note here..." id="noteContent" required></textarea>
+                                    <button type="submit">Save Note</button>
+                                </form>
+                            </div>
+                            <div id="allNotesSection" style="display: none;">
+                                <h3>Saved Notes</h3>
+                                <div class="saved-notes" id="savedNotes">
+                                    <!-- Notes will be listed here dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Notifications Icon -->
+                <div class="notification-container">
+                    <i class="fas fa-bell" id="notificationIcon" aria-label="Notifications"></i>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <button class="close-button" id="closeNotifications">✖</button>
+                        <h3>Notifications</h3>
+                        <div class="order-filter_container">
+                            <button class="order-filter active" data-type="system">System Alerts</button>
+                            <button class="order-filter" data-type="market">Market Orders</button>
+                            <button class="order-filter" data-type="p2p">P2P Orders</button>
+                            <button class="order-filter" data-type="trading">Trading Orders</button>
+                        </div>
+                        <div class="notifications-content">
+                            <div class="notifications-group active" data-type="system">
+                                <div class="notification-item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>System maintenance scheduled at midnight.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Security update available.</span>
+                                </div>
+                                <div class="notification-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Your profile has been verified.</span>
+                                </div>
+                            </div>
+                            <!-- Other notification types (market, P2P, trading) here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Feeds Section -->
+        <div class="feeds-section active" id="feedsSection">
+            <div class="feed_content">
+                <!-- Feed Filters -->
+            <div class="social_section_header">
+                <div class="social_btn active" id="allPostsBtn">All</div>
+                <div class="social_btn" id="agriculturePostsBtn">Agriculture</div>
+                <div class="social_btn" id="cryptoPostsBtn">Crypto Trends</div>
+                <div class="social_btn" id="politicsPostsBtn">Politics</div>
+            </div>
+
+            <!-- Post Feed Area -->
+            <div class="post_feeds" id="postFeed">
+                <!-- Example Post 1 -->
+                <div class="post agriculture">
+                    <div class="post-user">
+                        <img src="Assets/NFT sneak peak...4.jpg" alt="User1">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>1500-28800$ this week from an unusual bot that was 
+                            reecommended by developers from Uni! I was juust testing
+                            new  teechnology annd found a gem, so you can foollow my 
+                            steps and see how to make it yourself.
+                        </p>
+                        <img src="Assets/AI for Sustainable Pest Control in Organic Agriculture.jpeg" alt="Agriculture">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 2 -->
+                <div class="post agriculture">
+                    <div class="post-user">
+                        <img src="Assets/NFT..4436.png" alt="User2">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>                    </div>
+                    <div class="post-content">
+                        <p>Exploring new sustainable farming techniques to improve crop yield and reduce environmental impact.</p>
+                        <img src="Assets/AI for sustainable farmig.jpeg" alt="Agriculture">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 3 -->
+                <div class="post crypto">
+                    <div class="post-user">
+                        <img src="Assets/NFT...4395.png" alt="User3">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Bitcoin continues to dominate the market with a surge in institutional investments.</p>
+                        <img src="Assets/bitcoin-11224_512.gif" alt="Bitcoin">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 4 -->
+                <div class="post crypto">
+                    <div class="post-user">
+                        <img src="Assets/NFT sneak peek..3.jpg" alt="User4">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Ethereum 2.0 is set to revolutionize decentralized applications with improved scalability.</p>
+                        <img src="Assets/bitcoin-7809_512.gif" alt="Ethereum">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 5 -->
+                <div class="post politics">
+                    <div class="post-user">
+                        <img src="Assets/NFT sneak peek..3.jpg" alt="User5">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Discussing the latest policies on sustainable agriculture and their impact on the economy.</p>
+                        <img src="Assets/farm team.jpeg" alt="Politics">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Post 6 -->
+                <div class="post politics">
+                    <div class="post-user">
+                        <img src="Assets/NFT sneak peak...5.jpg" alt="User6">
+                        <div class="user_name">
+                            <h3>Emmanuel walker</h3>
+                            <p>@User1</p>
+                        </div>>
+                    </div>
+                    <div class="post-content">
+                        <p>Analyzing the government's initiatives to promote green energy and reduce carbon emissions.</p>
+                        <img src="Assets/AI for Sustainable Pest Control in Organic Agriculture.jpeg" alt="Green Energy">
+                        <div class="post-reactions">
+                            <button class="like-btn like">Like</button>
+                            <button class="comment-btn comment">Comment</button>
+                            <button class="share-btn share">Share</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more posts as needed for each category -->
+            </div>
+            </div>
+            <!-- Right Section -->
+    <div class="right_section">
+        <!-- Status Updates -->
+        <div class="status-updates" id="statusUpdates">
+            <!-- Search Section -->
+            <div class="search_section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Master Search" id="searchInput">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                    </span>
+                </div>
+            </div>
+            
+            
+            <h2>Status Updates</h2>
+            <div class="status-updates-sessions" id="statusUpdatesSessions">
+                <div class="status-session-card plus-btn">
+                    <i class="fas fa-plus"></i>
+                    <p>Add Status</p>
+                </div>
+                <div class="status-session-card">
+                    <img src="Assets/NFT sneak peak...5.jpg" alt="Status 1">
+                    <p>@User1</p>
+                </div>
+                <div class="status-session-card">
+                    <img src="Assets/NFT sneak peak...4.jpg" alt="Status 2">
+                    <p>@User2</p>
+                </div>
+                <div class="status-session-card">
+                    <img src="Assets/NFT sneak peak...3.jpg" alt="Status 3">
+                    <p>@User3</p>
+                </div>
+                <!-- Add more status updates as needed -->
+            </div>
+        </div>
+
+            <!-- Live Now -->
+            <div class="live-now" id="liveNow">
+                <h2>Live Now</h2>
+                <div class="live-sessions" id="liveSessions">
+                    <button id="goLiveBtn" class="live-btn golive" aria-label="Go Live">
+                        <i class="fas fa-video"></i>Go Live
+                    </button>
+                    <div class="live-session-card">
+                       <img src="Assets/NFT sneak peek...2.jpg" alt="Live Session 2">
+                       <p>@LiveUser2</p>
+                       <div class="live-dots-container" id="liveDots">
+                           <span class="dot active"></span>
+                           <span class="dot"></span>
+                           <span class="dot"></span>
+                           <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="live-session-card">
+                       <img src="Assets/NFT sneak peak...5.jpg" alt="Live Session 3">
+                       <p>@LiveUser3</p>
+                        <div class="live-dots-container" id="liveDots">
+                           <span class="dot active"></span>
+                           <span class="dot"></span>
+                           <span class="dot"></span>
+                           <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="live-session-card">
+                        <img src="Assets/NFT sneak peak...4.jpg" alt="Live Session 3">
+                        <p>@LiveUser3</p>
+                        <div class="live-dots-container" id="liveDots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="live-session-card">
+                        <img src="Assets/NFT sneak peak...3.jpg" alt="Live Session 3">
+                        <p>@LiveUser3</p>
+                        <div class="live-dots-container" id="liveDots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                <!-- Add more live sessions as needed -->
+                </div>
+            </div>
+
+            <!-- Trending -->
+            <div class="trending">
+                <h2>Trending</h2>
+                <div class="trending_content">
+                    <ul>
+                        <li>#SustainableFarming</li>
+                        <li>#AgriTech</li>
+                        <li>#GreenEnergy</li>
+                        <li>#OrganicGinger</li>
+                        <li>#BlockchainInAg</li>
+                        <li>#SustainableFarming</li>
+                        <li>#AgriTech</li>
+                        <li>#GreenEnergy</li>
+                        <li>#OrganicGinger</li>
+                        <li>#BlockchainInAg</li>
+                        <!-- Add more trending topics as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Sprouts Hub Section -->
+<div class="sprouts-hub-section" id="sproutsHubSectionContent">
+    <div class="emc-hub-section" id="emcHubSection">
+        <!-- Left Sidebar: Channels List -->
+        <div class="channels-sidebar">
+            <h4>Channels</h4>
+            <ul class="channels-list" id="channelsList">
+                <li class="channel-item active" data-channel="welcomeChannel">Welcome</li>
+                <li class="channel-item" data-channel="announcementChannel">Announcements</li>
+                <li class="channel-item" data-channel="generalChatChannel">General Chat</li>
+            </ul>
+            <button class="action-button" id="addChannelButton">+</button>
+            <li class="channel-item admin-channel" data-channel="adminChannel">Admin</li>
+        </div>
+
+        <!-- Center: Channel Display -->
+        <div class="channel-display">
+            <!-- Welcome Channel -->
+            <div class="channel-content" id="welcomeChannel">
+                <h3>Welcome to SPROUTSF Hub</h3>
+                <p><strong>Enjoy your adventure here!</strong></p>
+            </div>
+
+            <!-- Announcements Channel -->
+            <div class="channel-content hidden" id="announcementChannel">
+                <h3>Announcements</h3>
+                <div class="messages" id="announcementMessages">
+                    <p><strong>Admin:</strong> Welcome to EMC Hub!</p>
+                </div>
+                <textarea class="input-box" placeholder="Post an announcement..."></textarea>
+            </div>
+
+            <!-- General Chat Channel -->
+            <div class="channel-content hidden" id="generalChatChannel">
+                <h3>General Chat</h3>
+                <div class="messages" id="generalChatMessages">
+                    <p><strong>User1:</strong> Hi everyone!</p>
+                    <p><strong>User2:</strong> Hello!</p>
+                </div>
+                <textarea class="input-box" placeholder="Type your message..."></textarea>
+            </div>
+
+            <!-- Admin Channel -->
+            <div class="channel-content hidden" id="adminChannel">
+                <h3>Admin Panel</h3>
+                <p><strong>Manage your EMC Hub here.</strong></p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar: Member List -->
+        <div class="members-sidebar">
+            <h4>Members</h4>
+            <ul class="members-list">
+                <li class="member-item">User1</li>
+                <li class="member-item">User2</li>
+                <li class="member-item">Admin</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- Messages Section -->
+<div class="messages-section" id="messagesSection">
+    <!-- EMC Hub Section -->
+    <div class="emc-hub-section" id="emcHubSection">
+        <!-- Left Sidebar: Channels List -->
+        <div class="channels-sidebar">
+            <h4>Channels</h4>
+            <ul class="channels-list" id="channelsList">
+                <li class="channel-item active" data-channel="welcomeChannel">Welcome</li>
+                <li class="channel-item" data-channel="announcementChannel">Announcements</li>
+                <li class="channel-item" data-channel="generalChatChannel">General Chat</li>
+            </ul>
+            <button class="action-button" id="addChannelButton">+</button>
+            <li class="channel-item admin-channel" data-channel="adminChannel">Admin</li>
+        </div>
+
+        <!-- Center: Channel Display -->
+        <div class="channel-display">
+            <!-- Welcome Channel -->
+            <div class="channel-content" id="welcomeChannel">
+                <h3>Welcome to EMC Hub</h3>
+                <p><strong>Enjoy your adventure here!</strong></p>
+            </div>
+
+            <!-- Announcements Channel -->
+            <div class="channel-content hidden" id="announcementChannel">
+                <h3>Announcements</h3>
+                <div class="messages" id="announcementMessages">
+                    <p><strong>Admin:</strong> Welcome to EMC Hub!</p>
+                </div>
+                <textarea class="input-box" placeholder="Post an announcement..."></textarea>
+            </div>
+
+            <!-- General Chat Channel -->
+            <div class="channel-content hidden" id="generalChatChannel">
+                <h3>General Chat</h3>
+                <div class="messages" id="generalChatMessages">
+                    <p><strong>User1:</strong> Hi everyone!</p>
+                    <p><strong>User2:</strong> Hello!</p>
+                </div>
+                <textarea class="input-box" placeholder="Type your message..."></textarea>
+            </div>
+
+            <!-- Admin Channel -->
+            <div class="channel-content hidden" id="adminChannel">
+                <h3>Admin Panel</h3>
+                <p><strong>Manage your EMC Hub here.</strong></p>
+            </div>
+        </div>
+
+        <!-- Right Sidebar: Member List -->
+        <div class="members-sidebar">
+            <h4>Members</h4>
+            <ul class="members-list">
+                <li class="member-item">User1</li>
+                <li class="member-item">User2</li>
+                <li class="member-item">Admin</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Communities Section -->
+<div class="communities-section" id="communitiesSection">
+    <div class="communities-header">
+        <button class="community-switch-btn active" id="myCommunitiesBtn">My Communities</button>
+        <button class="community-switch-btn" id="joinedCommunitiesBtn">Joined Communities</button>
+    </div>
+
+    <!-- My Communities List with Sub-tabs -->
+    <div class="communities-list active" id="myCommunitiesList">
+        <h3>My Communities</h3>
+        <div class="my-communities-subtabs">
+            <button class="my-community-subtab active" id="createdCommunitiesTab">Created</button>
+            <button class="my-community-subtab" id="manageCommunitiesTab">Manage</button>
+        </div>
+        <!-- Created Communities -->
+        <div class="community-list created-communities active" id="createdCommunities">
+            <!-- Example Community -->
+            <div class="community-item">
+                <div class="community-info">
+                    <h4>AgriTech Innovators</h4>
+                    <p>Discussing the latest in agricultural technology.</p>
+                </div>
+                <div class="community-actions">
+                    <button class="go-to-community-btn">Go</button>
+                    <button class="delete-community-btn">Delete</button>
+                </div>
+            </div>
+            <!-- Add more created communities as needed -->
+        </div>
+        <!-- Manage Communities -->
+        <div class="community-list manage-communities" id="manageCommunities">
+            <!-- Example Management -->
+            <div class="community-item">
+                <div class="community-info">
+                    <h4>AgriTech Innovators</h4>
+                    <p>Administer members and settings.</p>
+                </div>
+                <div class="community-actions">
+                    <button class="manage-community-btn">Manage</button>
+                </div>
+            </div>
+            <!-- Add more manage sections as needed -->
+        </div>
+        <button id="createCommunityBtn" class="create-community-btn">
+            <i class="fas fa-plus"></i> Create Community
+        </button>
+    </div>
+
+    <!-- Joined Communities List -->
+    <div class="communities-list" id="joinedCommunitiesList">
+        <h3>Joined Communities</h3>
+        <!-- Example Joined Community -->
+        <div class="community-item">
+            <div class="community-info">
+                <h4>Crypto Enthusiasts</h4>
+                <p>All about cryptocurrencies and blockchain.</p>
+            </div>
+            <div class="community-actions">
+                <button class="go-to-community-btn">Go</button>
+                <button class="leave-community-btn">Leave</button>
+            </div>
+        </div>
+        <!-- Add more joined communities as needed -->
+    </div>
+</div>
+
+    </div>
+    </main>
+    </div>
+</body>
+<!-- External JavaScript -->
+<script src="nav.js"></script>
+<script src="Gm_Gn.js" defer></script>
+<script src="active.js"></script>
+<script src="sproutlink_main.js"></script>
+</html>
